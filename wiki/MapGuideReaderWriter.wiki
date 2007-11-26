@@ -1,10 +1,5 @@
 #summary TF.NET Reader/Writer for MapGuide
 
-= Introduction =
-
-Add your content here.
-
-
 = Prerequisites =
 
 References MapGuide Server's `MapGuideDotNetApi.dll` library, which in turn references other unmanaged libraries. All necessary support libraries are available for download [http://download.osgeo.org/mapguide/releases/1.2.0/mapguide-1.2.0.tar.gz here].
