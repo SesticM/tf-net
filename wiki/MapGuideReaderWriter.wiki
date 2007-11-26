@@ -2,7 +2,7 @@
 
 = Introduction =
 
-A reader/writer for geometric primitives exposed by OSGeo MapGuide? Server.
+A reader/writer for geometric primitives exposed by OSGeo MapGuide Server.
 
 
 = Prerequisites =
