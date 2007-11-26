@@ -1,13 +1,12 @@
-#summary MapGuide Reader/Writer
+#summary TF.NET Reader/Writer for MapGuide
 
 = Introduction =
 
 Add your content here.
 
 
-= Details =
+= Prerequisites =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+References `MapGuideDotNetApi.dll` library, which in turn references other unmanaged libraries. All necessary support libraries are available for download [http://download.osgeo.org/mapguide/releases/1.2.0/mapguide-1.2.0.tar.gz here].
+
+If you already have any running version of MapGuide Server (either OSS or Enterprise), you can simply reference it's libraries found in `..\WebServerExtensions\www\mapviewernet\bin` folder, rather than downloading full set of binaries using link above.
