@@ -7,7 +7,7 @@ A reader/writer for geometric primitives exposed by OSGeo MapGuide Server.
 
 = Components =
 
-File `Topology.IO.MapGuide.dll` available for download [http://tf-net.googlecode.com/files/Topology.IO.MapGuide.dll here]. Library exposes `MgReader` and `MgWriter` classes residing within `Topology.IO` namespace.
+A `Topology.IO.MapGuide.dll` library file available for download [http://tf-net.googlecode.com/files/Topology.IO.MapGuide.dll here]. Library exposes `MgReader` and `MgWriter` classes residing within `Topology.IO` namespace.
 
 
 = Prerequisites =
