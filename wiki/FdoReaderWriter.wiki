@@ -2,12 +2,5 @@
 
 = Introduction =
 
-Add your content here.
+A reader/writer for Feature Geometry Factory-based geometric primitives exposed by OSGeo Feature Data Objects spatial library. 
 
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
