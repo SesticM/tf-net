@@ -7,6 +7,6 @@ Add your content here.
 
 = Prerequisites =
 
-References `MapGuideDotNetApi.dll` library, which in turn references other unmanaged libraries. All necessary support libraries are available for download [http://download.osgeo.org/mapguide/releases/1.2.0/mapguide-1.2.0.tar.gz here].
+References MapGuide Server's `MapGuideDotNetApi.dll` library, which in turn references other unmanaged libraries. All necessary support libraries are available for download [http://download.osgeo.org/mapguide/releases/1.2.0/mapguide-1.2.0.tar.gz here].
 
 If you already have any running version of MapGuide Server (either OSS or Enterprise), you can simply reference it's libraries found in `..\WebServerExtensions\www\mapviewernet\bin` folder, rather than downloading full set of binaries using link above.
