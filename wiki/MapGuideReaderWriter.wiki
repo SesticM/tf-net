@@ -2,7 +2,12 @@
 
 = Introduction =
 
-A reader/writer for geometric primitives exposed by OSGeo MapGuide Server.
+A reader/writer for geometric primitives exposed by OSGeo MapGuide Server. 
+
+
+= Components =
+
+File `Topology.IO.MapGuide.dll` available for download [http://tf-net.googlecode.com/files/Topology.IO.MapGuide.dll here]. Exposed classes reside within `Topology.IO` namespace.
 
 
 = Prerequisites =
@@ -10,3 +15,10 @@ A reader/writer for geometric primitives exposed by OSGeo MapGuide Server.
 References MapGuide Server's `MapGuideDotNetApi.dll` library, which in turn references other unmanaged libraries. All necessary support libraries are available for download [http://download.osgeo.org/mapguide/releases/1.2.0/mapguide-1.2.0.tar.gz here].
 
 If you already have any running version of MapGuide Server (either OSS or Enterprise), you can simply reference it's libraries found in `..\WebServerExtensions\www\mapviewernet\bin` folder, rather than downloading full set of binaries using link above.
+
+Also references TF.NET core library available for download [http://tf-net.googlecode.com/files/Topology.dll here].
+
+
+= Limitations =
+
+Currently can neither read nor write geometries involving curves.
