@@ -1,13 +1,13 @@
 #summary TF.NET Reader/Writer for Feature Data Objects (FDO)
 
-= Introduction =
+== Introduction ==
 
 A reader/writer for Feature Geometry Factory-based geometric primitives exposed by OSGeo Feature Data Objects spatial library.
 
 It's purpose is to provide additional set of topological functions in addition to existing ones already provided by FDO geometry core. For example, if FDO provider fails to perform certain spatial query (due to it's design limitations), one can always read FGF geometries to TF.NET and perform the query outside feature source, then write resulting geometries back to FGF. If needed, link between FDO-based feature class and TF.NET geometry can be maintained via `UserData` property, which may carry feature identifier from a feature source. Still, this issue is very very implementation specific.
 
 
-= Prerequisites =
+== Prerequisites ==
 
 All necessary support libraries are available for download [http://download.osgeo.org/fdo/3.2.3/fdosdk-3.2.3_win32_release.tar.gz here].
 
