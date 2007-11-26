@@ -8,3 +8,5 @@ A reader/writer for Feature Geometry Factory-based geometric primitives exposed 
 = Prerequisites =
 
 All necessary support libraries are available for download [http://download.osgeo.org/fdo/3.2.3/fdosdk-3.2.3_win32_release.tar.gz here].
+
+Also references TF.NET core library available for download [http://tf-net.googlecode.com/files/Topology.dll here].
