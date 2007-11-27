@@ -28,7 +28,7 @@ Example of simple conversion between JTS and AutoCAD geometries:
   # Build this example into DLL
   # Load created DLL into AutoCAD using `NETLOAD` command
   # Draw either lightweigh or 3D polyline (with or without arc segments)
-  # Run the example using `DWGWRITE` command
+  # Run the example using `DWGWRITE` command and select a polyline
   # Resulting polyline of chosen type is drawn in red, having it's arc segments tesselated
 
 Source code:
