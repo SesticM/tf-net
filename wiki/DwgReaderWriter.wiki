@@ -20,3 +20,85 @@ Also references TF.NET core library available for download [http://tf-net.google
 == Limitations ==
 
 Currently can read/write only few ObjectARX types.
+
+
+== Examples ==
+
+Example of simple conversion between JTS and AutoCAD geometries. When you build this example into DLL, load it into AutoCAD using `NETLOAD` command. Draw a polyline (with or without arc segments) and then run the example using `DWGWRITE` command.
+
+{{{
+Imports Topology.Geometries
+Imports Topology.IO.Dwg
+
+Imports Autodesk.AutoCAD.ApplicationServices
+Imports Autodesk.AutoCAD.DatabaseServices
+Imports Autodesk.AutoCAD.Geometry
+Imports Autodesk.AutoCAD.Runtime
+Imports Autodesk.AutoCAD.EditorInput
+
+Public Class Test
+
+    <CommandMethod("DWGWRITE")> _
+    Public Shared Sub DwgWrite()
+        Dim AcEd As Editor = Application.DocumentManager.MdiActiveDocument.Editor
+        Dim m_Option As PromptSelectionOptions = New PromptSelectionOptions
+        m_Option.MessageForAdding = "Select object:"
+        m_Option.AllowDuplicates = False
+        m_Option.SingleOnly = True
+
+        Dim m_Result As PromptSelectionResult = AcEd.GetSelection(m_Option)
+        If m_Result.Status = PromptStatus.OK Then
+            Dim m_SelectionSet As SelectionSet = m_Result.Value
+            Dim m_ObjectId As ObjectId = m_SelectionSet.GetObjectIds(0)
+            Dim DB As Database = HostApplicationServices.WorkingDatabase
+            Dim TR As Transaction = DB.TransactionManager.StartTransaction()
+            Dim m_Entity As Entity = TR.GetObject(m_ObjectId, OpenMode.ForRead)
+
+            Dim m_Reader As New DwgReader
+            Dim m_Writer As New DwgWriter
+            Dim m_LineString As LineString = LineString.Empty
+            Dim m_Geometry As Entity = Nothing
+            Try
+                Select Case m_Entity.GetRXClass.Name
+                    Case "AcDbPolyline", "AcDb3dPolyline"
+                        Dim m_KeywordOptions As New PromptKeywordOptions(vbLf + "Write object as: ")
+                        m_KeywordOptions.AllowNone = True
+                        m_KeywordOptions.Keywords.Add("AcDbPolyline")
+                        m_KeywordOptions.Keywords.Add("AcDb2dPolyline")
+                        m_KeywordOptions.Keywords.Add("AcDb3dPolyline")
+                        Dim m_KeywordOptionsResult As PromptResult = AcEd.GetKeywords(m_KeywordOptions)
+
+                        If m_KeywordOptionsResult.Status = PromptStatus.OK Then
+
+                            Select Case m_Entity.GetRXClass.Name
+                                Case "AcDbPolyline"
+                                    m_LineString = m_Reader.ReadLineString(CType(m_Entity, Polyline))
+                                Case "AcDb3dPolyline"
+                                    m_LineString = m_Reader.ReadLineString(CType(m_Entity, Polyline3d))
+                            End Select
+
+                            Select Case m_KeywordOptionsResult.StringResult
+                                Case "AcDbPolyline"
+                                    m_Geometry = m_Writer.WritePolyline(m_LineString)
+                                Case "AcDb2dPolyline"
+                                    m_Geometry = m_Writer.WritePolyline2d(m_LineString)
+                                Case "AcDb3dPolyline"
+                                    m_Geometry = m_Writer.WritePolyline3d(m_LineString)
+                            End Select
+                        End If
+                        m_Geometry.ColorIndex = 1
+                End Select
+
+                Dim BT As BlockTable = TR.GetObject(DB.BlockTableId, OpenMode.ForRead)
+                Dim BTR As BlockTableRecord = TR.GetObject(DB.CurrentSpaceId, OpenMode.ForWrite)
+                BTR.AppendEntity(m_Geometry)
+                TR.AddNewlyCreatedDBObject(m_Geometry, True)
+                TR.Commit()
+            Finally
+                TR.Dispose()
+            End Try
+        End If
+    End Sub
+
+End Class
+}}} 
