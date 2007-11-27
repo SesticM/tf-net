@@ -24,7 +24,14 @@ Currently can read/write only few ObjectARX types.
 
 == Examples ==
 
-Example of simple conversion between JTS and AutoCAD geometries. When you build this example into DLL, load it into AutoCAD using `NETLOAD` command. Draw a polyline (with or without arc segments) and then run the example using `DWGWRITE` command.
+Example of simple conversion between JTS and AutoCAD geometries:
+  # Build this example into DLL
+  # Load created DLL into AutoCAD using `NETLOAD` command
+  # Draw a polyline (with or without arc segments)
+  # Run the example using `DWGWRITE` command
+  # Resulting polyline of chosen type is drawn in red
+
+Source code:
 
 {{{
 Imports Topology.Geometries
