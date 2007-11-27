@@ -8,7 +8,7 @@ Before further reading, please see [http://code.google.com/p/tf-net/wiki/FdoRead
 
 == Components ==
 
-A `Topology.IO.MapGuide.dll` library file available for download [http://tf-net.googlecode.com/files/Topology.IO.MapGuide.dll here]. Library exposes `MgReader` and `MgWriter` classes residing within `Topology.IO` namespace.
+A `Topology.IO.MapGuide.dll` library file available for download [http://tf-net.googlecode.com/files/Topology.IO.MapGuide.dll here]. Library exposes `MgReader` and `MgWriter` classes residing within `Topology.IO.MapGuide` namespace.
 
 
 == Prerequisites ==
