@@ -12,7 +12,7 @@ A `Topology.IO.Dwg.dll` library file available for download [http://tf-net.googl
 
 == Prerequisites ==
 
-References two Autodesk libraries being part of managed ObjectARX. Referenced libraries are `acdbmgd.dll` and `acmgd.dll` which may be found in the root installation folder of the targeted Autodesk platform/vertical. This reader/writer is supposed to work on following versions of basic Autodesk platform/verticals: AutoCAD 2005, AutoCAD 2006, AutoCAD 2007 and AutoCAD 2008.
+References two Autodesk libraries being part of managed ObjectARX. Referenced libraries are `acdbmgd.dll` and `acmgd.dll` which may be found in the root installation folder of the targeted Autodesk platform/vertical. This reader/writer is supposed to work on following versions of basic Autodesk platform: AutoCAD 2005, AutoCAD 2006, AutoCAD 2007 and AutoCAD 2008, including vertical products in the same versions.
 
 Also references TF.NET core library available for download [http://tf-net.googlecode.com/files/Topology.dll here].
 
