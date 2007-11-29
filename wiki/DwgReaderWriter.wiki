@@ -201,14 +201,14 @@ Example of merging AutoCAD lines or polylines:
   # Load created DLL into AutoCAD using `NETLOAD` command
   # Draw a network of connected lines or polylines
   # Run the example using `MERGELINEWORK` command
-  # Select lines/polylines
+  # Select lines/polylines for merging
   # Resulting merged linework is drawn in red, using polyline entities
 
 Before merging - note that linework consists of Line entities only:
 
 http://www.geoinova.com/examples/merge_before.jpg
 
-After merging - resulting Polylines:
+After merging - resulting polylines:
 
 http://www.geoinova.com/examples/merge_after.jpg
 
