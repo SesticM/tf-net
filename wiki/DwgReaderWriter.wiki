@@ -115,8 +115,9 @@ Example of creating a buffer around AutoCAD polyline:
   # Build this example into DLL
   # Load created DLL into AutoCAD using `NETLOAD` command
   # Draw any type of polyline
-  # Run the example using `CREATEBUFFER` command and select a polyline
-  # When asked, enter buffer offset
+  # Run the example using `CREATEBUFFER` command
+  # Select a polyline (open or closed one)
+  # Enter buffer offset (double value)
   # Resulting buffer representation is drawn in red, using polyline entities
 
 Open polyline:
@@ -124,7 +125,6 @@ http://www.theswamp.org/index.php?action=dlattach;topic=20176.0;attach=6353;imag
 
 Closed polyline:
 http://www.theswamp.org/index.php?action=dlattach;topic=20176.0;attach=6354;image
-
 
 Source code:
 
