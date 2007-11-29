@@ -195,3 +195,65 @@ Source code:
         End If
     End Sub
 }}}
+
+Example of merging AutoCAD lines or polylines:
+  # Build this example into DLL
+  # Load created DLL into AutoCAD using `NETLOAD` command
+  # Draw a network of connected lines or polylines
+  # Run the example using `MERGELINEWORK` command
+  # Select lines/polylines
+  # Resulting merged linework is drawn in red, using polyline entities
+
+Before merging - note that linework consists of Line entities only:
+
+http://www.geoinova.com/examples/merge_before.jpg
+
+After merging - resulting Polylines:
+
+http://www.geoinova.com/examples/merge_after.jpg
+
+Source code:
+
+{{{
+    <CommandMethod("MERGELINEWORK")> _
+    Public Shared Sub MergeLinework()
+        Dim ed As Editor = Application.DocumentManager.MdiActiveDocument.Editor
+
+        Dim values() As TypedValue = {New TypedValue(DxfCode.Start, "*LINE")}
+        Dim filter As New SelectionFilter(values)
+
+        Dim selOptions As PromptSelectionOptions = New PromptSelectionOptions
+        selOptions.MessageForAdding = "Select objects:"
+        selOptions.AllowDuplicates = False
+        selOptions.SingleOnly = False
+
+        Dim result As PromptSelectionResult = ed.GetSelection(selOptions, filter)
+        If result.Status = PromptStatus.OK Then
+            Dim db As Database = HostApplicationServices.WorkingDatabase
+            Dim tr As Transaction = db.TransactionManager.StartTransaction()
+            Dim reader As New DwgReader
+            Dim writer As New DwgWriter
+
+            Dim selSet As SelectionSet = result.Value
+            Dim merger As New Topology.Operation.Linemerge.LineMerger
+            For Each objId As ObjectId In selSet.GetObjectIds
+                Dim ent As Entity = tr.GetObject(objId, OpenMode.ForRead)
+                Dim geometry As Geometry = reader.ReadGeometry(ent)
+                merger.Add(geometry)
+            Next
+
+            Dim bt As BlockTable = tr.GetObject(db.BlockTableId, OpenMode.ForRead)
+            Dim btr As BlockTableRecord = tr.GetObject(db.CurrentSpaceId, OpenMode.ForWrite)
+
+            For Each lineString As LineString In merger.MergedLineStrings
+                Dim outEnt As Entity = writer.WritePolyline(lineString)
+                outEnt.ColorIndex = 1
+                btr.AppendEntity(outEnt)
+                tr.AddNewlyCreatedDBObject(outEnt, True)
+            Next
+
+            tr.Commit()
+            tr.Dispose()
+        End If
+    End Sub
+}}}
