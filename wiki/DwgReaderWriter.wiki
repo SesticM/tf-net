@@ -45,64 +45,65 @@ Imports Autodesk.AutoCAD.EditorInput
 
 Public Class Test
 
-    <CommandMethod("DWGWRITE")> _
-    Public Shared Sub DwgWrite()
-        Dim AcEd As Editor = Application.DocumentManager.MdiActiveDocument.Editor
-        Dim m_Option As PromptSelectionOptions = New PromptSelectionOptions
-        m_Option.MessageForAdding = "Select object:"
-        m_Option.AllowDuplicates = False
-        m_Option.SingleOnly = True
+    <CommandMethod("WRITEPOLYLINE")> _
+    Public Shared Sub WritePolyline()
+        Dim ed As Editor = Application.DocumentManager.MdiActiveDocument.Editor
+        Dim selOptions As PromptSelectionOptions = New PromptSelectionOptions
+        selOptions.MessageForAdding = "Select object:"
+        selOptions.AllowDuplicates = False
+        selOptions.SingleOnly = True
 
-        Dim m_Result As PromptSelectionResult = AcEd.GetSelection(m_Option)
-        If m_Result.Status = PromptStatus.OK Then
-            Dim m_SelectionSet As SelectionSet = m_Result.Value
-            Dim m_ObjectId As ObjectId = m_SelectionSet.GetObjectIds(0)
-            Dim DB As Database = HostApplicationServices.WorkingDatabase
-            Dim TR As Transaction = DB.TransactionManager.StartTransaction()
-            Dim m_Entity As Entity = TR.GetObject(m_ObjectId, OpenMode.ForRead)
+        Dim result As PromptSelectionResult = ed.GetSelection(selOptions)
+        If result.Status = PromptStatus.OK Then
+            Dim selSet As SelectionSet = result.Value
+            Dim objId As ObjectId = selSet.GetObjectIds(0)
+            Dim db As Database = HostApplicationServices.WorkingDatabase
+            Dim tr As Transaction = db.TransactionManager.StartTransaction()
+            Dim inEnt As Entity = tr.GetObject(objId, OpenMode.ForRead)
 
-            Dim m_Reader As New DwgReader
-            Dim m_Writer As New DwgWriter
-            Dim m_LineString As LineString = LineString.Empty
-            Dim m_Geometry As Entity = Nothing
+            Dim reader As New DwgReader
+            Dim writer As New DwgWriter
+            Dim lineString As LineString = lineString.Empty
+            Dim outEnt As Entity = Nothing
             Try
-                Select Case m_Entity.GetRXClass.Name
-                    Case "AcDbPolyline", "AcDb3dPolyline"
-                        Dim m_KeywordOptions As New PromptKeywordOptions(vbLf + "Write object as: ")
-                        m_KeywordOptions.AllowNone = True
-                        m_KeywordOptions.Keywords.Add("AcDbPolyline")
-                        m_KeywordOptions.Keywords.Add("AcDb2dPolyline")
-                        m_KeywordOptions.Keywords.Add("AcDb3dPolyline")
-                        Dim m_KeywordOptionsResult As PromptResult = AcEd.GetKeywords(m_KeywordOptions)
+                Select Case inEnt.GetRXClass.Name
+                    Case "AcDbPolyline", "AcDb3dPolyline", "AcDb2dPolyline"
+                        Dim kwdOptions As New PromptKeywordOptions(vbLf + "Write object as: ")
+                        kwdOptions.AllowNone = True
+                        kwdOptions.Keywords.Add("AcDbPolyline")
+                        kwdOptions.Keywords.Add("AcDb2dPolyline")
+                        kwdOptions.Keywords.Add("AcDb3dPolyline")
+                        Dim kwdResult As PromptResult = ed.GetKeywords(kwdOptions)
 
-                        If m_KeywordOptionsResult.Status = PromptStatus.OK Then
-
-                            Select Case m_Entity.GetRXClass.Name
+                        If kwdResult.Status = PromptStatus.OK Then
+                            Select Case inEnt.GetRXClass.Name
                                 Case "AcDbPolyline"
-                                    m_LineString = m_Reader.ReadLineString(CType(m_Entity, Polyline))
+                                    lineString = reader.ReadLineString(CType(inEnt, Polyline))
                                 Case "AcDb3dPolyline"
-                                    m_LineString = m_Reader.ReadLineString(CType(m_Entity, Polyline3d))
+                                    lineString = reader.ReadLineString(CType(inEnt, Polyline3d))
+                                Case "AcDb2dPolyline"
+                                    lineString = reader.ReadLineString(CType(inEnt, Polyline2d))
                             End Select
 
-                            Select Case m_KeywordOptionsResult.StringResult
+                            Select Case kwdResult.StringResult
                                 Case "AcDbPolyline"
-                                    m_Geometry = m_Writer.WritePolyline(m_LineString)
+                                    outEnt = writer.WritePolyline(lineString)
                                 Case "AcDb2dPolyline"
-                                    m_Geometry = m_Writer.WritePolyline2d(m_LineString)
+                                    outEnt = writer.WritePolyline2d(lineString)
                                 Case "AcDb3dPolyline"
-                                    m_Geometry = m_Writer.WritePolyline3d(m_LineString)
+                                    outEnt = writer.WritePolyline3d(lineString)
                             End Select
                         End If
-                        m_Geometry.ColorIndex = 1
+                        outEnt.ColorIndex = 1
                 End Select
 
-                Dim BT As BlockTable = TR.GetObject(DB.BlockTableId, OpenMode.ForRead)
-                Dim BTR As BlockTableRecord = TR.GetObject(DB.CurrentSpaceId, OpenMode.ForWrite)
-                BTR.AppendEntity(m_Geometry)
-                TR.AddNewlyCreatedDBObject(m_Geometry, True)
-                TR.Commit()
+                Dim bt As BlockTable = tr.GetObject(db.BlockTableId, OpenMode.ForRead)
+                Dim btr As BlockTableRecord = tr.GetObject(db.CurrentSpaceId, OpenMode.ForWrite)
+                btr.AppendEntity(outEnt)
+                tr.AddNewlyCreatedDBObject(outEnt, True)
+                tr.Commit()
             Finally
-                TR.Dispose()
+                tr.Dispose()
             End Try
         End If
     End Sub
