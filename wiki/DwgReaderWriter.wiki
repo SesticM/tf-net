@@ -28,7 +28,7 @@ Example of simple conversion between JTS and AutoCAD geometries:
   # Build this example into DLL
   # Load created DLL into AutoCAD using `NETLOAD` command
   # Draw either lightweigh or 3D polyline (with or without arc segments)
-  # Run the example using `DWGWRITE` command and select a polyline
+  # Run the example using `WRITEPOLYLINE` command and select a polyline
   # Resulting polyline of chosen type is drawn in red, having it's arc segments tesselated
 
 Source code:
@@ -109,4 +109,87 @@ Public Class Test
     End Sub
 
 End Class
-}}} 
+}}}
+
+Example of creating a buffer around AutoCAD polyline:
+  # Build this example into DLL
+  # Load created DLL into AutoCAD using `NETLOAD` command
+  # Draw any type of polyline
+  # Run the example using `CREATEBUFFER` command and select a polyline
+  # When asked, enter buffer offset
+  # Resulting buffer representation is drawn in red, using polyline entities
+
+Open polyline:
+http://www.theswamp.org/index.php?action=dlattach;topic=20176.0;attach=6353;image
+
+Closed polyline:
+http://www.theswamp.org/index.php?action=dlattach;topic=20176.0;attach=6354;image
+
+
+Source code:
+
+{{{
+    <CommandMethod("CREATEBUFFER")> _
+    Public Shared Sub CreateBuffer()
+        Dim ed As Editor = Application.DocumentManager.MdiActiveDocument.Editor
+        Dim selOptions As PromptSelectionOptions = New PromptSelectionOptions
+        selOptions.MessageForAdding = "Select object:"
+        selOptions.AllowDuplicates = False
+        selOptions.SingleOnly = True
+
+        Dim result As PromptSelectionResult = ed.GetSelection(selOptions)
+        If result.Status = PromptStatus.OK Then
+            Dim selSet As SelectionSet = result.Value
+            Dim objId As ObjectId = selSet.GetObjectIds(0)
+            Dim db As Database = HostApplicationServices.WorkingDatabase
+            Dim tr As Transaction = db.TransactionManager.StartTransaction()
+            Dim inEnt As Entity = tr.GetObject(objId, OpenMode.ForRead)
+
+            Dim reader As New DwgReader
+            Dim writer As New DwgWriter
+            Dim lineString As LineString = lineString.Empty
+            Dim outEnts() As Polyline = Nothing
+            Try
+                Select Case inEnt.GetRXClass.Name
+                    Case "AcDbPolyline"
+                        lineString = reader.ReadLineString(CType(inEnt, Polyline))
+                    Case "AcDb3dPolyline"
+                        lineString = reader.ReadLineString(CType(inEnt, Polyline3d))
+                    Case "AcDb2dPolyline"
+                        lineString = reader.ReadLineString(CType(inEnt, Polyline2d))
+                End Select
+
+                Dim dblOptions As New PromptDoubleOptions("Enter buffer offset: ")
+                dblOptions.AllowNegative = False
+                dblOptions.AllowNone = False
+                dblOptions.AllowZero = False
+                Dim dblOptionsResult As PromptDoubleResult = ed.GetDouble(dblOptions)
+
+                If dblOptionsResult.Status = PromptStatus.OK Then
+                    Dim offset As Double = dblOptionsResult.Value
+
+                    Dim buffer As Geometry = lineString.Buffer(offset)
+                    If buffer.GeometryType = "Polygon" Then
+                        outEnts = writer.WritePolyline(CType(buffer, Polygon))
+
+                    End If
+                End If
+
+                Dim bt As BlockTable = tr.GetObject(db.BlockTableId, OpenMode.ForRead)
+                Dim btr As BlockTableRecord = tr.GetObject(db.CurrentSpaceId, OpenMode.ForWrite)
+
+                If outEnts IsNot Nothing Then
+                    For Each outEnt As Entity In outEnts
+                        outEnt.ColorIndex = 1
+                        btr.AppendEntity(outEnt)
+                        tr.AddNewlyCreatedDBObject(outEnt, True)
+                    Next
+                End If
+
+                tr.Commit()
+            Finally
+                tr.Dispose()
+            End Try
+        End If
+    End Sub
+}}}
