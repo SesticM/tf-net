@@ -120,10 +120,10 @@ Example of creating a buffer around AutoCAD polyline:
   # Enter buffer offset (double value)
   # Resulting buffer representation is drawn in red, using polyline entities
 
-Open polyline:
+Buffer around polyline:
 http://www.theswamp.org/index.php?action=dlattach;topic=20176.0;attach=6353;image
 
-Closed polyline:
+Buffer around closed polyline:
 http://www.theswamp.org/index.php?action=dlattach;topic=20176.0;attach=6354;image
 
 Source code:
