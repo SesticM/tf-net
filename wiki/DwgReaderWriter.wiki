@@ -121,10 +121,10 @@ Example of creating a buffer around AutoCAD polyline:
   # Resulting buffer representation is drawn in red, using polyline entities
 
 Buffer around polyline:
-http://www.theswamp.org/index.php?action=dlattach;topic=20176.0;attach=6353;image
+http://www.geoinova.com/examples/buffer_1.jpg
 
 Buffer around closed polyline:
-http://www.theswamp.org/index.php?action=dlattach;topic=20176.0;attach=6354;image
+http://www.geoinova.com/examples/buffer_2.jpg
 
 Source code:
 
