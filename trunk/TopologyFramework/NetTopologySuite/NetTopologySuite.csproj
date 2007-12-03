@@ -202,6 +202,8 @@
     <Compile Include="IO\GeoTools\ShapefileReader.cs" />
     <Compile Include="IO\GeoTools\ShapefileWriter.cs" />
     <Compile Include="IO\GeoTools\ShapefileDataWriter.cs" />
+    <Compile Include="IO\MsSqlSpatialReader.cs" />
+    <Compile Include="IO\MsSqlSpatialWriter.cs" />
     <Compile Include="IO\PostGisGeometryType.cs" />
     <Compile Include="IO\PostGisReader.cs" />
     <Compile Include="IO\PostGisWriter.cs" />
