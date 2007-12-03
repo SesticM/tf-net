@@ -9,7 +9,7 @@ Before further reading, please see [http://code.google.com/p/tf-net/wiki/FdoRead
 
 == Components ==
 
-A `Topology.IO.MapGuide.dll` library file available for download [http://tf-net.googlecode.com/files/Topology.IO.MapGuide.dll here]. Library exposes `MgReader` and `MgWriter` classes residing within `Topology.IO.MapGuide` namespace.
+A `Topology.IO.MapGuide.dll` library file available for download [http://code.google.com/p/tf-net/downloads/list here]. Library exposes `MgReader` and `MgWriter` classes residing within `Topology.IO.MapGuide` namespace.
 
 
 == Prerequisites ==
@@ -18,7 +18,7 @@ References MapGuide Server's `MapGuideDotNetApi.dll` library, which in turn refe
 
 If you already have any running version of MapGuide Server (either OSS or Enterprise), you can simply reference it's libraries found in `..\WebServerExtensions\www\mapviewernet\bin` folder, rather than downloading full set of binaries using link above.
 
-Also references TF.NET core library available for download [http://tf-net.googlecode.com/files/Topology.dll here].
+Also references TF.NET core library available for download [http://code.google.com/p/tf-net/downloads/list here].
 
 
 == Limitations ==
