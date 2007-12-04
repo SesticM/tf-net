@@ -2,10 +2,10 @@ Imports Topology.Geometries
 
 Namespace IO
 
-#Region " CurveTessellationMethod Enum "
+#Region " CurveTessellation Enum "
 
     ''' <summary>
-    ''' Method used for curve-based geometries tesselation.
+    ''' Defines algorithm used for curve-based geometries tesselation.
     ''' <para>
     ''' Curves need to be tessellated (broken up into lines) in order to be converted to
     ''' JTS feature representation. The degree of tessellation determines how accurate the
@@ -14,9 +14,10 @@ Namespace IO
     ''' </para>
     ''' </summary>
     ''' <remarks></remarks>
-    Public Enum CurveTessellationMethod
+    Public Enum CurveTessellation
         ''' <summary>
-        ''' No tessellation, meaning that curves will get converted into straight segments.
+        ''' No tessellation, meaning that curves will get converted either into straight segments or
+        ''' generic curves, depending on reader/writer curve-based geometry implementation.
         ''' <see cref="GeometryReader.CurveTessellationValue"/> parameter is ignored.
         ''' </summary>
         ''' <remarks></remarks>
@@ -50,7 +51,7 @@ Namespace IO
     Public MustInherit Class GeometryReader
         Inherits GeometryReaderWriter
 
-        Private m_CurveTessellationMethod As CurveTessellationMethod = CurveTessellationMethod.Linear
+        Private m_CurveTessellationMethod As CurveTessellation = CurveTessellation.Linear
         Private m_CurveTessellationValue As Double = 15
 
 #Region " CTOR "
@@ -70,16 +71,16 @@ Namespace IO
 
         ''' <summary>
         ''' Method used for curve-based geometries tesselation. For more information
-        ''' see <see cref="Topology.IO.CurveTessellationMethod"/> enumerator description.
-        ''' Default value is <see cref="Topology.IO.CurveTessellationMethod.Linear"/>.
+        ''' see <see cref="Topology.IO.CurveTessellation"/> enumerator description.
+        ''' Default value is <see cref="Topology.IO.CurveTessellation.Linear"/>.
         ''' </summary>
         ''' <value>Method used for curve-based geometries tesselation.</value>
         ''' <remarks></remarks>
-        Public Property CurveTessellationMethod() As Topology.IO.CurveTessellationMethod
+        Public Property CurveTessellationMethod() As Topology.IO.CurveTessellation
             Get
                 Return m_CurveTessellationMethod
             End Get
-            Set(ByVal value As Topology.IO.CurveTessellationMethod)
+            Set(ByVal value As Topology.IO.CurveTessellation)
                 value = m_CurveTessellationMethod
             End Set
         End Property
@@ -90,20 +91,20 @@ Namespace IO
 
         ''' <summary>
         ''' Gets or sets a parameter for curve tessellation method set by <see cref="CurveTessellationMethod"/>.
-        ''' For exact parameter definition see <see cref="Topology.IO.CurveTessellationMethod"/> enumerator description.
+        ''' For exact parameter definition see <see cref="Topology.IO.CurveTessellation"/> enumerator description.
         ''' </summary>
         ''' <value>Curve tessellation method parameter value.</value>
         Public Property CurveTessellationValue() As Double
             Get
                 Select Case Me.CurveTessellationMethod
-                    Case IO.CurveTessellationMethod.Linear
+                    Case IO.CurveTessellation.Linear
                         If m_CurveTessellationValue > 0 Then
                             Return m_CurveTessellationValue
                         Else
                             Return 16
                         End If
 
-                    Case IO.CurveTessellationMethod.Scaled
+                    Case IO.CurveTessellation.Scaled
                         If m_CurveTessellationValue > 0 Then
                             Return m_CurveTessellationValue
                         Else

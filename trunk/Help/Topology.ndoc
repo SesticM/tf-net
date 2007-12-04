@@ -24,10 +24,10 @@
         </documenter>
         <documenter name="MSDN-CHM">
             <property name="SdkLinksOnWeb" value="True" />
-            <property name="OutputDirectory" value="D:\DEV\TopologyFramework\Help\" />
+            <property name="OutputDirectory" value="D:\DEV\TF-NET\Help\" />
             <property name="HtmlHelpName" value="Topology" />
             <property name="Title" value="Topology Framework .NET" />
-            <property name="Version" value="1.0.5.0" />
+            <property name="Version" value="1.0.6.0" />
             <property name="CopyrightText" value="GNU General Lesser Public License" />
             <property name="FeedbackEmailAddress" value="max@geoinova.com" />
             <property name="CleanIntermediates" value="True" />

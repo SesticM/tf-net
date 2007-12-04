@@ -415,16 +415,16 @@ Public Class DwgReader
 
         If curve.StartPoint <> curve.EndPoint Then
             Select Case Me.CurveTessellationMethod
-                Case IO.CurveTessellationMethod.None
+                Case IO.CurveTessellation.None
                     points.Add(Me.ReadCoordinate(curve.StartPoint))
                     points.Add(Me.ReadCoordinate(curve.EndPoint))
 
-                Case IO.CurveTessellationMethod.Linear
+                Case IO.CurveTessellation.Linear
                     For Each point As Point3d In curve.GetSamplePoints(CInt(Me.CurveTessellationValue))
                         points.Add(Me.ReadCoordinate(point))
                     Next
 
-                Case IO.CurveTessellationMethod.Scaled
+                Case IO.CurveTessellation.Scaled
                     Dim area As Double = curve.GetArea( _
                         curve.GetParameterOf(curve.StartPoint), _
                         curve.GetParameterOf(curve.EndPoint)) * _
@@ -445,6 +445,7 @@ Public Class DwgReader
         Return points.ToCoordinateArray
     End Function
 
+    ' Need to convert CirucularArc2d into CirucularArc3d and pass it to above function.
     Private Function GetTessellatedCurveCoordinates(ByVal curve As CircularArc2d) As ICoordinate()
         Dim points As New CoordinateList
 
