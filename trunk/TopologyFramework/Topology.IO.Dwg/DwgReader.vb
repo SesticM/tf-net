@@ -107,13 +107,15 @@ Public Class DwgReader
         For i As Integer = 0 To polyline.NumberOfVertices - 1
             Select Case polyline.GetSegmentType(i)
                 Case SegmentType.Arc
-                    Dim arc As CircularArc3d = polyline.GetArcSegmentAt(i)
-                    'Dim m_Tesselation As Double = m_CircularArc3d.Radius / Me.ArcTesselationMaxOffset
-                    'If m_Tesselation > Me.ArcTesselationMaxSpacing Then m_Tesselation = Me.ArcTesselationMaxSpacing
-
-                    points.Add(Me.GetTessellatedCurveCoordinates(arc), Me.AllowRepeatedCoordinates)
+                    points.Add( _
+                        Me.GetTessellatedCurveCoordinates( _
+                        polyline.GetArcSegmentAt(i)), _
+                        Me.AllowRepeatedCoordinates)
                 Case Else
-                    points.Add(Me.ReadCoordinate(polyline.GetPoint3dAt(i)), Me.AllowRepeatedCoordinates)
+                    points.Add( _
+                        Me.ReadCoordinate( _
+                        polyline.GetPoint3dAt(i)), _
+                        Me.AllowRepeatedCoordinates)
             End Select
         Next
 
@@ -284,37 +286,41 @@ Public Class DwgReader
 
 #End Region
 
-#Region " ReadPolygon "
+#Region " ReadMultiPolygon "
 
     ''' <summary>
-    ''' Returns <see cref="Polygon"/> geometry converted from <see cref="MPolygon"/> entity.
+    ''' Returns <see cref="MultiPolygon"/> geometry converted from <see cref="MPolygon"/> entity.
     ''' </summary>
     ''' <param name="multiPolygon">A <see cref="MPolygon"/> entity.</param>
-    ''' <returns>A <see cref="Polygon"/> geometry.</returns>
-    ''' <remarks></remarks>
-    Public Function ReadPolygon(ByVal multiPolygon As MPolygon) As IPolygon
-        Dim shell As LinearRing = Nothing
-        Dim holes As New List(Of LinearRing)
+    ''' <returns>A <see cref="MultiPolygon"/> geometry.</returns>
+    ''' <remarks>
+    ''' If <see cref="MPolygon"/> entity contains arc segments (bulges), such segments will 
+    ''' get tessellated using settings defined via <see cref="CurveTessellationMethod"/>.
+    ''' </remarks>
+    Public Function ReadMultiPolygon(ByVal multiPolygon As MPolygon) As IMultiPolygon
+        Dim polygons As New List(Of Polygon)
 
         For i As Integer = 0 To multiPolygon.NumMPolygonLoops - 1
-            Select Case multiPolygon.GetLoopDirection(i)
-                Case LoopDirection.Exterior
-                    Dim points As New CoordinateList
-                    For Each bulge As BulgeVertex In multiPolygon.GetMPolygonLoopAt(i)
-                        points.Add(Me.ReadCoordinate(bulge.Vertex), Me.AllowRepeatedCoordinates)
-                    Next
-                    shell = Me.GeometryFactory.CreateLinearRing(points.ToCoordinateArray)
+            If multiPolygon.GetLoopDirection(i) = LoopDirection.Exterior Then
+                Dim shell As LinearRing = _
+                    Me.GeometryFactory.CreateLinearRing( _
+                    Me.GetMPolygonLoopCoordinates( _
+                    multiPolygon.GetMPolygonLoopAt(i)))
 
-                Case LoopDirection.Interior
-                    Dim points As New CoordinateList
-                    For Each bulge As BulgeVertex In multiPolygon.GetMPolygonLoopAt(i)
-                        points.Add(Me.ReadCoordinate(bulge.Vertex), Me.AllowRepeatedCoordinates)
-                    Next
-                    holes.Add(New LinearRing(points.ToCoordinateArray))
-            End Select
+                Dim holes As New List(Of LinearRing)
+                For Each j As Integer In multiPolygon.GetChildLoops(i)
+                    If multiPolygon.GetLoopDirection(j) = LoopDirection.Interior Then
+                        holes.Add( _
+                            Me.GeometryFactory.CreateLinearRing( _
+                            Me.GetMPolygonLoopCoordinates( _
+                            multiPolygon.GetMPolygonLoopAt(j))))
+                    End If
+                Next
+                polygons.Add(Me.GeometryFactory.CreatePolygon(shell, holes.ToArray))
+            End If
         Next
 
-        Return Me.GeometryFactory.CreatePolygon(shell, holes.ToArray)
+        Return Me.GeometryFactory.CreateMultiPolygon(polygons.ToArray)
     End Function
 
 #End Region
@@ -392,7 +398,7 @@ Public Class DwgReader
             Case "AcDbMline"
                 Return Me.ReadLineString(CType(entity, Mline))
             Case "AcDbMPolygon"
-                Return Me.ReadPolygon(CType(entity, MPolygon))
+                Return Me.ReadMultiPolygon(CType(entity, MPolygon))
             Case Else
                 Throw New ArgumentException(String.Format("Conversion from {0} entity to IGeometry is not supported.", entity.GetRXClass.Name))
                 Return Nothing
@@ -439,6 +445,23 @@ Public Class DwgReader
         Return points.ToCoordinateArray
     End Function
 
+    Private Function GetTessellatedCurveCoordinates(ByVal curve As CircularArc2d) As ICoordinate()
+        Dim points As New CoordinateList
+
+        If curve.StartPoint <> curve.EndPoint Then
+            For Each point As Point2d In curve.GetSamplePoints(CInt(Me.CurveTessellationValue))
+                points.Add(Me.ReadCoordinate(point))
+            Next
+        End If
+
+        Return points.ToCoordinateArray
+    End Function
+
+    Private Function GetTessellatedCurveCoordinates(ByVal startPoint As Point2d, ByVal endPoint As Point2d, ByVal bulge As Double) As ICoordinate()
+        Dim c2d As New CircularArc2d(startPoint, endPoint, bulge, False)
+        Return Me.GetTessellatedCurveCoordinates(c2d)
+    End Function
+
     Private Function GetTessellatedCurveCoordinates(ByVal curve As Arc) As ICoordinate()
         Dim circularArc As CircularArc3d
 
@@ -455,6 +478,37 @@ Public Class DwgReader
         End Try
 
         Return Me.GetTessellatedCurveCoordinates(circularArc)
+    End Function
+
+#End Region
+
+#Region " GetMPolygonLoopCoordinates "
+
+    Private Function GetMPolygonLoopCoordinates(ByVal multiPolygonLoop As MPolygonLoop) As ICoordinate()
+        Dim points As New CoordinateList
+
+        For i As Integer = 0 To multiPolygonLoop.Count - 1
+            Dim vert As BulgeVertex = multiPolygonLoop.Item(i)
+            If vert.Bulge = 0 Then
+                points.Add(Me.ReadCoordinate(vert.Vertex), Me.AllowRepeatedCoordinates)
+            Else
+                Dim endPoint As Point2d
+                If i + 1 <= multiPolygonLoop.Count - 1 Then
+                    endPoint = multiPolygonLoop.Item(i + 1).Vertex
+                Else
+                    endPoint = multiPolygonLoop.Item(0).Vertex
+                End If
+                For Each point As Coordinate In Me.GetTessellatedCurveCoordinates(vert.Vertex, endPoint, vert.Bulge)
+                    points.Add(point, Me.AllowRepeatedCoordinates)
+                Next
+            End If
+        Next
+
+        If Not points(0).Equals2D(points(points.Count - 1)) Then
+            points.Add(points(0))
+        End If
+
+        Return points.ToCoordinateArray
     End Function
 
 #End Region
