@@ -1,12 +1,20 @@
 #summary TF.NET Binary Predicates
 
-JTS supports a complete set of binary predicates. Binary predicate methods take two Geometries as arguments and return a boolean indicating whether the Geometries have the named spatial relationship. The relationships supported are `equals`, `disjoint`, `intersects`, `touches`, `crosses`, `within`, `contains`, `overlaps`. Also, the general relate operator is supported. relate can be used to determine the Dimensionally Extended 9 Intersection Matrix (DE-9IM) which completely describes the relationship of two Geometries. 
+JTS supports a complete set of binary predicates. Binary predicate methods take two Geometries as arguments and return a boolean indicating whether the Geometries have the named spatial relationship. The relationships supported are:
+  * `equals`
+  * `disjoint`
+  * `intersects`
+  * `touches`
+  * `crosses`
+  * `within`
+  * `contains`
+  * `overlaps`
+
+Also, the general relate operator is supported. relate can be used to determine the Dimensionally Extended 9 Intersection Matrix (DE-9IM) which completely describes the relationship of two Geometries. 
 
 The algorithm used for computing Binary Predicates in JTS is robust, and is not subject to dimensional collapse problems. 
 
 For Example:
 
 || Two Geometries to compare || The Binary Predicates || The DE-9IM returned by relate ||
-|| http://www.geoinova.com/examples/linepolyrelate.gif || http://www.geoinova.com/examples/binarypredicates.gif || http://www.geoinova.com/examples/relateresults.gif.gif ||
-
-
+|| http://www.geoinova.com/examples/linepolyrelate.gif || http://www.geoinova.com/examples/binarypredicates.gif || http://www.geoinova.com/examples/relateresults.gif ||
