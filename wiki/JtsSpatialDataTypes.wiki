@@ -13,3 +13,6 @@ JTS provides the following spatial data types:
 
 || *Polygon* || *MultiPolygon* ||
 || http://www.geoinova.com/examples/geometrypolygon.gif || http://www.geoinova.com/examples/geometrymultipolygon.gif ||
+
+|| *GeometryCollection* ||
+|| http://www.geoinova.com/examples/geometrycollection.gif ||
