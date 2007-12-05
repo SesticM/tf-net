@@ -2,11 +2,7 @@
 
 JTS provides the following spatial data types:
 
-|| *Point* http://www.geoinova.com/examples/geometrypoint.gif || 
-
-*MultiPoint*
-
-http://www.geoinova.com/examples/geometrymultipoint.gif
+|| *Point* http://www.geoinova.com/examples/geometrypoint.gif || *MultiPoint* http://www.geoinova.com/examples/geometrymultipoint.gif ||
 
 *LineString*
 
