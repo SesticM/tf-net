@@ -9,3 +9,11 @@ http://www.geoinova.com/examples/geometrypoint.gif
 *MultiPoint*
 
 http://www.geoinova.com/examples/geometrymultipoint.gif
+
+*LineString*
+
+http://www.geoinova.com/examples/geometrylinestring.gif
+
+*MultiLineString*
+
+http://www.geoinova.com/examples/geometrymultilinestring.gif
