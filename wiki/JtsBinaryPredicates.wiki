@@ -6,4 +6,8 @@ The algorithm used for computing Binary Predicates in JTS is robust, and is not 
 
 For Example:
 
+|| Two Geometries to compare || The Binary Predicates || The DE-9IM returned by relate ||
+
+
+
 
