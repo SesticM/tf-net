@@ -12,3 +12,8 @@ It's purpose is to provide additional set of topological functions in addition t
 All necessary support libraries are available for download [http://download.osgeo.org/fdo/3.2.3/fdosdk-3.2.3_win32_release.tar.gz here].
 
 Also references TF.NET core library available for download [http://tf-net.googlecode.com/files/Topology.dll here].
+
+
+== Limitations ==
+
+There's presently no direct TF.NET Reader/Writer for FDO. Instead, you can use TF.NET Reader/Writer for MapGuide which uses FDO engine anyways (that is, if you are using MapGuide in fist place). Binaries/sources for FDO Reader/Writer should be ready for download soon.
