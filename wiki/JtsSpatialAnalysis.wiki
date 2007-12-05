@@ -33,7 +33,7 @@ http://www.geoinova.com/examples/pointlineunion.gif
 
 === Precision Model ===
 
-JTS supports the concept of an explicit precision model for specifying the coordinates of Geometrys. It supports two types of Precision Model, Fixed and Floating: 
+JTS supports the concept of an explicit precision model for specifying the geometries' coordinates. Precision models supported are: 
 
   * *Fixed* - coordinates are represented as points on a grid with uniform spacing. (This can be assumed to be the integer grid, with the use of appropriate scale and offset factors). Computed coordinates are rounded to this grid. 
 
