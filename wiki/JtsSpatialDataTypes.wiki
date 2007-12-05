@@ -1,0 +1,12 @@
+#summary TF.NET - JTS Spatial Data Types
+
+JTS provides the following spatial data types:
+
+*Point*
+
+http://www.geoinova.com/examples/geometrypoint.jpg
+
+*MultiPoint*
+
+http://www.geoinova.com/examples/geometrymultipoint.jpg
+
