@@ -3,8 +3,13 @@
 
 == Introduction ==
 
-A reader/writer for geometric entities exposed by Autodesk AutoCAD and it's verticals. Curve-based entities and sub-entities are tesselated during the process. Processed AutoCAD entities are supposed to be database resident objects (DBRO).
+A reader/writer for geometric entities exposed by Autodesk AutoCAD and it's verticals. 
 
+=DWG Reader=
+Reads AutoCAD entities and creates geometric representation of the features based on JTS model using single floating precision model. Curve-based entities and sub-entities are tesselated during the process using one of available tesselation method. Processed AutoCAD entities are supposed to be database resident (DBRO).
+
+=DWG Writer=
+Reads features based on JTS model and creates their AutoCAD representation using single floating precision model. Created AutoCAD entities are not database resident, it's up to you to commit them to the existing drawing `Database`.
 
 == Components ==
 
@@ -22,7 +27,7 @@ Also references TF.NET core library available for download [http://code.google.c
 
 == Limitations ==
 
-Currently can read/write only few ObjectARX types.
+Not all ObjectARX types can be read from or written to.
 
 
 == Examples ==
