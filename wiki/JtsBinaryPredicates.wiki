@@ -9,7 +9,7 @@ JTS supports a complete set of binary predicates. Binary predicate methods take 
   * *`Touches`* - geometries have at least one boundary point in common, but no interior points
   * *`Crosses`* - geometries share some but not all interior points, and the dimension of the intersection is less than that of at least one of the geometries
   * *`Within`* - geometry A lies in the interior of geometry B
-  * *`Contains`* - geometry B lies in the interior of geometry A (the inverse of `Within`)
+  * *`Contains`* - geometry B lies in the interior of geometry A (the inverse of *`Within`*)
   * *`Overlaps`* - geometries share some but not all points in common, and the
 intersection has the same dimension as the geometries themselves
 
