@@ -21,4 +21,6 @@ For Example:
 || Two Geometries to compare || The Binary Predicates || The DE-9IM returned by relate ||
 || http://www.geoinova.com/examples/linepolyrelate.gif || http://www.geoinova.com/examples/binarypredicates.gif || http://www.geoinova.com/examples/relateresults.gif ||
 
+You may try interactive testing of binary predicates using [http://www.vividsolutions.com/jts/jtshome.htm JTS Validation Suite].
+
 Part of material provided on this page is Copyright by [http://www.jump-project.org The Jump Project] and [http://www.vividsolutions.com Vivid Solutions, Inc].
