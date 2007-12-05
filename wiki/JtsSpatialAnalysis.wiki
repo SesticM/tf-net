@@ -10,11 +10,11 @@ The spatial analysis methods in the JTS are:
 || *Difference* || *Symmetric Difference* ||
 || http://www.geoinova.com/examples/difference.gif || http://www.geoinova.com/examples/symmetricdifference.gif ||
 
-|| *Difference* || *Symmetric Difference* ||
-|| http://www.geoinova.com/examples/difference.gif || http://www.geoinova.com/examples/symmetricdifference.gif ||
-
 || *Convex Hull* ||
 || http://www.geoinova.com/examples/convexhull.gif || 
+
+|| *Buffer (positive)* || *Buffer (negative)* ||
+|| http://www.geoinova.com/examples/posbuffer.gif || http://www.geoinova.com/examples/negbuffer.gif ||
 
 
 === Robustness issues ===
