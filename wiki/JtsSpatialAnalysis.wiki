@@ -1,5 +1,13 @@
 #summary TF.NET and JTS Spatial Analysis Methods
 
+The emphasis of spatial analysis is to measure properties and relationships,
+taking into account the spatial localization of the phenomenon under study in a
+direct way. That is, the central idea is to incorporate space into the analysis to be
+made. JTS exposes a set of tools that try to address these issues. It is
+intended to help those interested to study, explore and model processes that
+express themselves through a distribution in space, here called geographic
+phenomena.
+
 JTS supports the fundamental spatial analysis methods. Spatial analysis methods take one or two Geometries as arguments and return a new constructed Geometry. 
 
 The spatial analysis methods in the JTS are:
