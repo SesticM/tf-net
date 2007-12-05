@@ -6,8 +6,15 @@ The spatial analysis methods in the JTS are:
 
 || *Intersection* || *Union* ||
 || http://www.geoinova.com/examples/intersection.gif || http://www.geoinova.com/examples/union.gif ||
+
 || *Difference* || *Symmetric Difference* ||
-|| http://www.geoinova.com/examples/difference.gif || http://www.geoinova.com/examples/symetricdifference.gif ||
+|| http://www.geoinova.com/examples/difference.gif || http://www.geoinova.com/examples/symmetricdifference.gif ||
+
+|| *Difference* || *Symmetric Difference* ||
+|| http://www.geoinova.com/examples/difference.gif || http://www.geoinova.com/examples/symmetricdifference.gif ||
+
+|| *Convex Hull* ||
+|| http://www.geoinova.com/examples/convexhull.gif || 
 
 
 === Robustness issues ===
