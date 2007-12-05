@@ -5,7 +5,7 @@
 
 A reader/writer for geometric entities exposed by Autodesk AutoCAD and it's verticals. 
 
-*DWG Reader* reads AutoCAD entities and creates geometric representation of the features based on JTS model using single floating precision model. Curve-based entities and sub-entities are tesselated during the process using one of available tesselation method. Processed AutoCAD entities are supposed to be database resident (DBRO).
+*DWG Reader* reads AutoCAD entities and creates geometric representation of the features based on JTS model using single floating precision model. Curve-based entities and sub-entities are tesselated during the process using one of available tesselation methods. Processed AutoCAD entities are supposed to be database resident (DBRO).
 
 *DWG Writer* reads features based on JTS model and creates their AutoCAD representation using single floating precision model. Created AutoCAD entities are not database resident, it's up to you to commit them to the existing drawing `Database`.
 
