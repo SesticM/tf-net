@@ -44,15 +44,6 @@ Implementing a precision model specifies how JTS is to correctly handle construc
 Please see [http://www-sop.inria.fr/prisme/fiches/Arithmetique/index.html.en A Problem of Accuracy] article for more info.
 
 
-=== Constructed Points and Dimensional Collapse ===
-
-Geometries computed by spatial analysis methods may contain constructed points which are not present in the input Geometries. These new points arise from intersections between line segments in the edges of the input Geometries. In the general case it is not possible to represent constructed points exactly. This is due to the fact that the coordinates of an intersection point may contain twice as many bits of precision as the coordinates of the input line segments. In order to represent these constructed points explicitly, JTS must truncate them to fit the Precision Model. 
-
-Unfortunately, truncating coordinates moves them slightly. Line segments which would not be coincident in the exact result may become coincident in the truncated representation. For Line-Area combinations, this can lead to dimensional collapses , which are situations where a computed element has a lower dimension than it would in the exact result. 
-
-JTS handles dimensional collapses as gracefully as possible, by forming the lower-dimension Geometry resulting from the collapse. 
-
-
 === Robustness issues ===
 
 Geometric algorithms involve a combination of combinatorial and numerical computation. As with all numerical computation using finite-precision numbers, the algorithms chosen are susceptible to problems of robustness. A robustness problem occurs when a numerical calculation produces an incorrect answer for some inputs due to round-off errors. Robustness problems are especially serious in geometric computation, since the numerical errors can propagate into the combinatorial computations and result in complete failure of the algorithm. 
