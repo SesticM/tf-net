@@ -10,8 +10,7 @@ JTS supports a complete set of binary predicates. Binary predicate methods take 
   * *`Crosses`* - geometries share some but not all interior points, and the dimension of the intersection is less than that of at least one of the geometries
   * *`Within`* - geometry A lies in the interior of geometry B
   * *`Contains`* - geometry B lies in the interior of geometry A (the inverse of *`Within`*)
-  * *`Overlaps`* - geometries share some but not all points in common, and the
-intersection has the same dimension as the geometries themselves
+  * *`Overlaps`* - geometries share some but not all points in common, and the intersection has the same dimension as the geometries themselves
 
 Also, the general relate operator is supported. relate can be used to determine the Dimensionally Extended 9 Intersection Matrix (DE-9IM) which completely describes the relationship of two Geometries. 
 
