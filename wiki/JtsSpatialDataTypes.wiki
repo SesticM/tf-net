@@ -1,4 +1,4 @@
-#summary Topology Framework .NET - JTS Spatial Data Types
+#summary TF.NET - JTS Spatial Data Types
 
 JTS provides the following spatial data types:
 
