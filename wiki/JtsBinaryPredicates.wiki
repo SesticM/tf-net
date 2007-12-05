@@ -3,14 +3,17 @@
 Although OSGeo [http://fdo.osgeo.org/ Feature Data Objects] (FDO) concept exposes majority of binary predicates via it's geometric data types, their implementation still depends on specialized data provider and underlying technology. FDO relies on it's datastore ability to cope with spatial relations, and provider's designer to tackle with them. Actually, quite few feature datastores are spatially enabled by default. If FDO provider doesn't provide certain binary predicate by design, it's reasonable to turn to specialized TF.NET reader/writer and binary predicates exposed by JTS core.
 
 JTS supports a complete set of binary predicates. Binary predicate methods take two Geometries as arguments and return a boolean indicating whether the Geometries have the named spatial relationship. The relationships supported are:
-  * `equals`
-  * `disjoint`
-  * `intersects`
-  * `touches`
-  * `crosses`
-  * `within`
-  * `contains`
-  * `overlaps`
+  * `equals` - geometries are topologically equal
+  * `disjoint` - geometries have no point in common
+  * `intersects` - geometries have at least one point in common (the inverse of `Disjoint`)
+  * `touches` - geometries have at least one boundary point in common, but no
+interior points
+  * `crosses` - geometries share some but not all interior points, and the dimension
+of the intersection is less than that of at least one of the geometries
+  * `within` - geometry A lies in the interior of geometry B
+  * `contains` - geometry B lies in the interior of geometry A (the inverse of `Within`)
+  * `overlaps` - geometries share some but not all points in common, and the
+intersection has the same dimension as the geometries themselves
 
 Also, the general relate operator is supported. relate can be used to determine the Dimensionally Extended 9 Intersection Matrix (DE-9IM) which completely describes the relationship of two Geometries. 
 
