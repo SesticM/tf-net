@@ -7,3 +7,9 @@ JTS provides the following spatial data types:
 
 || *LineString* || *MultiLineString* ||
 || http://www.geoinova.com/examples/geometrylinestring.gif || http://www.geoinova.com/examples/geometrymultilinestring.gif ||
+
+|| *LinearRing* ||
+|| http://www.geoinova.com/examples/geometrylinearring.gif ||
+
+|| *Polygon* || *MultiPolygon* ||
+|| http://www.geoinova.com/examples/geometrypolygon.gif || http://www.geoinova.com/examples/geometrymultipolygon.gif ||
