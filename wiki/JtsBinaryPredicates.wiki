@@ -22,4 +22,14 @@ For Example:
 
 You may try interactive testing of binary predicates using [http://www.vividsolutions.com/jts/jtshome.htm JTS Validation Suite].
 
+
+=== Constructed Points and Dimensional Collapse ===
+
+Geometries computed by spatial analysis methods may contain constructed points which are not present in the input Geometries. These new points arise from intersections between line segments in the edges of the input Geometries. In the general case it is not possible to represent constructed points exactly. This is due to the fact that the coordinates of an intersection point may contain twice as many bits of precision as the coordinates of the input line segments. In order to represent these constructed points explicitly, JTS must truncate them to fit the Precision Model. 
+
+Unfortunately, truncating coordinates moves them slightly. Line segments which would not be coincident in the exact result may become coincident in the truncated representation. For Line-Area combinations, this can lead to dimensional collapses , which are situations where a computed element has a lower dimension than it would in the exact result. 
+
+JTS handles dimensional collapses as gracefully as possible, by forming the lower-dimension Geometry resulting from the collapse. 
+
+
 Part of material provided on this page is Copyright by [http://www.jump-project.org The Jump Project] and [http://www.vividsolutions.com Vivid Solutions, Inc].
