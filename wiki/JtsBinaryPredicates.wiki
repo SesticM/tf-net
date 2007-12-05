@@ -7,7 +7,6 @@ The algorithm used for computing Binary Predicates in JTS is robust, and is not 
 For Example:
 
 || Two Geometries to compare || The Binary Predicates || The DE-9IM returned by relate ||
-
-
+|| http://www.geoinova.com/examples/linepolyrelate.gif || http://www.geoinova.com/examples/binarypredicates.gif || http://www.geoinova.com/examples/relateresults.gif.gif ||
 
 
