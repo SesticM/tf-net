@@ -18,8 +18,10 @@ The spatial analysis methods in the JTS are:
 
 All of the JTS binary methods support both heterogenous as well as homogeneous arguments: 
 
-|| Intersection of a LineString and a Polygon || Union of a MultiPoint and a LineString ||
-|| http://www.geoinova.com/examples/linepolyintersection.gif || http://www.geoinova.com/examples/pointlineunion.gif ||
+|| *Intersection of a LineString and a Polygon* || 
+|| http://www.geoinova.com/examples/linepolyintersection.gif ||
+|| *Union of a MultiPoint and a LineString* ||
+|| http://www.geoinova.com/examples/pointlineunion.gif ||
 
 === Robustness issues ===
 
