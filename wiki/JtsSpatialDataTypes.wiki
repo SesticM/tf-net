@@ -26,4 +26,4 @@ JTS provides the following spatial data types, according to whom TF.NET provides
 
 As per the OpenGIS Consortium's [http://portal.opengeospatial.org/files/?artifact_id=829 Simple Features Specification for SQL], geometries in JTS possess an `Interior`, a `Boundary`, and an `Exterior`.
 
-Part of material provided on this page is Copyright by [http://www.jump-project.org The Jump Project] and [http://www.vividsolutions.com Vivid Solutions, Inc].
+Part of material provided on this page is Copyright by [http://www.jump-project.org The Jump Project], [http://www.vividsolutions.com Vivid Solutions, Inc] and G. Câmara, A. M. Monteiro, S. D. Fucks, M. Carvalho et al.
