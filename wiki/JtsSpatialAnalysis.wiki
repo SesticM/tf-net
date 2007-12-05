@@ -35,9 +35,9 @@ http://www.geoinova.com/examples/pointlineunion.gif
 
 JTS supports the concept of an explicit precision model for specifying the geometries' coordinates. Precision models supported are: 
 
-  * *Fixed* - coordinates are represented as points on a grid with uniform spacing. (This can be assumed to be the integer grid, with the use of appropriate scale and offset factors). Computed coordinates are rounded to this grid. 
+  * *`Fixed`* - coordinates are represented as points on a grid with uniform spacing. (This can be assumed to be the integer grid, with the use of appropriate scale and offset factors). Computed coordinates are rounded to this grid. 
 
-  * *Floating* - coordinates are represented as floating-point numbers. Computed coordinates may have more digits of precision than the input values (up the maximum allowed by the finite floating-point representation). 
+  * *`Floating`* - coordinates are represented as floating-point numbers. Computed coordinates may have more digits of precision than the input values (up the maximum allowed by the finite floating-point representation). 
 
 Implementing a precision model specifies how JTS is to correctly handle constructed points. It also allows control over how the algorithms handle robustness issues.
 
