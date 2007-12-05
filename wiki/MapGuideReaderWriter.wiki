@@ -6,6 +6,10 @@
 A reader/writer for geometric primitives exposed by OSGeo MapGuide Server.
 Before further reading, please see [http://code.google.com/p/tf-net/wiki/FdoReaderWriter FDO Reader/Writer] and [http://code.google.com/p/tf-net/wiki/JtsBinaryPredicates Binary Predicates] introductory notes. Althugh MapGuide relays on it's own (FDO-based) spatial filters, there are situations when they are simply not enough - most often FDO providers don't expose necessary binary predicates by design. On the other hand, you can use rich JTS API to perform targeted geospatial analysis and bounce results back to MapGuide in some form (i.e. redlining, feature or spatial filter, etc).
 
+*MapGuide Reader* reads MapGuide Server geometries and creates geometric representation of the features based on JTS model. Curve-based geometries are currently not supported.
+
+*MapGuide Writer* reads features based on JTS model and creates their MapGuide Server representation.
+
 
 == Components ==
 
