@@ -3,19 +3,9 @@
 The most used taxonomy to characterize the problems of spatial analysis
 consider three types of data:
 
-  * *Events or point patterns* – phenomena expressed through occurrences
-identified as points in space, denominated point processes. Some examples
-are: crime spots, disease occurrences, and the localization of vegetal species.
-  * *Continuous surfaces* – estimated from a set of field samples that can be
-regularly or irregularly distributed. Usually, this type of data results from
-natural resources survey, which includes geological, topographical,
-ecological, phitogeographic, and pedological maps.
-  * Areas with Counts and Aggregated Rates – means data associated to
-population surveys, like census and health statistics, and that are originally
-referred to individuals situated in specific points in space. For
-confidentiality reasons these data are aggregated in analysis units, usually
-delimited by closed polygons (census tracts, postal addressing zones,
-municipalities).
+  * *Events or point patterns* – phenomena expressed through occurrences identified as points in space, denominated point processes. Some examples are: crime spots, disease occurrences, and the localization of vegetal species.
+  * *Continuous surfaces* – estimated from a set of field samples that can be regularly or irregularly distributed. Usually, this type of data results from natural resources survey, which includes geological, topographical, ecological, phitogeographic, and pedological maps.
+  * *Areas with Counts and Aggregated Rates* – means data associated to population surveys, like census and health statistics, and that are originally referred to individuals situated in specific points in space. For confidentiality reasons these data are aggregated in analysis units, usually delimited by closed polygons (census tracts, postal addressing zones, municipalities).
 
 JTS provides the following spatial data types, according to whom TF.NET provides specialized external API readers/writers:
 
