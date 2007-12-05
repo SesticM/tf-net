@@ -50,5 +50,6 @@ There are many approaches to dealing with the problem of robustness in geometric
 
   * The algorithms used to implement the SFS predicates and functions have been developed to eliminate or minimize robustness problems. The binary predicate algorithm is completely robust. The spatial overlay and buffer algorithms are non-robust, but should return correct answers in the majority of cases. 
 
+Please see [http://www-sop.inria.fr/prisme/fiches/Robustesse/index.html.en Robustness and Degeneracies] article for more info.
 
 Part of material provided on this page is Copyright by [http://www.jump-project.org The Jump Project] and [http://www.vividsolutions.com Vivid Solutions, Inc].
