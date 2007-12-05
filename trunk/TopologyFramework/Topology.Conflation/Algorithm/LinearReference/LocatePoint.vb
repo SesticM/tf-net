@@ -54,8 +54,8 @@ Namespace Conflation.Algorithm.LinearReference
         ''' <summary>
         ''' Computes the {@link Coordinate} of the point a given length along a {@link LineString}.
         ''' </summary>
-        ''' <param name="line"></param>
-        ''' <param name="length"></param>
+        ''' <param name="line">The LineString to measure.</param>
+        ''' <param name="length">The length to the desired point.</param>
         ''' <returns></returns>
         ''' <remarks></remarks>
         Public Shared Function pointAlongLine(ByVal line As LineString, ByVal length As Double) As Coordinate

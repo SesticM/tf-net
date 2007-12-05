@@ -8,6 +8,7 @@
         <assembly location="..\Build\Topology.IO.Dwg.dll" documentation="..\TopologyFramework\Topology.IO.Dwg\obj\Release\Topology.IO.xml" />
         <assembly location="..\Build\Topology.IO.MapGuide.dll" documentation="..\TopologyFramework\Topology.IO.MapGuide\obj\Release\Topology.IO.xml" />
         <assembly location="..\Build\Topology.IO.dll" documentation="..\Build\Topology.xml" />
+        <assembly location="..\Build\Topology.Conflation.dll" documentation="..\Build\Topology.Conflation.xml" />
     </assemblies>
     <referencePaths>
         <referencePath path="C:\Program Files\Autodesk Map 3D 2007" />
@@ -27,7 +28,7 @@
             <property name="OutputDirectory" value="D:\DEV\TF-NET\Help\" />
             <property name="HtmlHelpName" value="Topology" />
             <property name="Title" value="Topology Framework .NET" />
-            <property name="Version" value="1.0.6.0" />
+            <property name="Version" value="1.0.7.0" />
             <property name="CopyrightText" value="GNU General Lesser Public License" />
             <property name="FeedbackEmailAddress" value="max@geoinova.com" />
             <property name="CleanIntermediates" value="True" />

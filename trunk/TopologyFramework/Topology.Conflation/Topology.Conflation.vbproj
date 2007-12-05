@@ -31,7 +31,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="Topology, Version=1.0.6.18729, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Topology.GeoAPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Topology.NetTopologySuite, Version=1.7.2.18595, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
@@ -45,50 +49,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algorithm\AverageLineDistance.vb" />
+    <Compile Include="Algorithm\EuclideanDistanceToPoint.vb" />
     <Compile Include="Algorithm\LinearReference\LocatePoint.vb" />
+    <Compile Include="Algorithm\PointPairDistance.vb" />
+    <Compile Include="Algorithm\VertexHausdorffDistance.vb" />
     <Compile Include="EdgeMerge\MergeEdge.vb" />
     <Compile Include="EdgeMerge\MergeGraph.vb" />
     <Compile Include="EdgeMerge\NetworkEdgeMerger.vb" />
+    <Compile Include="Algorithm\LineStringWidth.vb" />
+    <Compile Include="Geometries\BufferDistancePerturber.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="My Project\Application.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Application.myapp</DependentUpon>
-    </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="My Project\Settings.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="My Project\Resources.resx">
-      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
-      <CustomToolNamespace>My.Resources</CustomToolNamespace>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="My Project\Application.myapp">
-      <Generator>MyApplicationCodeGenerator</Generator>
-      <LastGenOutput>Application.Designer.vb</LastGenOutput>
-    </None>
-    <None Include="My Project\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <CustomToolNamespace>My</CustomToolNamespace>
-      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
-    </None>
+    <Compile Include="Precision\CoordinatePrecisionReducer.vb" />
+    <Compile Include="Precision\GeometryPrecisionReducer.vb" />
+    <Compile Include="Precision\NumberPrecisionReducer.vb" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="License.txt" />
+    <None Include="License.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Conflate\BoundaryMatch\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
