@@ -31,6 +31,19 @@ Union of a MultiPoint and a LineString:
 http://www.geoinova.com/examples/pointlineunion.gif
 
 
+=== Precision Model ===
+
+JTS supports the concept of an explicit precision model for specifying the coordinates of Geometrys. It supports two types of Precision Model, Fixed and Floating: 
+
+  * *Fixed* - coordinates are represented as points on a grid with uniform spacing. (This can be assumed to be the integer grid, with the use of appropriate scale and offset factors). Computed coordinates are rounded to this grid. 
+
+  * *Floating* - coordinates are represented as floating-point numbers. Computed coordinates may have more digits of precision than the input values (up the maximum allowed by the finite floating-point representation). 
+
+Implementing a precision model specifies how JTS is to correctly handle constructed points. It also allows control over how the algorithms handle robustness issues.
+
+Please see [http://www-sop.inria.fr/prisme/fiches/Arithmetique/index.html.en A Problem of Accuracy] article for more info.
+
+
 === Constructed Points and Dimensional Collapse ===
 
 Geometries computed by spatial analysis methods may contain constructed points which are not present in the input Geometries. These new points arise from intersections between line segments in the edges of the input Geometries. In the general case it is not possible to represent constructed points exactly. This is due to the fact that the coordinates of an intersection point may contain twice as many bits of precision as the coordinates of the input line segments. In order to represent these constructed points explicitly, JTS must truncate them to fit the Precision Model. 
