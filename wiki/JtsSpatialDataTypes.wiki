@@ -16,3 +16,5 @@ JTS provides the following spatial data types, according to whom TF.NET provides
 
 || *GeometryCollection* ||
 || http://www.geoinova.com/examples/geometrycollection.gif ||
+
+Material provided on this page is partially Copyright by [http://www.jump-project.org The Jump Project].
