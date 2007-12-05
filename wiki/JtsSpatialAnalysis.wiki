@@ -2,6 +2,7 @@
 
 JTS supports the fundamental spatial analysis methods. Spatial analysis methods take one or two Geometries as arguments and return a new constructed Geometry. 
 
-The spatial analysis methods in the JTS are: 
+The spatial analysis methods in the JTS are:
 
-
+|| Intersection || Union ||
+|| http://www.geoinova.com/examples/intersection.gif || http://www.geoinova.com/examples/union.gif ||
