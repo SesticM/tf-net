@@ -58,6 +58,11 @@
     <Compile Include="EdgeMerge\NetworkEdgeMerger.vb" />
     <Compile Include="Algorithm\LineStringWidth.vb" />
     <Compile Include="Geometries\BufferDistancePerturber.vb" />
+    <Compile Include="Graph\DirectedEdge.vb" />
+    <Compile Include="Graph\DirectedEdgeStar.vb" />
+    <Compile Include="Graph\Edge.vb" />
+    <Compile Include="Graph\Node.vb" />
+    <Compile Include="Graph\PlanarGraph.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="Precision\CoordinatePrecisionReducer.vb" />
     <Compile Include="Precision\GeometryPrecisionReducer.vb" />

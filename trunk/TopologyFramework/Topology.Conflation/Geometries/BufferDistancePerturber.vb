@@ -23,7 +23,8 @@ Namespace Conflation.Geometries
             Dim buffer As Geometry = Nothing
 
             Try
-                buffer = EnhancedPrecisionOp.Buffer(geom, distance)
+                'buffer = EnhancedPrecisionOp.Buffer(geom, distance)
+                buffer = geom.Buffer(distance)
             Catch ex As AssertionFailedException
                 ' eat the exception
             End Try
