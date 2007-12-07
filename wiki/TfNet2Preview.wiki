@@ -1,0 +1,19 @@
+#summary TF.NET 2.0 (Alpha) Preview
+
+== Introduction ==
+
+TF.NET 2.0 is intended to be a J# port of JTS Topology Suite and JTS Conflation Suite products for .NET. It's still in Alpha and needs to be thoroughly tested against certain disrepancies between genric (Sun) and Microsoft J# Java language implementations. Moreover, it's port of generic Java source and doesn't ressemble to NTS imlementation.
+
+Currently TF.NET 2.0 contains only JTS Topology Suite 1.8.0 classes.
+
+
+== Prerequisites ==
+
+If you intend to reference TF.NET 2.0 libraries via your VB.NET or C# project, you will also need to reference `vjslib.dll` file which is part of J# Redistributable Package.
+
+Microsoft J# Redistributable Package can be freely downloaded from [http://msdn2.microsoft.com/en-us/vjsharp/bb188598.aspx Visual J# Developer Center]. Just pick an appropriate version depending on a .NET redistributable you are currently using.
+
+
+== Limitations ==
+
+None know yet. It should be tested for `Clonable` and `SoftReference` types where implemented, though.
