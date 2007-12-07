@@ -6,6 +6,8 @@ TF.NET 2.0 is intended to be a J# port of JTS Topology Suite and JTS Conflation 
 
 Currently TF.NET 2.0 contains only JTS Topology Suite 1.8.0 classes.
 
+TF.NET 2.0 (Alpha) library can be downloaded using following [http://tf-net.googlecode.com/files/TF_NET_2_ALPHA.zip link].
+
 
 == Prerequisites ==
 
