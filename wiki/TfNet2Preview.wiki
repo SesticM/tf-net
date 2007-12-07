@@ -10,7 +10,7 @@ TF.NET 2.0 (Alpha) library can be downloaded using following [http://tf-net.goog
 
 == Further Steps ==
 
-Running a .NET port of JTS is a hell of a job, my hat down to NTS team for that. Alas, JTS is a live project and it's branching may take even more time and efforts during every iteration (release). My intention is to keep JTS/JCS generic core intact, and offer considerable number of geometry readers/writers for .NET projects implementing NTS and other popular APIs.
+Running a .NET port of JTS is a hell of a job, hat down to NTS team for that. Alas, JTS is a live project and it's branching may take even more time and efforts during every iteration (release). My intention is to keep JTS/JCS generic core intact, and offer considerable number of geometry readers/writers for .NET projects implementing NTS and other popular APIs.
 
 
 == Prerequisites ==
