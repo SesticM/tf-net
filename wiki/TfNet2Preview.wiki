@@ -2,7 +2,7 @@
 
 == Introduction ==
 
-TF.NET 2.0 is intended to be a J# port of JTS Topology Suite and JTS Conflation Suite products for .NET. It's still in Alpha and needs to be thoroughly tested against certain disrepancies between genric (Sun) and Microsoft J# Java language implementations. Moreover, it's port of generic Java source and doesn't ressemble to NTS imlementation. Currently TF.NET 2.0 contains only JTS Topology Suite 1.8.0 classes.
+TF.NET 2.0 is intended to be a J# port of JTS Topology Suite and JTS Conflation Suite products for .NET, in their latest versions. It's still in Alpha and needs to be thoroughly tested against certain disrepancies between genric (Sun) and Microsoft J# Java language implementations. Moreover, it's port of generic Java source and doesn't ressemble to NTS imlementation. Currently TF.NET 2.0 contains only JTS Topology Suite 1.8.0 classes.
 
 TF.NET 2.0 (Alpha) library can be downloaded using following [http://tf-net.googlecode.com/files/TF_NET_2_ALPHA.zip link].
 
