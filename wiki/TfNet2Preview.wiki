@@ -22,4 +22,4 @@ Microsoft J# Redistributable Package can be freely downloaded from [http://msdn2
 
 == Limitations ==
 
-None know yet. It should be tested for `Cloneable` and `SoftReference` types where implemented, though.
+None known yet. It should be tested for `Cloneable` and `SoftReference` types where implemented, though.
