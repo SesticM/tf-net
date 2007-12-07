@@ -1,4 +1,5 @@
 #summary TF.NET 2.0 (Alpha) Preview
+#labels Featured
 
 == Introduction ==
 
