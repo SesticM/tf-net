@@ -264,5 +264,76 @@ Public Class DwgWriter
 
 #End Region
 
+#Region " WriteMPolygon "
+
+    ''' <summary>
+    ''' Returns <see cref="MPolygon"/> entity converted from <see cref="Polygon"/> geometry.
+    ''' </summary>
+    ''' <param name="polygon">A <see cref="Polygon"/> geometry.</param>
+    ''' <returns>A <see cref="MPolygon"/> entity (<c>MPOLYGON</c>).</returns>
+    ''' <remarks></remarks>
+    Public Function WriteMPolygon(ByVal polygon As IPolygon) As MPolygon
+        Dim ent As New MPolygon
+
+        For Each polLoop As MPolygonLoop In Me.GetMPolygonLoopCollection(polygon)
+            ent.AppendMPolygonLoop(polLoop, False, 0)
+        Next
+
+        ent.BalanceTree()
+        Return ent
+    End Function
+
+    ''' <summary>
+    ''' Returns <see cref="MPolygon"/> entity converted from <see cref="MultiPolygon"/> geometry.
+    ''' </summary>
+    ''' <param name="multiPolygon">A <see cref="MultiPolygon"/> geometry.</param>
+    ''' <returns>A <see cref="MPolygon"/> entity (<c>MPOLYGON</c>).</returns>
+    ''' <remarks></remarks>
+    Public Function WriteMPolygon(ByVal multiPolygon As MultiPolygon) As MPolygon
+        Dim ent As New MPolygon
+
+        For Each polygon As IPolygon In multiPolygon.Geometries
+            For Each polLoop As MPolygonLoop In Me.GetMPolygonLoopCollection(polygon)
+                ent.AppendMPolygonLoop(polLoop, False, 0)
+            Next
+        Next
+
+        ent.BalanceTree()
+        Return ent
+    End Function
+
+#End Region
+
+
+#Region " GetMPolygonLoop "
+
+    Private Function GetMPolygonLoop(ByVal linearRing As ILinearRing) As MPolygonLoop
+        Dim ent As New MPolygonLoop
+
+        For Each coord As Coordinate In linearRing.Coordinates
+            ent.Add(New BulgeVertex(Me.WritePoint2d(coord), 0))
+        Next
+
+        Return ent
+    End Function
+
+#End Region
+
+#Region " GetMPolygonLoopCollection "
+
+    Private Function GetMPolygonLoopCollection(ByVal polygon As IPolygon) As MPolygonLoopCollection
+        Dim col As New MPolygonLoopCollection
+
+        col.Add(Me.GetMPolygonLoop(polygon.Shell))
+
+        For Each hole As ILinearRing In polygon.Holes
+            col.Add(Me.GetMPolygonLoop(hole))
+        Next
+
+        Return col
+    End Function
+
+#End Region
+
 End Class
 

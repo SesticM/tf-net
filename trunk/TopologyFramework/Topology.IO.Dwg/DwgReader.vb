@@ -305,6 +305,7 @@ Public Class DwgReader
                 Dim shell As LinearRing = _
                     Me.GeometryFactory.CreateLinearRing( _
                     Me.GetMPolygonLoopCoordinates( _
+                    multiPolygon, _
                     multiPolygon.GetMPolygonLoopAt(i)))
 
                 Dim holes As New List(Of LinearRing)
@@ -313,6 +314,7 @@ Public Class DwgReader
                         holes.Add( _
                             Me.GeometryFactory.CreateLinearRing( _
                             Me.GetMPolygonLoopCoordinates( _
+                            multiPolygon, _
                             multiPolygon.GetMPolygonLoopAt(j))))
                     End If
                 Next
@@ -445,22 +447,25 @@ Public Class DwgReader
         Return points.ToCoordinateArray
     End Function
 
-    ' Need to convert CirucularArc2d into CirucularArc3d and pass it to above function.
-    Private Function GetTessellatedCurveCoordinates(ByVal curve As CircularArc2d) As ICoordinate()
-        Dim points As New CoordinateList
+    Private Function GetTessellatedCurveCoordinates(ByVal parentEcs As Matrix3d, ByVal curve As CircularArc2d) As ICoordinate()
+        Dim matrix As Matrix3d = parentEcs.Inverse
+        Dim pts() As Point2d = curve.GetSamplePoints(3)
 
-        If curve.StartPoint <> curve.EndPoint Then
-            For Each point As Point2d In curve.GetSamplePoints(CInt(Me.CurveTessellationValue))
-                points.Add(Me.ReadCoordinate(point))
-            Next
-        End If
+        Dim startPt As New Point3d(pts(0).X, pts(0).Y, 0)
+        Dim midPt As New Point3d(pts(1).X, pts(1).Y, 0)
+        Dim endPt As New Point3d(pts(2).X, pts(2).Y, 0)
 
-        Return points.ToCoordinateArray
+        startPt.TransformBy(matrix)
+        midPt.TransformBy(matrix)
+        endPt.TransformBy(matrix)
+
+        Return Me.GetTessellatedCurveCoordinates(New CircularArc3d(startPt, midPt, endPt))
     End Function
 
-    Private Function GetTessellatedCurveCoordinates(ByVal startPoint As Point2d, ByVal endPoint As Point2d, ByVal bulge As Double) As ICoordinate()
-        Dim c2d As New CircularArc2d(startPoint, endPoint, bulge, False)
-        Return Me.GetTessellatedCurveCoordinates(c2d)
+    Private Function GetTessellatedCurveCoordinates(ByVal parentEcs As Matrix3d, ByVal startPoint As Point2d, ByVal endPoint As Point2d, ByVal bulge As Double) As ICoordinate()
+        Return Me.GetTessellatedCurveCoordinates( _
+            parentEcs, _
+            New CircularArc2d(startPoint, endPoint, bulge, False))
     End Function
 
     Private Function GetTessellatedCurveCoordinates(ByVal curve As Arc) As ICoordinate()
@@ -485,7 +490,7 @@ Public Class DwgReader
 
 #Region " GetMPolygonLoopCoordinates "
 
-    Private Function GetMPolygonLoopCoordinates(ByVal multiPolygonLoop As MPolygonLoop) As ICoordinate()
+    Private Function GetMPolygonLoopCoordinates(ByVal multiPolygon As MPolygon, ByVal multiPolygonLoop As MPolygonLoop) As ICoordinate()
         Dim points As New CoordinateList
 
         For i As Integer = 0 To multiPolygonLoop.Count - 1
@@ -499,7 +504,8 @@ Public Class DwgReader
                 Else
                     endPoint = multiPolygonLoop.Item(0).Vertex
                 End If
-                For Each point As Coordinate In Me.GetTessellatedCurveCoordinates(vert.Vertex, endPoint, vert.Bulge)
+
+                For Each point As Coordinate In Me.GetTessellatedCurveCoordinates(multiPolygon.Ecs, vert.Vertex, endPoint, vert.Bulge)
                     points.Add(point, Me.AllowRepeatedCoordinates)
                 Next
             End If
