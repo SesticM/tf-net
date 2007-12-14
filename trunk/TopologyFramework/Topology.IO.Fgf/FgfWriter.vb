@@ -1,16 +1,16 @@
 Imports Topology.IO
 Imports Topology.Geometries
 
-#Region " OutputFormat Enum "
+#Region " BinaryFormat Enum "
 
 ''' <summary>
-''' Definition of the output format used by Feature Geometry Factory binary writer.
+''' Definition of the binary format used by Feature Geometry Factory binary writer.
 ''' </summary>
 ''' <remarks></remarks>
-Public Enum OutputFormat
+Public Enum BinaryFormat
 
     ''' <summary>
-    ''' OSGeo Feature Geometry Factory format.
+    ''' OSGeo Feature Geometry Factory binary format.
     ''' <para>
     ''' Feature Geometry Factory format is OSGeo's extended version of the
     ''' Well Known Binary Format (WKB). In FGF, geometry types are included
@@ -151,16 +151,16 @@ Public Class FgfWriter
 
     ''' <summary>
     ''' Returns byte array converted from <see cref="Coordinate"/> structure.
-    ''' Resulting byte array is formatted using specified <see cref="OutputFormat"/>.
+    ''' Resulting byte array is formatted using specified <see cref="BinaryFormat"/>.
     ''' If <see cref="Coordinate"/> is two-dimensional, resulting <see cref="OSGeo.FDO.Geometry.IDirectPosition"/>
     ''' is created using <c>CreatePositionXY()</c>, otherwise <c>CreatePositionXYZ()</c> is used.
     ''' </summary>
     ''' <param name="coordinate">A <see cref="Coordinate"/> structure.</param>
-    ''' <param name="format">Byte array <see cref="OutputFormat"/> type.</param>
-    ''' <returns>Byte array formatted using specified <see cref="OutputFormat"/>.</returns>
+    ''' <param name="format">Byte array <see cref="BinaryFormat"/> type.</param>
+    ''' <returns>Byte array formatted using specified <see cref="BinaryFormat"/>.</returns>
     ''' <remarks></remarks>
-    Public Function WriteDirectPosition(ByVal coordinate As ICoordinate, ByVal format As OutputFormat) As Byte()
-        If format = OutputFormat.FGF Then
+    Public Function WriteDirectPosition(ByVal coordinate As ICoordinate, ByVal format As BinaryFormat) As Byte()
+        If format = BinaryFormat.FGF Then
             Return Me.Factory.GetFgf(Me.WriteDirectPosition(coordinate))
         Else
             Return Me.Factory.GetWkb(Me.WriteDirectPosition(coordinate))
@@ -184,14 +184,14 @@ Public Class FgfWriter
 
     ''' <summary>
     ''' Returns byte array converted from <see cref="Point"/> geometry.
-    ''' Resulting byte array is formatted using specified <see cref="OutputFormat"/>.
+    ''' Resulting byte array is formatted using specified <see cref="BinaryFormat"/>.
     ''' </summary>
     ''' <param name="point">A <see cref="Point"/> geometry.</param>
-    ''' <param name="format">Byte array <see cref="OutputFormat"/> type.</param>
-    ''' <returns>Byte array formatted using specified <see cref="OutputFormat"/>.</returns>
+    ''' <param name="format">Byte array <see cref="BinaryFormat"/> type.</param>
+    ''' <returns>Byte array formatted using specified <see cref="BinaryFormat"/>.</returns>
     ''' <remarks></remarks>
-    Public Function WritePoint(ByVal point As IPoint, ByVal format As OutputFormat) As Byte()
-        If format = OutputFormat.FGF Then
+    Public Function WritePoint(ByVal point As IPoint, ByVal format As BinaryFormat) As Byte()
+        If format = BinaryFormat.FGF Then
             Return Me.Factory.GetFgf(Me.WritePoint(point))
         Else
             Return Me.Factory.GetWkb(Me.WritePoint(point))
@@ -215,14 +215,14 @@ Public Class FgfWriter
 
     ''' <summary>
     ''' Returns byte array converted from <see cref="LineString"/> geometry.
-    ''' Resulting byte array is formatted using specified <see cref="OutputFormat"/>.
+    ''' Resulting byte array is formatted using specified <see cref="BinaryFormat"/>.
     ''' </summary>
     ''' <param name="lineString">A <see cref="LineString"/> geometry.</param>
-    ''' <param name="format">Byte array <see cref="OutputFormat"/> type.</param>
-    ''' <returns>Byte array formatted using specified <see cref="OutputFormat"/>.</returns>
+    ''' <param name="format">Byte array <see cref="BinaryFormat"/> type.</param>
+    ''' <returns>Byte array formatted using specified <see cref="BinaryFormat"/>.</returns>
     ''' <remarks></remarks>
-    Public Function WriteLineString(ByVal lineString As ILineString, ByVal format As OutputFormat) As Byte()
-        If format = OutputFormat.FGF Then
+    Public Function WriteLineString(ByVal lineString As ILineString, ByVal format As BinaryFormat) As Byte()
+        If format = BinaryFormat.FGF Then
             Return Me.Factory.GetFgf(Me.WriteLineString(lineString))
         Else
             Return Me.Factory.GetWkb(Me.WriteLineString(lineString))
@@ -246,14 +246,14 @@ Public Class FgfWriter
 
     ''' <summary>
     ''' Returns byte array converted from <see cref="LinearRing"/> geometry.
-    ''' Resulting byte array is formatted using specified <see cref="OutputFormat"/>.
+    ''' Resulting byte array is formatted using specified <see cref="BinaryFormat"/>.
     ''' </summary>
     ''' <param name="linearRing">A <see cref="LinearRing"/> geometry.</param>
-    ''' <param name="format">Byte array <see cref="OutputFormat"/> type.</param>
-    ''' <returns>Byte array formatted using specified <see cref="OutputFormat"/>.</returns>
+    ''' <param name="format">Byte array <see cref="BinaryFormat"/> type.</param>
+    ''' <returns>Byte array formatted using specified <see cref="BinaryFormat"/>.</returns>
     ''' <remarks></remarks>
-    Public Function WriteLinearRing(ByVal linearRing As ILinearRing, ByVal format As OutputFormat) As Byte()
-        If format = OutputFormat.FGF Then
+    Public Function WriteLinearRing(ByVal linearRing As ILinearRing, ByVal format As BinaryFormat) As Byte()
+        If format = BinaryFormat.FGF Then
             Return Me.Factory.GetFgf(Me.WriteLinearRing(linearRing))
         Else
             Return Me.Factory.GetWkb(Me.WriteLinearRing(linearRing))
@@ -284,20 +284,19 @@ Public Class FgfWriter
 
     ''' <summary>
     ''' Returns byte array converted from <see cref="Polygon"/> geometry.
-    ''' Resulting byte array is formatted using specified <see cref="OutputFormat"/>.
+    ''' Resulting byte array is formatted using specified <see cref="BinaryFormat"/>.
     ''' </summary>
     ''' <param name="polygon">A <see cref="Polygon"/> geometry.</param>
-    ''' <param name="format">Byte array <see cref="OutputFormat"/> type.</param>
-    ''' <returns>Byte array formatted using specified <see cref="OutputFormat"/>.</returns>
+    ''' <param name="format">Byte array <see cref="BinaryFormat"/> type.</param>
+    ''' <returns>Byte array formatted using specified <see cref="BinaryFormat"/>.</returns>
     ''' <remarks></remarks>
-    Public Function WritePolygon(ByVal polygon As IPolygon, ByVal format As OutputFormat) As Byte()
-        If format = OutputFormat.FGF Then
+    Public Function WritePolygon(ByVal polygon As IPolygon, ByVal format As BinaryFormat) As Byte()
+        If format = BinaryFormat.FGF Then
             Return Me.Factory.GetFgf(Me.WritePolygon(polygon))
         Else
             Return Me.Factory.GetWkb(Me.WritePolygon(polygon))
         End If
     End Function
-
 
 #End Region
 
@@ -350,24 +349,268 @@ Public Class FgfWriter
         Select Case geometry.GeometryType
             Case "Point"
                 Return Me.WritePoint(CType(geometry, IPoint))
-                'Case "MultiPoint"
-                '    Return Me.WriteMultiPoint(CType(geometry, IMultiPoint))
+            Case "MultiPoint"
+                Return Me.WriteMultiPoint(CType(geometry, IMultiPoint))
             Case "LineString"
                 Return Me.WriteLineString(CType(geometry, ILineString))
-                'Case "MultiLineString"
-                '    Return Me.WriteMultiLineString(CType(geometry, IMultiLineString))
+            Case "MultiLineString"
+                Return Me.WriteMultiLineString(CType(geometry, IMultiLineString))
             Case "LinearRing"
                 Return Me.WriteLineString(CType(geometry, ILinearRing))
             Case "Polygon"
                 Return Me.WritePolygon(CType(geometry, IPolygon))
-                'Case "MultiPolygon"
-                '    Return Me.WriteMultiPolygon(CType(geometry, IMultiPolygon))
-                'Case "MultiSurface"
-                '    Return Me.WriteMultiGeometry(CType(geometry, IMultiSurface))
+            Case "MultiPolygon"
+                Return Me.WriteMultiPolygon(CType(geometry, IMultiPolygon))
+            Case "MultiSurface"
+                Return Me.WriteMultiGeometry(CType(geometry, IMultiSurface))
             Case Else
                 Throw New ArgumentException(String.Format("Geometry conversion from {0} to IGeometry is not supported.", geometry.GeometryType))
         End Select
         Return Nothing
+    End Function
+
+    ''' <summary>
+    ''' Returns byte array converted from <see cref="Geometry"/> geometry.
+    ''' Resulting byte array is formatted using specified <see cref="BinaryFormat"/>.
+    ''' </summary>
+    ''' <param name="geometry">A <see cref="Geometry"/> geometry.</param>
+    ''' <param name="format">Byte array <see cref="BinaryFormat"/> type.</param>
+    ''' <returns>Byte array formatted using specified <see cref="BinaryFormat"/>.</returns>
+    ''' <remarks></remarks>
+    Public Function WriteGeometry(ByVal geometry As IGeometry, ByVal format As BinaryFormat) As Byte()
+        If format = BinaryFormat.FGF Then
+            Return Me.Factory.GetFgf(Me.WriteGeometry(geometry))
+        Else
+            Return Me.Factory.GetWkb(Me.WriteGeometry(geometry))
+        End If
+    End Function
+
+#End Region
+
+
+#Region " WriteMultiPoint "
+
+    ''' <summary>
+    ''' Returns <see cref="OSGeo.FDO.Geometry.IMultiPoint"/> geometry converted from <see cref="MultiPoint"/> geometry.
+    ''' </summary>
+    ''' <param name="multiPoint">A <see cref="MultiPoint"/> geometry.</param>
+    ''' <returns>A <see cref="OSGeo.FDO.Geometry.IMultiPoint"/> geometry.</returns>
+    ''' <remarks></remarks>
+    Public Function WriteMultiPoint(ByVal multiPoint As IMultiPoint) As OSGeo.FDO.Geometry.IMultiPoint
+        Dim points As New List(Of IPoint)
+        For Each geometry As IGeometry In multiPoint.Geometries
+            points.Add(CType(geometry, IPoint))
+        Next
+        Return Me.Factory.CreateMultiPoint(Me.WritePointCollection(points.ToArray))
+    End Function
+
+    ''' <summary>
+    ''' Returns byte array converted from <see cref="MultiPoint"/> geometry.
+    ''' Resulting byte array is formatted using specified <see cref="BinaryFormat"/>.
+    ''' </summary>
+    ''' <param name="multiPoint">A <see cref="MultiPoint"/> geometry.</param>
+    ''' <param name="format">Byte array <see cref="BinaryFormat"/> type.</param>
+    ''' <returns>Byte array formatted using specified <see cref="BinaryFormat"/>.</returns>
+    ''' <remarks></remarks>
+    Public Function WriteMultiPoint(ByVal multiPoint As IMultiPoint, ByVal format As BinaryFormat) As Byte()
+        If format = BinaryFormat.FGF Then
+            Return Me.Factory.GetFgf(Me.WriteMultiPoint(multiPoint))
+        Else
+            Return Me.Factory.GetWkb(Me.WriteMultiPoint(multiPoint))
+        End If
+    End Function
+
+#End Region
+
+#Region " WriteMultiLineString "
+
+    ''' <summary>
+    ''' Returns <see cref="OSGeo.FDO.Geometry.IMultiLineString"/> geometry converted from <see cref="MultiLineString"/> geometry.
+    ''' </summary>
+    ''' <param name="multiLineString">A <see cref="MultiLineString"/> geometry.</param>
+    ''' <returns>A <see cref="OSGeo.FDO.Geometry.IMultiLineString"/> geometry.</returns>
+    ''' <remarks></remarks>
+    Public Function WriteMultiLineString(ByVal multiLineString As IMultiLineString) As OSGeo.FDO.Geometry.IMultiLineString
+        Dim lineStrings As New List(Of ILineString)
+        For Each geometry As IGeometry In multiLineString.Geometries
+            lineStrings.Add(CType(geometry, ILineString))
+        Next
+        Return Me.Factory.CreateMultiLineString(Me.WriteLineStringCollection(lineStrings.ToArray))
+    End Function
+
+    ''' <summary>
+    ''' Returns byte array converted from <see cref="MultiLineString"/> geometry.
+    ''' Resulting byte array is formatted using specified <see cref="BinaryFormat"/>.
+    ''' </summary>
+    ''' <param name="multiLineString">A <see cref="MultiLineString"/> geometry.</param>
+    ''' <param name="format">Byte array <see cref="BinaryFormat"/> type.</param>
+    ''' <returns>Byte array formatted using specified <see cref="BinaryFormat"/>.</returns>
+    ''' <remarks></remarks>
+    Public Function WriteMultiLineString(ByVal multiLineString As IMultiLineString, ByVal format As BinaryFormat) As Byte()
+        If format = BinaryFormat.FGF Then
+            Return Me.Factory.GetFgf(Me.WriteMultiLineString(multiLineString))
+        Else
+            Return Me.Factory.GetWkb(Me.WriteMultiLineString(multiLineString))
+        End If
+    End Function
+
+#End Region
+
+#Region " WriteMultiPolygon "
+
+    ''' <summary>
+    ''' Returns <see cref="OSGeo.FDO.Geometry.IMultiPolygon"/> geometry converted from <see cref="MultiPolygon"/> geometry.
+    ''' </summary>
+    ''' <param name="multiPolygon">A <see cref="MultiPolygon"/> geometry.</param>
+    ''' <returns>A <see cref="OSGeo.FDO.Geometry.IMultiPolygon"/> geometry.</returns>
+    ''' <remarks></remarks>
+    Public Function WriteMultiPolygon(ByVal multiPolygon As IMultiPolygon) As OSGeo.FDO.Geometry.IMultiPolygon
+        Dim polygons As New List(Of IPolygon)
+        For Each geometry As IGeometry In multiPolygon.Geometries
+            polygons.Add(CType(geometry, IPolygon))
+        Next
+        Return Me.Factory.CreateMultiPolygon(Me.WritePolygonCollection(polygons.ToArray))
+    End Function
+
+    ''' <summary>
+    ''' Returns byte array converted from <see cref="MultiPolygon"/> geometry.
+    ''' Resulting byte array is formatted using specified <see cref="BinaryFormat"/>.
+    ''' </summary>
+    ''' <param name="multiPolygon">A <see cref="MultiPolygon"/> geometry.</param>
+    ''' <param name="format">Byte array <see cref="BinaryFormat"/> type.</param>
+    ''' <returns>Byte array formatted using specified <see cref="BinaryFormat"/>.</returns>
+    ''' <remarks></remarks>
+    Public Function WriteMultiPolygon(ByVal multiPolygon As IMultiPolygon, ByVal format As BinaryFormat) As Byte()
+        If format = BinaryFormat.FGF Then
+            Return Me.Factory.GetFgf(Me.WriteMultiPolygon(multiPolygon))
+        Else
+            Return Me.Factory.GetWkb(Me.WriteMultiPolygon(multiPolygon))
+        End If
+    End Function
+
+#End Region
+
+#Region " WriteMultiGeometry "
+
+    ''' <summary>
+    ''' Returns <see cref="OSGeo.FDO.Geometry.IMultiGeometry"/> geometry converted from <see cref="IMultiSurface"/> geometry.
+    ''' </summary>
+    ''' <param name="multiSurface">A <see cref="IMultiSurface"/> geometry.</param>
+    ''' <returns>A <see cref="OSGeo.FDO.Geometry.IMultiGeometry"/> geometry.</returns>
+    ''' <remarks></remarks>
+    Public Function WriteMultiGeometry(ByVal multiSurface As IMultiSurface) As OSGeo.FDO.Geometry.IMultiGeometry
+        Dim geometries As New List(Of IGeometry)
+        For Each geometry As IGeometry In multiSurface.Geometries
+            geometries.Add(geometry)
+        Next
+        Return Me.Factory.CreateMultiGeometry(Me.WriteGeometryCollection(geometries.ToArray))
+    End Function
+
+    ''' <summary>
+    ''' Returns byte array converted from <see cref="IMultiSurface"/> geometry.
+    ''' Resulting byte array is formatted using specified <see cref="BinaryFormat"/>.
+    ''' </summary>
+    ''' <param name="multiSurface">A <see cref="IMultiSurface"/> geometry.</param>
+    ''' <param name="format">Byte array <see cref="BinaryFormat"/> type.</param>
+    ''' <returns>Byte array formatted using specified <see cref="BinaryFormat"/>.</returns>
+    ''' <remarks></remarks>
+    Public Function WriteMultiGeometry(ByVal multiSurface As IMultiSurface, ByVal format As BinaryFormat) As Byte()
+        If format = BinaryFormat.FGF Then
+            Return Me.Factory.GetFgf(Me.WriteMultiGeometry(multiSurface))
+        Else
+            Return Me.Factory.GetWkb(Me.WriteMultiGeometry(multiSurface))
+        End If
+    End Function
+
+#End Region
+
+
+#Region " WritePointCollection "
+
+    ''' <summary>
+    ''' Returns <see cref="OSGeo.FDO.Geometry.PointCollection"/> converted from array of <see cref="Point"/>s.
+    ''' </summary>
+    ''' <param name="points">An array of <see cref="Point"/>s.</param>
+    ''' <returns>A <see cref="OSGeo.FDO.Geometry.PointCollection"/> collection.</returns>
+    ''' <remarks></remarks>
+    Public Function WritePointCollection(ByVal points() As IPoint) As OSGeo.FDO.Geometry.PointCollection
+        Dim collection As New OSGeo.FDO.Geometry.PointCollection
+        For Each point As IPoint In points
+            collection.Add(Me.WritePoint(point))
+        Next
+        Return collection
+    End Function
+
+#End Region
+
+#Region " WriteLineStringCollection "
+
+    ''' <summary>
+    ''' Returns <see cref="OSGeo.FDO.Geometry.LineStringCollection"/> converted from array of <see cref="LineString"/>s.
+    ''' </summary>
+    ''' <param name="lineStrings">An array of <see cref="LineString"/>s.</param>
+    ''' <returns>A <see cref="OSGeo.FDO.Geometry.LineStringCollection"/> collection.</returns>
+    ''' <remarks></remarks>
+    Public Function WriteLineStringCollection(ByVal lineStrings() As ILineString) As OSGeo.FDO.Geometry.LineStringCollection
+        Dim collection As New OSGeo.FDO.Geometry.LineStringCollection
+        For Each lineString As ILineString In lineStrings
+            collection.Add(Me.WriteLineString(lineString))
+        Next
+        Return collection
+    End Function
+
+#End Region
+
+#Region " WriteLinearRingCollection "
+
+    ''' <summary>
+    ''' Returns <see cref="OSGeo.FDO.Geometry.LinearRingCollection"/> converted from array of <see cref="LinearRing"/>s.
+    ''' </summary>
+    ''' <param name="linearRings">An array of <see cref="LinearRing"/>s.</param>
+    ''' <returns>A <see cref="OSGeo.FDO.Geometry.LinearRingCollection"/> collection.</returns>
+    ''' <remarks></remarks>
+    Public Function WriteLinearRingCollection(ByVal linearRings() As ILinearRing) As OSGeo.FDO.Geometry.LinearRingCollection
+        Dim collection As New OSGeo.FDO.Geometry.LinearRingCollection
+        For Each linearRing As ILinearRing In linearRings
+            collection.Add(Me.WriteLinearRing(linearRing))
+        Next
+        Return collection
+    End Function
+
+#End Region
+
+#Region " WritePolygonCollection "
+
+    ''' <summary>
+    ''' Returns <see cref="OSGeo.FDO.Geometry.PolygonCollection"/> converted from array of <see cref="Polygon"/>s.
+    ''' </summary>
+    ''' <param name="polygons">An array of <see cref="Polygon"/>s.</param>
+    ''' <returns>A <see cref="OSGeo.FDO.Geometry.PolygonCollection"/> collection.</returns>
+    ''' <remarks></remarks>
+    Public Function WritePolygonCollection(ByVal polygons() As IPolygon) As OSGeo.FDO.Geometry.PolygonCollection
+        Dim collection As New OSGeo.FDO.Geometry.PolygonCollection
+        For Each polygon As IPolygon In polygons
+            collection.Add(Me.WritePolygon(polygon))
+        Next
+        Return collection
+    End Function
+
+#End Region
+
+#Region " WriteGeometryCollection "
+
+    ''' <summary>
+    ''' Returns <see cref="OSGeo.FDO.Geometry.GeometryCollection"/> converted from <see cref="GeometryCollection"/>.
+    ''' </summary>
+    ''' <param name="geometries">A <see cref="GeometryCollection"/> collection.</param>
+    ''' <returns>A <see cref="OSGeo.FDO.Geometry.GeometryCollection"/> collection.</returns>
+    ''' <remarks></remarks>
+    Public Function WriteGeometryCollection(ByVal geometries As IGeometryCollection) As OSGeo.FDO.Geometry.GeometryCollection
+        Dim collection As New OSGeo.FDO.Geometry.GeometryCollection
+        For Each geometry As IGeometry In geometries
+            collection.Add(Me.WriteGeometry(geometry))
+        Next
+        Return collection
     End Function
 
 #End Region
