@@ -6,14 +6,14 @@ A reader/writer for Feature Geometry Factory-based geometric primitives exposed 
 
 *FGF Reader* reads OSGeo Feature Data Objects spatial library Feature Geometry Factory-based geometries and creates geometric representation of the features based on JTS model. Curve-based geometries are currently not supported.
 
-*FGF Writer* reads features based on JTS model and creates their OSGeo Feature Data Objects spatial library Feature Geometry Factory-based representation.
+*FGF Writer* reads features based on JTS model and creates either OSGeo Feature Data Objects spatial library Feature Geometry Factory-based representation or binary one.
 
 
 == Prerequisites ==
 
-All necessary support libraries are available for download [http://download.osgeo.org/fdo/3.2.3/fdosdk-3.2.3_win32_release.tar.gz here].
+All necessary support FDO libraries are available for download [http://download.osgeo.org/fdo/3.2.3/fdosdk-3.2.3_win32_release.tar.gz here].
 
-Also references TF.NET core library available for download [http://tf-net.googlecode.com/files/Topology.dll here].
+Also references TF.NET core library available for download [http://code.google.com/p/tf-net/downloads/list here].
 
 
 == Limitations ==
