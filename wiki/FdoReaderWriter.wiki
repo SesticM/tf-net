@@ -16,4 +16,4 @@ Also references TF.NET core library available for download [http://tf-net.google
 
 == Limitations ==
 
-There's presently no direct TF.NET Reader/Writer for FDO. Instead, you can use TF.NET Reader/Writer for MapGuide which uses FDO engine anyways (that is, if you are using MapGuide in fist place). Binaries/sources for FDO Reader/Writer should be ready for download soon.
+Currently can neither read nor write geometries involving curves.
