@@ -7,7 +7,7 @@ A reader/writer for Feature Geometry Factory-based geometric primitives exposed 
 
 *FGF Reader* reads OSGeo Feature Data Objects spatial library Feature Geometry Factory-based geometries and creates geometric representation of the features based on JTS model. Curve-based geometries are currently not supported.
 
-*FGF Writer* reads features based on JTS model and creates either OSGeo Feature Data Objects spatial library Feature Geometry Factory-based representation or binary one.
+*FGF Writer* reads features based on JTS model and creates their OSGeo Feature Data Objects spatial library Feature Geometry Factory-based representation.
 
 
 == Prerequisites ==
