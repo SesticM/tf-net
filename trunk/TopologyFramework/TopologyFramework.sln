@@ -71,6 +71,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickGraph", "QuickGraph\Qu
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Topology.Conflation", "Topology.Conflation\Topology.Conflation.vbproj", "{0C28D4A8-94A3-4E76-A70D-7303D62C0763}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Topology.IO.Agf", "Topology.IO.Agf\Topology.IO.Agf.vbproj", "{3211F10C-E68C-45E7-9B35-2C87C5FBD7AA}"
+EndProject
 Global
 	GlobalSection(TextTemplating) = postSolution
 		TextTemplating = 1
@@ -141,6 +143,12 @@ Global
 		{0C28D4A8-94A3-4E76-A70D-7303D62C0763}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C28D4A8-94A3-4E76-A70D-7303D62C0763}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C28D4A8-94A3-4E76-A70D-7303D62C0763}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3211F10C-E68C-45E7-9B35-2C87C5FBD7AA}.Bug|Any CPU.ActiveCfg = Release|Any CPU
+		{3211F10C-E68C-45E7-9B35-2C87C5FBD7AA}.Bug|Any CPU.Build.0 = Release|Any CPU
+		{3211F10C-E68C-45E7-9B35-2C87C5FBD7AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3211F10C-E68C-45E7-9B35-2C87C5FBD7AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3211F10C-E68C-45E7-9B35-2C87C5FBD7AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3211F10C-E68C-45E7-9B35-2C87C5FBD7AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

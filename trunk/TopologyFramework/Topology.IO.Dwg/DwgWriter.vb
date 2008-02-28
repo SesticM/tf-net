@@ -304,6 +304,23 @@ Public Class DwgWriter
 
 #End Region
 
+    Public Function WriteEntity(ByVal rxClassName As String, ByVal geometry As IGeometry) As Entity
+        Select Case rxClassName
+            Case "AcDbMPolygon"
+                Return Me.WriteMPolygon(CType(geometry, Polygon))
+
+            Case "AcDbLine", "AcDbPolyline", "AcDb2dPolyline", "AcDb3dPolyline", "AcDbMline"
+                Return Me.WritePolyline(CType(geometry, LineString))
+
+            Case "AcDbBlockReference", "AcDbPoint"
+                Return Me.WriteDbPoint(CType(geometry, Point))
+
+            Case Else
+                Throw New ArgumentException(String.Format("Geometry conversion from {0} to {1} is not supported.", rxClassName, geometry.GeometryType))
+                Return Nothing
+        End Select
+    End Function
+
 
 #Region " GetMPolygonLoop "
 

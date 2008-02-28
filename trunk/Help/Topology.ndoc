@@ -5,16 +5,18 @@
         <assembly location="..\Build\Topology.NetTopologySuite.dll" documentation="..\Build\Topology.NetTopologySuite.xml" />
         <assembly location="..\Build\Topology.SharpMap.dll" documentation="..\Build\Topology.SharpMap.xml" />
         <assembly location="..\Build\Topology.QuickGraph.dll" documentation="..\Build\Topology.QuickGraph.xml" />
-        <assembly location="..\Build\Topology.IO.Dwg.dll" documentation="..\TopologyFramework\Topology.IO.Dwg\obj\Release\Topology.IO.xml" />
-        <assembly location="..\Build\Topology.IO.MapGuide.dll" documentation="..\TopologyFramework\Topology.IO.MapGuide\obj\Release\Topology.IO.xml" />
         <assembly location="..\Build\Topology.IO.dll" documentation="..\Build\Topology.xml" />
         <assembly location="..\Build\Topology.Conflation.dll" documentation="..\Build\Topology.Conflation.xml" />
-        <assembly location="..\Build\Topology.IO.Fgf.dll" documentation="..\TopologyFramework\Topology.IO.Fgf\obj\Release\Topology.IO.xml" />
+        <assembly location="..\Build\Topology.IO.Dwg.dll" documentation="..\Build\Topology.IO.Dwg.xml" />
+        <assembly location="..\Build\Topology.IO.Fgf.dll" documentation="..\Build\Topology.IO.Fgf.xml" />
+        <assembly location="..\Build\Topology.IO.MapGuide.dll" documentation="..\Build\Topology.IO.MapGuide.xml" />
+        <assembly location="..\Build\Topology.IO.Agf.dll" documentation="..\Build\Topology.IO.Agf.xml" />
     </assemblies>
     <referencePaths>
-        <referencePath path="C:\Program Files\Autodesk Map 3D 2007" />
+        <referencePath path="..\..\..\Program Files\Autodesk Map 3D 2007" />
         <referencePath path="..\External\MG" />
         <referencePath path="..\External\FDO" />
+        <referencePath path="..\..\..\Program Files\Autodesk Map 3D 2007\FDO\bin" />
     </referencePaths>
     <documenters>
         <documenter name="MSDN-Help2">
@@ -26,7 +28,7 @@
         </documenter>
         <documenter name="MSDN-CHM">
             <property name="SdkLinksOnWeb" value="True" />
-            <property name="OutputDirectory" value="D:\DEV\TF-NET\Help\" />
+            <property name="OutputDirectory" value="C:\DEV\TF-NET\Help\" />
             <property name="HtmlHelpName" value="Topology" />
             <property name="Title" value="Topology Framework .NET" />
             <property name="Version" value="1.0.8.0" />
