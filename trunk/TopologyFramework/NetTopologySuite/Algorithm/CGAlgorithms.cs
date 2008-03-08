@@ -2,8 +2,6 @@ using System;
 using System.Collections;
 using System.Text;
 
-
-
 using Topology.Geometries;
 
 namespace Topology.Algorithm
@@ -77,6 +75,9 @@ namespace Topology.Algorithm
         /// <returns><c>true</c> if p is inside ring.</returns>
         public static bool IsPointInRing(ICoordinate p, ICoordinate[] ring) 
         {
+            if (p == null) 
+                return false;
+
             int i;
             int i1;             // point index; i1 = i-1
             double xInt;        // x intersection of segment with ray

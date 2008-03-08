@@ -29,6 +29,10 @@ Public Class DwgReader
         MyBase.New(Topology.Geometries.GeometryFactory.FloatingSingle)
     End Sub
 
+    Sub New(ByVal factory As IGeometryFactory)
+        MyBase.New(factory)
+    End Sub
+
 #End Region
 
 
