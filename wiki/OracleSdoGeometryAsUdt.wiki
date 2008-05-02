@@ -1039,4 +1039,6 @@ namespace NetSdoGeometry
 }
 }}}
 
+= Credits =
+
 This wiki article was kindly contributed by Dennis Jonio.
