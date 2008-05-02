@@ -1,7 +1,5 @@
 #summary References and Further Reading
 
-= References =
-
 Below you may find links for further reading related to topology functions and spatial operations provided by TF.NET:
 
 == The Dimensionally Extended 9 Intersection Model (DE-9IM) ==
