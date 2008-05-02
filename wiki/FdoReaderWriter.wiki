@@ -13,7 +13,7 @@ relies on open source OSGeo Feature Data Objects spatial library:
  * *FGF Writer* reads features based on JTS model and creates their OSGeo Feature Data Objects spatial library Feature Geometry Factory-based representation.
 
 *AGF Reader/Writer*
-references Autodesk's Feature Data Objects spatial library implementation being shipped with Autodesk Map 3D:
+references Autodesk's Feature Data Objects spatial library implementation being shipped with Autodesk Map 3D (pre-2008 versions):
 
  * *AGF Reader* reads Autodesk Feature Data Objects spatial library Feature Geometry Factory-based geometries and creates geometric representation of the features based on JTS model. Curve-based geometries are currently not supported.
 
