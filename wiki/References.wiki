@@ -1,0 +1,10 @@
+#summary References and Further Reading
+
+= References =
+
+Below you may find links for further reading related to topology functions and spatial operations provided by TF.NET:
+
+== The Dimensionally Extended 9 Intersection Model (DE-9IM) ==
+
+  * [http://publib.boulder.ibm.com/infocenter/idshelp/v10/index.jsp?topic=/com.ibm.spatial.doc/spat122.htm IBM Informix Spatial DataBlade Module DE-9IM support]
+  * [http://docs.codehaus.org/display/GEOTDOC/Point+Set+Theory+and+the+DE-9IM+Matrix Point Set Theory and the DE-9IM Matrix]
