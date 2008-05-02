@@ -3,26 +3,31 @@
 Below you may find links for further reading related to topology functions and spatial operations provided by TF.NET:
 
 == Geometry ==
+
   * [http://edndoc.esri.com/arcsde/9.1/general_topics/geometry_properties.htm Basic Geometry Properties], ESRI ArcSDE Developer Help 
   * [http://edndoc.esri.com/arcsde/9.1/general_topics/shape_validation.htm Geometry (Shape) Validation], ESRI ArcSDE Developer Help 
   * [http://edndoc.esri.com/arcsde/9.1/general_topics/instantiable_subclasses.htm Concrete Geometry Implementations (Types)], ESRI ArcSDE Developer Help 
 
 === Spatial Relations And Related Operations ===
+
   * [http://edndoc.esri.com/arcsde/9.1/general_topics/understand_spatial_relations.htm Understanding Spatial Relations], ESRI ArcSDE Developer Help 
   * [http://docs.codehaus.org/display/GEOTDOC/02+Geometry+Relationships Geometry Relationships], The Open Source Java GIS Toolkit Developer Guide
   * [http://docs.codehaus.org/display/GEOTDOC/03+Geometry+Operations Geometry Operations], The Open Source Java GIS Toolkit Developer Guide
   * [http://edndoc.esri.com/arcsde/9.1/general_topics/transforming_geometries.htm Geometry Transformations (Buffer,Locate,ConvexHull)], ESRI ArcSDE Developer Help
 
 === The Dimensionally Extended 9 Intersection Model (DE-9IM) ===
+
   * [http://publib.boulder.ibm.com/infocenter/idshelp/v10/index.jsp?topic=/com.ibm.spatial.doc/spat122.htm The Dimensionally Extended 9 Intersection Model (DE-9IM)], IBM Informix Spatial DataBlade Module 
   * [http://docs.codehaus.org/display/GEOTDOC/Point+Set+Theory+and+the+DE-9IM+Matrix Point Set Theory and the DE-9IM Matrix], The Open Source Java GIS Toolkit
 
 === Generic Geometry I/O Support ===
+
   * [http://edndoc.esri.com/arcsde/9.1/general_topics/wkt_representation.htm The WKT Geometry Representation], ESRI ArcSDE Developer Help
   * [http://edndoc.esri.com/arcsde/9.1/general_topics/wkb_representation.htm The WKB Geometry Representation], ESRI ArcSDE Developer Help
   * [http://edndoc.esri.com/arcsde/9.1/general_topics/esri_shape_representation.htm The ESRI Shape (SHP) Geometry Representation], ESRI ArcSDE Developer Help
 
 === Geometry Implementation Tips ===
+
   * [http://docs.codehaus.org/display/GEOTDOC/01+How+to+Create+a+Geometry How to Create a Geometry], The Open Source Java GIS Toolkit Developer Guide
   * [http://docs.codehaus.org/display/GEOTDOC/Using+union+to+combine+a+Collection+of+Geometry Using UNION to combine a Collection of Geometry], The Open Source Java GIS Toolkit Developer Guide
   * [http://docs.codehaus.org/display/GEOTDOC/05+Simplification+of+Geometry Simplification of Geometry], The Open Source Java GIS Toolkit Developer Guide
