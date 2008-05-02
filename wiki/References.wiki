@@ -14,6 +14,7 @@ Below you may find links for further reading related to topology functions and s
   * [http://docs.codehaus.org/display/GEOTDOC/02+Geometry+Relationships Geometry Relationships], The Open Source Java GIS Toolkit Developer Guide
   * [http://docs.codehaus.org/display/GEOTDOC/03+Geometry+Operations Geometry Operations], The Open Source Java GIS Toolkit Developer Guide
   * [http://edndoc.esri.com/arcsde/9.1/general_topics/transforming_geometries.htm Geometry Transformations (Buffer,Locate,ConvexHull)], ESRI ArcSDE Developer Help
+  * [http://en.wikipedia.org/wiki/Convex_hull Convex Hull (Convex Envelope)], Wikipedia Article
 
 == The Dimensionally Extended 9 Intersection Model (DE-9IM) ==
 
