@@ -27,7 +27,11 @@ Below you may find links for further reading related to topology functions and s
   * [http://edndoc.esri.com/arcsde/9.1/general_topics/what_coord_sys.htm What is a Coordinate System?], ESRI ArcSDE Developer Help
   * [http://edndoc.esri.com/arcsde/9.1/general_topics/define_a_coord_sys.htm Tips on Defining a Coordinate System], ESRI ArcSDE Developer Help
 
+== Geometry Simplification ==
 
+  * [http://docs.codehaus.org/display/GEOTDOC/05+Simplification+of+Geometry Simplification of Geometry], The Open Source Java GIS Toolkit Developer Guide
+  * [http://geometryalgorithms.com/Archive/algorithm_0205/ Douglas-Peucker Algorithm], by Dan Sunday
+  
 == Generic Geometry I/O Support ==
 
   * [http://en.wikipedia.org/wiki/Well-known_text The WKT Geometry Representation], Wikipedia Article
@@ -40,4 +44,3 @@ Below you may find links for further reading related to topology functions and s
 
   * [http://docs.codehaus.org/display/GEOTDOC/01+How+to+Create+a+Geometry How to Create a Geometry], The Open Source Java GIS Toolkit Developer Guide
   * [http://docs.codehaus.org/display/GEOTDOC/Using+union+to+combine+a+Collection+of+Geometry Using UNION to combine a Collection of Geometry], The Open Source Java GIS Toolkit Developer Guide
-  * [http://docs.codehaus.org/display/GEOTDOC/05+Simplification+of+Geometry Simplification of Geometry], The Open Source Java GIS Toolkit Developer Guide
