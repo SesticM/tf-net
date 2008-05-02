@@ -31,6 +31,7 @@ Below you may find links for further reading related to topology functions and s
 
   * [http://docs.codehaus.org/display/GEOTDOC/05+Simplification+of+Geometry Simplification of Geometry], The Open Source Java GIS Toolkit Developer Guide
   * [http://geometryalgorithms.com/Archive/algorithm_0205/ Douglas-Peucker Algorithm], by Dan Sunday
+  * [http://www2.dcs.hull.ac.uk/CISRG/projects/Royal-Inst/demos/dp.html Interactive Ramer's Algorithm Implementation], by Dr Mahes Visvalingam
   
 == Generic Geometry I/O Support ==
 
@@ -44,3 +45,4 @@ Below you may find links for further reading related to topology functions and s
 
   * [http://docs.codehaus.org/display/GEOTDOC/01+How+to+Create+a+Geometry How to Create a Geometry], The Open Source Java GIS Toolkit Developer Guide
   * [http://docs.codehaus.org/display/GEOTDOC/Using+union+to+combine+a+Collection+of+Geometry Using UNION to combine a Collection of Geometry], The Open Source Java GIS Toolkit Developer Guide
+  * [http://www.hpl.hp.com/techreports/Compaq-DEC/SRC-RR-133A.pdf The Third Annual Video Review of Computational Geometry], SRC Research Report (PDF)
