@@ -21,10 +21,19 @@ Below you may find links for further reading related to topology functions and s
   * [http://publib.boulder.ibm.com/infocenter/idshelp/v10/index.jsp?topic=/com.ibm.spatial.doc/spat122.htm The Dimensionally Extended 9 Intersection Model (DE-9IM)], IBM Informix Spatial DataBlade Module 
   * [http://docs.codehaus.org/display/GEOTDOC/Point+Set+Theory+and+the+DE-9IM+Matrix Point Set Theory and the DE-9IM Matrix], The Open Source Java GIS Toolkit
 
+== Spatial (Coordinate) Reference Systems ==
+
+  * [http://en.wikipedia.org/wiki/Map_projection Map Projection Basics], Wikipedia Article
+  * [http://edndoc.esri.com/arcsde/9.1/general_topics/what_coord_sys.htm What is a Coordinate System?], ESRI ArcSDE Developer Help
+  * [http://edndoc.esri.com/arcsde/9.1/general_topics/define_a_coord_sys.htm Tips on Defining a Coordinate System], ESRI ArcSDE Developer Help
+
+
 == Generic Geometry I/O Support ==
 
+  * [http://en.wikipedia.org/wiki/Well-known_text The WKT Geometry Representation], Wikipedia Article
   * [http://edndoc.esri.com/arcsde/9.1/general_topics/wkt_representation.htm The WKT Geometry Representation], ESRI ArcSDE Developer Help
   * [http://edndoc.esri.com/arcsde/9.1/general_topics/wkb_representation.htm The WKB Geometry Representation], ESRI ArcSDE Developer Help
+  * [http://en.wikipedia.org/wiki/Geography_Markup_Language The GML Geometry Representation], Wikipedia Article
   * [http://edndoc.esri.com/arcsde/9.1/general_topics/esri_shape_representation.htm The ESRI Shape (SHP) Geometry Representation], ESRI ArcSDE Developer Help
 
 == Geometry Implementation Tips ==
