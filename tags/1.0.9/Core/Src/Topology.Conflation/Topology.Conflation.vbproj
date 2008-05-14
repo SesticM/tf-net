@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0C28D4A8-94A3-4E76-A70D-7303D62C0763}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Topology</RootNamespace>
+    <AssemblyName>Topology.Conflation</AssemblyName>
+    <MyType>Windows</MyType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Topology.Conflation.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Bin\</OutputPath>
+    <DocumentationFile>Topology.Conflation.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Topology.GeoAPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Topology.NetTopologySuite, Version=1.7.2.18595, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Algorithm\AverageLineDistance.vb" />
+    <Compile Include="Algorithm\EuclideanDistanceToPoint.vb" />
+    <Compile Include="Algorithm\LinearReference\LocatePoint.vb" />
+    <Compile Include="Algorithm\PointPairDistance.vb" />
+    <Compile Include="Algorithm\VertexHausdorffDistance.vb" />
+    <Compile Include="EdgeMerge\MergeEdge.vb" />
+    <Compile Include="EdgeMerge\MergeGraph.vb" />
+    <Compile Include="EdgeMerge\NetworkEdgeMerger.vb" />
+    <Compile Include="Algorithm\LineStringWidth.vb" />
+    <Compile Include="Geometries\BufferDistancePerturber.vb" />
+    <Compile Include="Graph\DirectedEdge.vb" />
+    <Compile Include="Graph\DirectedEdgeStar.vb" />
+    <Compile Include="Graph\Edge.vb" />
+    <Compile Include="Graph\Node.vb" />
+    <Compile Include="Graph\PlanarGraph.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="Precision\CoordinatePrecisionReducer.vb" />
+    <Compile Include="Precision\GeometryPrecisionReducer.vb" />
+    <Compile Include="Precision\NumberPrecisionReducer.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Conflate\BoundaryMatch\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

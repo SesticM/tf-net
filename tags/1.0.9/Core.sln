@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoAPI", "Core\Src\GeoAPI\GeoAPI.csproj", "{FFB69466-79DE-466A-ADA7-5C47C5C5CA3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetTopologySuite", "Core\Src\NetTopologySuite\NetTopologySuite.csproj", "{5770DAA9-84E5-4770-AF43-F6B815894368}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FFB69466-79DE-466A-ADA7-5C47C5C5CA3A} = {FFB69466-79DE-466A-ADA7-5C47C5C5CA3A}
+		{3E9DF3B2-DDF7-414D-BA8A-0F1131859F31} = {3E9DF3B2-DDF7-414D-BA8A-0F1131859F31}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpMap.CoordinateSystems", "Core\Src\SharpMap\SharpMap.CoordinateSystems.csproj", "{3E9DF3B2-DDF7-414D-BA8A-0F1131859F31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickGraph", "Core\Src\QuickGraph\QuickGraph.csproj", "{A9A5C115-0680-44B3-A87E-5ECF4C93814E}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Topology.Conflation", "Core\Src\Topology.Conflation\Topology.Conflation.vbproj", "{0C28D4A8-94A3-4E76-A70D-7303D62C0763}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FFB69466-79DE-466A-ADA7-5C47C5C5CA3A} = {FFB69466-79DE-466A-ADA7-5C47C5C5CA3A}
+		{5770DAA9-84E5-4770-AF43-F6B815894368} = {5770DAA9-84E5-4770-AF43-F6B815894368}
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Topology.IO", "Core\Src\Topology.IO\Topology.IO.vbproj", "{5B699D3E-C21E-48F1-BCC9-A55E47469A30}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FFB69466-79DE-466A-ADA7-5C47C5C5CA3A} = {FFB69466-79DE-466A-ADA7-5C47C5C5CA3A}
+		{5770DAA9-84E5-4770-AF43-F6B815894368} = {5770DAA9-84E5-4770-AF43-F6B815894368}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Description = Topology Framework .NET Core
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFB69466-79DE-466A-ADA7-5C47C5C5CA3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFB69466-79DE-466A-ADA7-5C47C5C5CA3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFB69466-79DE-466A-ADA7-5C47C5C5CA3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFB69466-79DE-466A-ADA7-5C47C5C5CA3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5770DAA9-84E5-4770-AF43-F6B815894368}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5770DAA9-84E5-4770-AF43-F6B815894368}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5770DAA9-84E5-4770-AF43-F6B815894368}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5770DAA9-84E5-4770-AF43-F6B815894368}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E9DF3B2-DDF7-414D-BA8A-0F1131859F31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E9DF3B2-DDF7-414D-BA8A-0F1131859F31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E9DF3B2-DDF7-414D-BA8A-0F1131859F31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E9DF3B2-DDF7-414D-BA8A-0F1131859F31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9A5C115-0680-44B3-A87E-5ECF4C93814E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9A5C115-0680-44B3-A87E-5ECF4C93814E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9A5C115-0680-44B3-A87E-5ECF4C93814E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9A5C115-0680-44B3-A87E-5ECF4C93814E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C28D4A8-94A3-4E76-A70D-7303D62C0763}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C28D4A8-94A3-4E76-A70D-7303D62C0763}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C28D4A8-94A3-4E76-A70D-7303D62C0763}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C28D4A8-94A3-4E76-A70D-7303D62C0763}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B699D3E-C21E-48F1-BCC9-A55E47469A30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B699D3E-C21E-48F1-BCC9-A55E47469A30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B699D3E-C21E-48F1-BCC9-A55E47469A30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B699D3E-C21E-48F1-BCC9-A55E47469A30}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

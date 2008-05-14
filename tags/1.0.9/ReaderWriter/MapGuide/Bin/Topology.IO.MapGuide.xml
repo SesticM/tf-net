@@ -1,0 +1,400 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Topology.IO.MapGuide
+</name>
+</assembly>
+<members>
+<member name="M:Topology.IO.MapGuide.MgWriter.#ctor(OSGeo.MapGuide.MgGeometryFactory)">
+	<summary>
+ Initializes a new instance of the <see cref="T:Topology.IO.MapGuide.MgWriter"/> class, using
+ user-supplied <see cref="T:OSGeo.MapGuide.MgGeometryFactory"/> for geometry processing. 
+ </summary>
+	<param name="factory">A <see cref="T:OSGeo.MapGuide.MgGeometryFactory"/>.</param>
+	<remarks></remarks>
+</member><member name="P:Topology.IO.MapGuide.MgWriter.Factory">
+	<summary>
+ Returns current <see cref="T:OSGeo.MapGuide.MgGeometryFactory"/> used to build geometries.
+ <para>
+ It's actually reserved for possible future releases of <see cref="T:OSGeo.MapGuide.MgGeometryFactory"/>
+ that might implement user-defined precision model, or incorporate common coordinate
+ reference system (CRS) used when building geometries.
+ </para>
+	</summary>
+	<value></value>
+	<returns>Current <see cref="T:OSGeo.MapGuide.MgGeometryFactory"/> instance.</returns>
+	<remarks>
+ If there's no <see cref="T:OSGeo.MapGuide.MgGeometryFactory"/> set within class constructor,
+ a <c>Default</c> factory will be automatically instantiated. Otherwise,
+ user-supplied <see cref="T:OSGeo.MapGuide.MgGeometryFactory"/> will be used during geometries
+ building process.
+ </remarks>
+</member><member name="M:Topology.IO.MapGuide.MgWriter.WriteCoordinate(Topology.Geometries.ICoordinate)">
+	<summary>
+ Returns <see cref="T:OSGeo.MapGuide.MgCoordinate"/> structure converted from <see cref="T:Topology.Geometries.Coordinate"/> structure.
+ If <see cref="T:Topology.Geometries.Coordinate"/> is two-dimensional, resulting <see cref="T:OSGeo.MapGuide.MgCoordinate"/> is
+ created using <c>CreateCoordinateXY()</c>, otherwise <c>CreateCoordinateXYZ()</c> is used.
+ </summary>
+	<param name="coordinate">A <see cref="T:Topology.Geometries.Coordinate"/> structure.</param>
+	<returns>A <see cref="T:OSGeo.MapGuide.MgCoordinate"/> structure.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgWriter.WritePoint(Topology.Geometries.IPoint)">
+	<summary>
+ Returns <see cref="T:OSGeo.MapGuide.MgPoint"/> geometry converted from <see cref="T:Topology.Geometries.Point"/> geometry.
+ </summary>
+	<param name="point">A <see cref="T:Topology.Geometries.Point"/> geometry.</param>
+	<returns>A <see cref="T:OSGeo.MapGuide.MgPoint"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgWriter.WriteLineString(Topology.Geometries.ILineString)">
+	<summary>
+ Returns <see cref="T:OSGeo.MapGuide.MgLineString"/> geometry converted from <see cref="T:Topology.Geometries.LineString"/> geometry.
+ </summary>
+	<param name="lineString">A <see cref="T:Topology.Geometries.LineString"/> geometry.</param>
+	<returns>A <see cref="T:OSGeo.MapGuide.MgLineString"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgWriter.WriteLineString(Topology.Geometries.ILinearRing)">
+	<summary>
+ Returns <see cref="T:OSGeo.MapGuide.MgLineString"/> geometry converted from <see cref="T:Topology.Geometries.LinearRing"/> geometry.
+ </summary>
+	<param name="linearRing">A <see cref="T:Topology.Geometries.LinearRing"/> geometry.</param>
+	<returns>A <see cref="T:OSGeo.MapGuide.MgLineString"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgWriter.WriteLinearRing(Topology.Geometries.ILinearRing)">
+	<summary>
+ Returns <see cref="T:OSGeo.MapGuide.MgLinearRing"/> geometry converted from <see cref="T:Topology.Geometries.LinearRing"/> geometry.
+ </summary>
+	<param name="linearRing">A <see cref="T:Topology.Geometries.LinearRing"/> geometry.</param>
+	<returns>A <see cref="T:OSGeo.MapGuide.MgLinearRing"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgWriter.WritePolygon(Topology.Geometries.IPolygon)">
+	<summary>
+ Returns <see cref="T:OSGeo.MapGuide.MgPolygon"/> geometry converted from <see cref="T:Topology.Geometries.Polygon"/> geometry.
+ </summary>
+	<param name="polygon">A <see cref="T:Topology.Geometries.Polygon"/> geometry.</param>
+	<returns>A <see cref="T:OSGeo.MapGuide.MgPolygon"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgWriter.WriteGeometry(Topology.Geometries.IGeometry)">
+	<summary>
+ Returns <see cref="T:OSGeo.MapGuide.MgGeometry"/> converted from <see cref="T:Topology.Geometries.Geometry"/>.
+ <para>
+ Supported geometry types:
+ <list type="table">
+				<listheader>
+					<term>Geometry Type</term>
+					<term>Description</term>
+				</listheader>
+				<item>
+					<term><c>Point</c></term>
+					<term>A single point.</term>
+				</item>
+				<item>
+					<term><c>LineString</c></term>
+					<term>Series of connected line segments.</term>
+				</item>
+				<item>
+					<term><c>Polygon</c></term>
+					<term>A polygon with sides formed from linear rings.</term>
+				</item>
+				<item>
+					<term><c>MultiPoint</c></term>
+					<term>Collection of points.</term>
+				</item>
+				<item>
+					<term><c>MultiLineString</c></term>
+					<term>Collection of line strings.</term>
+				</item>
+				<item>
+					<term><c>MultiPolygon</c></term>
+					<term>Collection of polygons.</term>
+				</item>
+				<item>
+					<term><c>MultiGeometry</c></term>
+					<term>Collection of simple geometry types.</term>
+				</item>
+			</list>
+		</para>
+	</summary>
+	<param name="geometry">A <see cref="T:Topology.Geometries.Geometry"/> object.</param>
+	<returns>A <see cref="T:OSGeo.MapGuide.MgGeometry"/> object.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgWriter.WriteMultiPoint(Topology.Geometries.IMultiPoint)">
+	<summary>
+ Returns <see cref="T:OSGeo.MapGuide.MgMultiPoint"/> geometry converted from <see cref="T:Topology.Geometries.MultiPoint"/> geometry.
+ </summary>
+	<param name="multiPoint">A <see cref="T:Topology.Geometries.MultiPoint"/> geometry.</param>
+	<returns>A <see cref="T:OSGeo.MapGuide.MgMultiPoint"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgWriter.WriteMultiLineString(Topology.Geometries.IMultiLineString)">
+	<summary>
+ Returns <see cref="T:OSGeo.MapGuide.MgMultiLineString"/> geometry converted from <see cref="T:Topology.Geometries.MultiLineString"/> geometry.
+ </summary>
+	<param name="multiLineString">A <see cref="T:Topology.Geometries.MultiLineString"/> geometry.</param>
+	<returns>A <see cref="T:OSGeo.MapGuide.MgMultiLineString"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgWriter.WriteMultiPolygon(Topology.Geometries.IMultiPolygon)">
+	<summary>
+ Returns <see cref="T:OSGeo.MapGuide.MgMultiPolygon"/> geometry converted from <see cref="T:Topology.Geometries.MultiPolygon"/> geometry.
+ </summary>
+	<param name="multiPolygon">A <see cref="T:Topology.Geometries.MultiPolygon"/> geometry.</param>
+	<returns>A <see cref="T:OSGeo.MapGuide.MgMultiPolygon"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgWriter.WriteMultiGeometry(Topology.Geometries.IMultiSurface)">
+	<summary>
+ Returns <see cref="T:OSGeo.MapGuide.MgMultiGeometry"/> geometry converted from <see cref="T:Topology.Geometries.IMultiSurface"/> geometry.
+ </summary>
+	<param name="multiSurface">A <see cref="T:Topology.Geometries.IMultiSurface"/> geometry.</param>
+	<returns>A <see cref="T:OSGeo.MapGuide.MgMultiGeometry"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgWriter.WriteCoordinateCollection(Topology.Geometries.ICoordinate[])">
+	<summary>
+ Returns <see cref="T:OSGeo.MapGuide.MgCoordinateCollection"/> converted from array of <see cref="T:Topology.Geometries.Coordinate"/>s.
+ </summary>
+	<param name="coordinates">An array of <see cref="T:Topology.Geometries.Coordinate"/>s.</param>
+	<returns>A <see cref="T:OSGeo.MapGuide.MgCoordinateCollection"/> collection.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgWriter.WritePointCollection(Topology.Geometries.IPoint[])">
+	<summary>
+ Returns <see cref="T:OSGeo.MapGuide.MgPointCollection"/> converted from array of <see cref="T:Topology.Geometries.Point"/>s.
+ </summary>
+	<param name="points">An array of <see cref="T:Topology.Geometries.Point"/>s.</param>
+	<returns>A <see cref="T:OSGeo.MapGuide.MgPointCollection"/> collection.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgWriter.WriteLineStringCollection(Topology.Geometries.ILineString[])">
+	<summary>
+ Returns <see cref="T:OSGeo.MapGuide.MgLineStringCollection"/> converted from array of <see cref="T:Topology.Geometries.LineString"/>s.
+ </summary>
+	<param name="lineStrings">An array of <see cref="T:Topology.Geometries.LineString"/>s.</param>
+	<returns>A <see cref="T:OSGeo.MapGuide.MgLineStringCollection"/> collection.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgWriter.WriteLineStringCollection(Topology.Geometries.ILinearRing[])">
+	<summary>
+ Returns <see cref="T:OSGeo.MapGuide.MgLineStringCollection"/> converted from array of <see cref="T:Topology.Geometries.LinearRing"/>s.
+ </summary>
+	<param name="linearRings">An array of <see cref="T:Topology.Geometries.LinearRing"/>s.</param>
+	<returns>A <see cref="T:OSGeo.MapGuide.MgLineStringCollection"/> collection.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgWriter.WriteLinearRingCollection(Topology.Geometries.ILinearRing[])">
+	<summary>
+ Returns <see cref="T:OSGeo.MapGuide.MgLinearRingCollection"/> converted from array of <see cref="T:Topology.Geometries.LinearRing"/>s.
+ </summary>
+	<param name="linearRings">An array of <see cref="T:Topology.Geometries.LinearRing"/>s.</param>
+	<returns>A <see cref="T:OSGeo.MapGuide.MgLinearRingCollection"/> collection.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgWriter.WritePolygonCollection(Topology.Geometries.IPolygon[])">
+	<summary>
+ Returns <see cref="T:OSGeo.MapGuide.MgPolygonCollection"/> converted from array of <see cref="T:Topology.Geometries.Polygon"/>s.
+ </summary>
+	<param name="polygons">An array of <see cref="T:Topology.Geometries.Polygon"/>s.</param>
+	<returns>A <see cref="T:OSGeo.MapGuide.MgPolygonCollection"/> collection.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgWriter.WriteGeometryCollection(Topology.Geometries.IGeometryCollection)">
+	<summary>
+ Returns <see cref="T:OSGeo.MapGuide.MgGeometryCollection"/> converted from <see cref="T:Topology.Geometries.GeometryCollection"/>.
+ </summary>
+	<param name="geometries">A <see cref="T:Topology.Geometries.GeometryCollection"/> collection.</param>
+	<returns>A <see cref="T:OSGeo.MapGuide.MgGeometryCollection"/> collection.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgWriter.WriteLinearSegment(Topology.Geometries.LineSegment)">
+	<summary>
+ Returns <see cref="T:OSGeo.MapGuide.MgLinearSegment"/> geometry converted from <see cref="T:Topology.Geometries.LineSegment"/> geometry.
+ </summary>
+	<param name="lineSegment">A <see cref="T:Topology.Geometries.LineSegment"/> geometry.</param>
+	<returns>A <see cref="T:OSGeo.MapGuide.MgLinearSegment"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgWriter.WriteEnvelope(Topology.Geometries.IEnvelope)">
+	<summary>
+ Returns <see cref="T:OSGeo.MapGuide.MgEnvelope"/> structure converted from <see cref="T:Topology.Geometries.Envelope"/> structure.
+ </summary>
+	<param name="envelope">An <see cref="T:Topology.Geometries.Envelope"/> structure.</param>
+	<returns>A <see cref="T:OSGeo.MapGuide.MgEnvelope"/> structure.</returns>
+	<remarks></remarks>
+</member><member name="T:Topology.IO.MapGuide.MgWriter">
+	<summary>
+ Reads features based on JTS model and creates their MapGuide Server representation.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgReader.#ctor(Topology.Geometries.IGeometryFactory)">
+	<summary>
+ Initializes a new instance of the <see cref="T:Topology.IO.MapGuide.MgReader"/> class, using
+ user-supplied <see cref="P:Topology.IO.GeometryReaderWriter.GeometryFactory"/> for geometry processing. 
+ </summary>
+	<param name="factory">A <see cref="P:Topology.IO.GeometryReaderWriter.GeometryFactory"/>.</param>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgReader.ReadCoordinate(OSGeo.MapGuide.MgCoordinate)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.Coordinate"/> structure converted from <see cref="T:OSGeo.MapGuide.MgCoordinate"/>.
+ Supported dimensionalities are <c>XY</c> and <c>XYZ</c> only.
+ </summary>
+	<param name="coordinate">A <see cref="T:OSGeo.MapGuide.MgCoordinate"/> structure.</param>
+	<returns>A <see cref="T:Topology.Geometries.Coordinate"/> structure.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgReader.ReadPoint(OSGeo.MapGuide.MgPoint)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.Point"/> geometry converted from <see cref="T:OSGeo.MapGuide.MgPoint"/>.
+ </summary>
+	<param name="point">A <see cref="T:OSGeo.MapGuide.MgPoint"/> geometry.</param>
+	<returns>A <see cref="T:Topology.Geometries.Point"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgReader.ReadLineString(OSGeo.MapGuide.MgLineString)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.LineString"/> geometry converted from <see cref="T:OSGeo.MapGuide.MgLineString"/>.
+ </summary>
+	<param name="lineString">A <see cref="T:OSGeo.MapGuide.MgLineString"/> geometry.</param>
+	<returns>A <see cref="T:Topology.Geometries.LineString"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgReader.ReadLinearRing(OSGeo.MapGuide.MgLinearRing)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.LinearRing"/> geometry converted from <see cref="T:OSGeo.MapGuide.MgLinearRing"/>.
+ </summary>
+	<param name="linearRing">A <see cref="T:OSGeo.MapGuide.MgLinearRing"/> geometry.</param>
+	<returns>A <see cref="T:Topology.Geometries.LinearRing"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgReader.ReadPolygon(OSGeo.MapGuide.MgPolygon)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.Polygon"/> geometry converted from <see cref="T:OSGeo.MapGuide.MgPolygon"/>.
+ </summary>
+	<param name="polygon">A <see cref="T:OSGeo.MapGuide.MgPolygon"/> geometry.</param>
+	<returns>A <see cref="T:Topology.Geometries.Polygon"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgReader.ReadGeometry(OSGeo.MapGuide.MgGeometry)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.Geometry"/> object converted from <see cref="T:OSGeo.MapGuide.MgGeometry"/>.
+ <para>
+ Supported geometry types:
+ <list type="table">
+				<listheader>
+					<term>Geometry Type</term>
+					<term>Description</term>
+				</listheader>
+				<item>
+					<term><c>Point</c></term>
+					<term>A single point.</term>
+				</item>
+				<item>
+					<term><c>LineString</c></term>
+					<term>Series of connected line segments.</term>
+				</item>
+				<item>
+					<term><c>Polygon</c></term>
+					<term>A polygon with sides formed from linear rings.
+             Linear ring is a line string representation where line string's first and last
+             point in the coordinate sequence must be equal. Either orientation of the ring is allowed.
+             A valid ring must not self-intersect.</term>
+				</item>
+				<item>
+					<term><c>MultiPoint</c></term>
+					<term>Collection of points.</term>
+				</item>
+				<item>
+					<term><c>MultiLineString</c></term>
+					<term>Collection of line strings.</term>
+				</item>
+				<item>
+					<term><c>MultiPolygon</c></term>
+					<term>Collection of polygons.</term>
+				</item>
+			</list>
+		</para>
+	</summary>
+	<param name="geometry">A <see cref="T:OSGeo.MapGuide.MgGeometry"/> object.</param>
+	<returns>A <see cref="T:Topology.Geometries.Geometry"/> object.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgReader.ReadGeometry(OSGeo.MapGuide.MgFeatureReader@,System.String)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.Geometry"/> object given <see cref="T:OSGeo.MapGuide.MgFeatureReader"/> and a
+ name of the feature class geometry property.
+ </summary>
+	<param name="featureReader">A <see cref="T:OSGeo.MapGuide.MgFeatureReader"/> object.</param>
+	<param name="geometryPropertyName">Name of the feature class geometry property (i.e. "Geometry").</param>
+	<returns>A <see cref="T:Topology.Geometries.Geometry"/> object.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgReader.ReadGeometry(OSGeo.MapGuide.MgFeatureReader@)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.Geometry"/> object given <see cref="T:OSGeo.MapGuide.MgFeatureReader"/>,
+ when feature class geometry property's name is <c>Geometry</c>.
+ </summary>
+	<param name="featureReader">A <see cref="T:OSGeo.MapGuide.MgFeatureReader"/> object.</param>
+	<returns>A <see cref="T:Topology.Geometries.Geometry"/> object.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgReader.ReadMultiPoint(OSGeo.MapGuide.MgMultiPoint)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.MultiPoint"/> geometry converted from <see cref="T:OSGeo.MapGuide.MgMultiPoint"/>.
+ </summary>
+	<param name="multiPoint">A <see cref="T:OSGeo.MapGuide.MgMultiPoint"/> geometry.</param>
+	<returns>A <see cref="T:Topology.Geometries.MultiPoint"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgReader.ReadMultiLineString(OSGeo.MapGuide.MgMultiLineString)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.MultiLineString"/> geometry converted from <see cref="T:OSGeo.MapGuide.MgMultiLineString"/>.
+ </summary>
+	<param name="multiLineString">A <see cref="T:OSGeo.MapGuide.MgMultiLineString"/> geometry.</param>
+	<returns>A <see cref="T:Topology.Geometries.MultiLineString"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgReader.ReadMultiPolygon(OSGeo.MapGuide.MgMultiPolygon)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.MultiPolygon"/> geometry converted from <see cref="T:OSGeo.MapGuide.MgMultiPolygon"/>.
+ </summary>
+	<param name="multiPolygon">A <see cref="T:OSGeo.MapGuide.MgMultiPolygon"/> geometry.</param>
+	<returns>A <see cref="T:Topology.Geometries.MultiPolygon"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgReader.ReadCoordinateCollection(OSGeo.MapGuide.MgCoordinateCollection)">
+	<summary>
+ Returns array of <see cref="T:Topology.Geometries.Coordinate"/>s converted from <see cref="T:OSGeo.MapGuide.MgCoordinateCollection"/>.
+ </summary>
+	<param name="coordinates">A <see cref="T:OSGeo.MapGuide.MgCoordinateCollection"/> collection.</param>
+	<returns>Array of <see cref="T:Topology.Geometries.Coordinate"/> structures.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgReader.ReadGeometryCollection(OSGeo.MapGuide.MgGeometryCollection)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.GeometryCollection"/> converted from <see cref="T:OSGeo.MapGuide.MgGeometryCollection"/>.
+ </summary>
+	<param name="geometries">A <see cref="T:OSGeo.MapGuide.MgGeometryCollection"/> collection.</param>
+	<returns>A <see cref="T:Topology.Geometries.GeometryCollection"/> collection.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgReader.ReadGeometryCollection(OSGeo.MapGuide.MgMultiGeometry)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.GeometryCollection"/> converted from <see cref="T:OSGeo.MapGuide.MgMultiGeometry"/> geometry.
+ </summary>
+	<param name="multiGeometry">A <see cref="T:OSGeo.MapGuide.MgMultiGeometry"/> geometry.</param>
+	<returns>A <see cref="T:Topology.Geometries.GeometryCollection"/> collection.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgReader.ReadLineSegment(OSGeo.MapGuide.MgLinearSegment)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.LineSegment"/> geometry converted from <see cref="T:OSGeo.MapGuide.MgLinearSegment"/> geometry.
+ </summary>
+	<param name="linearSegment">A <see cref="T:OSGeo.MapGuide.MgLinearSegment"/> geometry.</param>
+	<returns>A <see cref="T:Topology.Geometries.LineSegment"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgReader.ReadLineSegment(OSGeo.MapGuide.MgCoordinate,OSGeo.MapGuide.MgCoordinate)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.LineSegment"/> geometry given start and end <see cref="T:OSGeo.MapGuide.MgCoordinate"/>s.
+ </summary>
+	<param name="coordinate0">Start <see cref="T:OSGeo.MapGuide.MgCoordinate"/> structure.</param>
+	<param name="coordinate1">End <see cref="T:OSGeo.MapGuide.MgCoordinate"/> structure.</param>
+	<returns>A <see cref="T:Topology.Geometries.LineSegment"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgReader.ReadLineSegment(OSGeo.MapGuide.MgPoint,OSGeo.MapGuide.MgPoint)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.LineSegment"/> geometry given start and end <see cref="T:OSGeo.MapGuide.MgPoint"/>s.
+ </summary>
+	<param name="point0">Start <see cref="T:OSGeo.MapGuide.MgPoint"/> geometry.</param>
+	<param name="point1">End <see cref="T:OSGeo.MapGuide.MgPoint"/> geometry.</param>
+	<returns>A <see cref="T:Topology.Geometries.LineSegment"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.MapGuide.MgReader.ReadEnvelope(OSGeo.MapGuide.MgEnvelope)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.Envelope"/> structure converted from <see cref="T:OSGeo.MapGuide.MgEnvelope"/>.
+ </summary>
+	<param name="envelope">A <see cref="T:OSGeo.MapGuide.MgEnvelope"/> structure.</param>
+	<returns>An <see cref="T:Topology.Geometries.Envelope"/> structure.</returns>
+	<remarks></remarks>
+</member><member name="T:Topology.IO.MapGuide.MgReader">
+	<summary>
+ Reads MapGuide Server geometries and creates geometric representation of the features
+ based on JTS model. Curve-based geometries are currently not supported.
+ </summary>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

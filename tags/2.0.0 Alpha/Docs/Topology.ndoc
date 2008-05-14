@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<project SchemaVersion="2.0">
+    <assemblies>
+        <assembly location="..\Core\Bin\Topology.dll" documentation="..\Core\Bin\Topology.xml" />
+    </assemblies>
+    <documenters>
+        <documenter name="MSDN-Help2">
+            <property name="PlugInNamespace" value="ms.vscc" />
+            <property name="OutputDirectory" value=".\doc\" />
+            <property name="HtmlHelpName" value="Documentation" />
+            <property name="Title" value="An NDoc documented library" />
+            <property name="Version" value="1.0.0.1" />
+        </documenter>
+        <documenter name="MSDN-CHM">
+            <property name="SdkLinksOnWeb" value="True" />
+            <property name="OutputDirectory" value="..\Docs\Msdn-Chm\" />
+            <property name="HtmlHelpName" value="Topology" />
+            <property name="Title" value="Topology Framework .NET" />
+            <property name="Version" value="2.0.0.0" />
+            <property name="CopyrightText" value="GNU General Lesser Public License" />
+            <property name="FeedbackEmailAddress" value="max@geoinova.com" />
+            <property name="Preliminary" value="True" />
+            <property name="CleanIntermediates" value="True" />
+        </documenter>
+        <documenter name="Intellisense">
+            <property name="OutputDirectory" value=".\intellisense\" />
+        </documenter>
+        <documenter name="MSDN-Web">
+            <property name="OutputDirectory" value=".\doc\" />
+            <property name="HtmlHelpName" value="Documentation" />
+            <property name="Title" value="An NDoc documented library" />
+        </documenter>
+    </documenters>
+</project>

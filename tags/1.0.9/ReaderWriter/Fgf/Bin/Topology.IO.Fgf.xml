@@ -1,0 +1,470 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Topology.IO.Fgf
+</name>
+</assembly>
+<members>
+<member name="M:Topology.IO.Fgf.FgfReader.#ctor(Topology.Geometries.IGeometryFactory)">
+	<summary>
+ Initializes a new instance of the <see cref="T:Topology.IO.Fgf.FgfReader"/> class, using
+ user-supplied <see cref="P:Topology.IO.GeometryReaderWriter.GeometryFactory"/> for geometry processing. 
+ </summary>
+	<param name="factory">A <see cref="P:Topology.IO.GeometryReaderWriter.GeometryFactory"/>.</param>
+	<remarks></remarks>
+</member><member name="P:Topology.IO.Fgf.FgfReader.Factory">
+	<summary>
+ Returns current <see cref="T:OSGeo.FDO.Geometry.FgfGeometryFactory"/> used to build geometries.
+ </summary>
+	<value></value>
+	<returns>Current <see cref="T:OSGeo.FDO.Geometry.FgfGeometryFactory"/> instance.</returns>
+	<remarks>
+ If there's no <see cref="T:OSGeo.FDO.Geometry.FgfGeometryFactory"/> set within class constructor,
+ a <c>Default</c> factory will be automatically instantiated. Otherwise,
+ user-supplied <see cref="T:OSGeo.FDO.Geometry.FgfGeometryFactory"/> will be used during geometries
+ building process.
+ </remarks>
+</member><member name="M:Topology.IO.Fgf.FgfReader.ReadCoordinate(OSGeo.FDO.Geometry.IDirectPosition)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.Coordinate"/> structure converted from <see cref="T:OSGeo.FDO.Geometry.IDirectPosition"/>.
+ Supported dimensionalities are <c>XY</c> and <c>XYZ</c> only.
+ </summary>
+	<param name="directPosition">A <see cref="T:OSGeo.FDO.Geometry.IDirectPosition"/> structure.</param>
+	<returns>A <see cref="T:Topology.Geometries.Coordinate"/> structure.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfReader.ReadPoint(OSGeo.FDO.Geometry.IPoint)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.Point"/> geometry converted from <see cref="T:OSGeo.FDO.Geometry.IPoint"/>.
+ </summary>
+	<param name="point">A <see cref="T:OSGeo.FDO.Geometry.IPoint"/> geometry.</param>
+	<returns>A <see cref="T:Topology.Geometries.Point"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfReader.ReadLineString(OSGeo.FDO.Geometry.ILineString)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.LineString"/> geometry converted from <see cref="T:OSGeo.FDO.Geometry.ILineString"/>.
+ </summary>
+	<param name="lineString">A <see cref="T:OSGeo.FDO.Geometry.ILineString"/> geometry.</param>
+	<returns>A <see cref="T:Topology.Geometries.LineString"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfReader.ReadLinearRing(OSGeo.FDO.Geometry.ILinearRing)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.LinearRing"/> geometry converted from <see cref="T:OSGeo.FDO.Geometry.ILinearRing"/>.
+ </summary>
+	<param name="linearRing">A <see cref="T:OSGeo.FDO.Geometry.ILinearRing"/> geometry.</param>
+	<returns>A <see cref="T:Topology.Geometries.LinearRing"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfReader.ReadPolygon(OSGeo.FDO.Geometry.IPolygon)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.Polygon"/> geometry converted from <see cref="T:OSGeo.FDO.Geometry.IPolygon"/>.
+ </summary>
+	<param name="polygon">A <see cref="T:OSGeo.FDO.Geometry.IPolygon"/> geometry.</param>
+	<returns>A <see cref="T:Topology.Geometries.Polygon"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfReader.ReadGeometry(OSGeo.FDO.Geometry.IGeometry)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.Geometry"/> object converted from <see cref="T:OSGeo.FDO.Geometry.IGeometry"/>.
+ <para>
+ Supported geometry types:
+ <list type="table">
+				<listheader>
+					<term>Geometry Type</term>
+					<term>Description</term>
+				</listheader>
+				<item>
+					<term><c>Point</c></term>
+					<term>A single point.</term>
+				</item>
+				<item>
+					<term><c>LineString</c></term>
+					<term>Series of connected line segments.</term>
+				</item>
+				<item>
+					<term><c>Polygon</c></term>
+					<term>A polygon with sides formed from linear rings.</term>
+				</item>
+				<item>
+					<term><c>MultiPoint</c></term>
+					<term>Collection of points.</term>
+				</item>
+				<item>
+					<term><c>MultiLineString</c></term>
+					<term>Collection of line strings.</term>
+				</item>
+				<item>
+					<term><c>MultiPolygon</c></term>
+					<term>Collection of polygons.</term>
+				</item>
+			</list>
+		</para>
+	</summary>
+	<param name="geometry">A <see cref="T:OSGeo.FDO.Geometry.IGeometry"/> object.</param>
+	<returns>A <see cref="T:Topology.Geometries.Geometry"/> object.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfReader.ReadMultiPoint(OSGeo.FDO.Geometry.IMultiPoint)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.MultiPoint"/> geometry converted from <see cref="T:OSGeo.FDO.Geometry.IMultiPoint"/>.
+ </summary>
+	<param name="multiPoint">A <see cref="T:OSGeo.FDO.Geometry.IMultiPoint"/> geometry.</param>
+	<returns>A <see cref="T:Topology.Geometries.MultiPoint"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfReader.ReadMultiLineString(OSGeo.FDO.Geometry.IMultiLineString)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.MultiLineString"/> geometry converted from <see cref="T:OSGeo.FDO.Geometry.IMultiLineString"/>.
+ </summary>
+	<param name="multiLineString">A <see cref="T:OSGeo.FDO.Geometry.IMultiLineString"/> geometry.</param>
+	<returns>A <see cref="T:Topology.Geometries.MultiLineString"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfReader.ReadMultiPolygon(OSGeo.FDO.Geometry.IMultiPolygon)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.MultiPolygon"/> geometry converted from <see cref="T:OSGeo.FDO.Geometry.IMultiPolygon"/>.
+ </summary>
+	<param name="multiPolygon">A <see cref="T:OSGeo.FDO.Geometry.IMultiPolygon"/> geometry.</param>
+	<returns>A <see cref="T:Topology.Geometries.MultiPolygon"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfReader.ReadCoordinateCollection(OSGeo.FDO.Geometry.DirectPositionCollection)">
+	<summary>
+ Returns array of <see cref="T:Topology.Geometries.Coordinate"/>s converted from <see cref="T:OSGeo.FDO.Geometry.DirectPositionCollection"/>.
+ </summary>
+	<param name="directPositions">A <see cref="T:OSGeo.FDO.Geometry.DirectPositionCollection"/> collection.</param>
+	<returns>Array of <see cref="T:Topology.Geometries.Coordinate"/> structures.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfReader.ReadGeometryCollection(OSGeo.FDO.Geometry.GeometryCollection)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.GeometryCollection"/> converted from <see cref="T:OSGeo.FDO.Geometry.GeometryCollection"/>.
+ </summary>
+	<param name="geometries">A <see cref="T:OSGeo.FDO.Geometry.GeometryCollection"/> collection.</param>
+	<returns>A <see cref="T:Topology.Geometries.GeometryCollection"/> collection.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfReader.ReadGeometryCollection(OSGeo.FDO.Geometry.IMultiGeometry)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.GeometryCollection"/> converted from <see cref="T:OSGeo.FDO.Geometry.IMultiGeometry"/> geometry.
+ </summary>
+	<param name="multiGeometry">A <see cref="T:OSGeo.FDO.Geometry.IMultiGeometry"/> geometry.</param>
+	<returns>A <see cref="T:Topology.Geometries.GeometryCollection"/> collection.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfReader.ReadLineSegment(OSGeo.FDO.Geometry.ILineStringSegment)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.LineSegment"/> geometry converted from <see cref="T:OSGeo.FDO.Geometry.ILineStringSegment"/> geometry.
+ </summary>
+	<param name="lineStringSegment">A <see cref="T:OSGeo.FDO.Geometry.ILineStringSegment"/> geometry.</param>
+	<returns>A <see cref="T:Topology.Geometries.LineSegment"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfReader.ReadEnvelope(OSGeo.FDO.Geometry.IEnvelope)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.Envelope"/> structure converted from <see cref="T:OSGeo.FDO.Geometry.IEnvelope"/>.
+ </summary>
+	<param name="envelope">A <see cref="T:OSGeo.FDO.Geometry.IEnvelope"/> structure.</param>
+	<returns>An <see cref="T:Topology.Geometries.Envelope"/> structure.</returns>
+	<remarks></remarks>
+</member><member name="T:Topology.IO.Fgf.FgfReader">
+	<summary>
+ Reads OSGeo Feature Data Objects (FDO) geometries and creates geometric representation
+ of the features based on JTS model. Curve-based geometries are currently not supported.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Topology.IO.Fgf.BinaryFormat.FGF">
+	<summary>
+ OSGeo Feature Geometry Factory binary format.
+ <para>
+ Feature Geometry Factory format is OSGeo's extended version of the
+ Well Known Binary Format (WKB). In FGF, geometry types are included
+ that are not yet covered by any WKB specification. Only one memory
+ alignment type is supported, which is the same alignment type as used
+ by the .Net framework and Windows (little endian).
+ As a result, this byte flag does not need to be stored.
+ </para>
+ In FGF, the dimension flag has been added. In particular, a flag is
+ included for each geometry piece to indicate whether the geometry is 2D,
+ 3D or even 4D (storing a measure value as used by dynamic segmentation.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Topology.IO.Fgf.BinaryFormat.WKB">
+	<summary>
+ Well Known Binary format.
+ <para>
+ WKB is a memory layout to store geometry used by GIS applications. This format was
+ created by the OpenGIS organization to allow efficient exchange of geometry data between
+ different components in a GIS system. Most pieces of the original specification defining
+ WKB format are in the document, 99-050.pdf, the OpenGIS Simple feature specification for
+ OLE/COM that can be found at www.opengis.org.
+ </para>
+ WKB defines a byte order of the data in every piece of geometry. This is
+ stored as a byte field, which as a result might change the memory alignment
+ from word to byte. It is defined as a 2D format only. This is insufficient
+ to represent 3D points, polylines and polygons.
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Topology.IO.Fgf.BinaryFormat">
+	<summary>
+ Definition of the binary format used by Feature Geometry Factory binary writer.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.#ctor(OSGeo.FDO.Geometry.FgfGeometryFactory)">
+	<summary>
+ Initializes a new instance of the <see cref="T:Topology.IO.Fgf.FgfWriter"/> class, using
+ user-supplied <see cref="T:OSGeo.FDO.Geometry.FgfGeometryFactory"/> for geometry processing. 
+ </summary>
+	<param name="factory">A <see cref="T:OSGeo.FDO.Geometry.FgfGeometryFactory"/>.</param>
+	<remarks></remarks>
+</member><member name="P:Topology.IO.Fgf.FgfWriter.Factory">
+	<summary>
+ Returns current <see cref="T:OSGeo.FDO.Geometry.FgfGeometryFactory"/> used to build geometries.
+ <para>
+ It's actually reserved for possible future releases of <see cref="T:OSGeo.FDO.Geometry.FgfGeometryFactory"/>
+ that might implement user-defined precision model, or incorporate common coordinate
+ reference system (CRS) used when building geometries.
+ </para>
+	</summary>
+	<value></value>
+	<returns>Current <see cref="T:OSGeo.FDO.Geometry.FgfGeometryFactory"/> instance.</returns>
+	<remarks>
+ If there's no <see cref="T:OSGeo.FDO.Geometry.FgfGeometryFactory"/> set within class constructor,
+ a <c>Default</c> factory will be automatically instantiated. Otherwise,
+ user-supplied <see cref="T:OSGeo.FDO.Geometry.FgfGeometryFactory"/> will be used during geometries
+ building process.
+ </remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WriteDirectPosition(Topology.Geometries.ICoordinate)">
+	<summary>
+ Returns <see cref="T:OSGeo.FDO.Geometry.IDirectPosition"/> structure converted from <see cref="T:Topology.Geometries.Coordinate"/> structure.
+ If <see cref="T:Topology.Geometries.Coordinate"/> is two-dimensional, resulting <see cref="T:OSGeo.FDO.Geometry.IDirectPosition"/> is
+ created using <c>CreatePositionXY()</c>, otherwise <c>CreatePositionXYZ()</c> is used.
+ </summary>
+	<param name="coordinate">A <see cref="T:Topology.Geometries.Coordinate"/> structure.</param>
+	<returns>A <see cref="T:OSGeo.FDO.Geometry.IDirectPosition"/> structure.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WriteDirectPosition(Topology.Geometries.ICoordinate,Topology.IO.Fgf.BinaryFormat)">
+	<summary>
+ Returns byte array converted from <see cref="T:Topology.Geometries.Coordinate"/> structure.
+ Resulting byte array is formatted using specified <see cref="T:Topology.IO.Fgf.BinaryFormat"/>.
+ If <see cref="T:Topology.Geometries.Coordinate"/> is two-dimensional, resulting <see cref="T:OSGeo.FDO.Geometry.IDirectPosition"/>
+ is created using <c>CreatePositionXY()</c>, otherwise <c>CreatePositionXYZ()</c> is used.
+ </summary>
+	<param name="coordinate">A <see cref="T:Topology.Geometries.Coordinate"/> structure.</param>
+	<param name="format">Byte array <see cref="T:Topology.IO.Fgf.BinaryFormat"/> type.</param>
+	<returns>Byte array formatted using specified <see cref="T:Topology.IO.Fgf.BinaryFormat"/>.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WritePoint(Topology.Geometries.IPoint)">
+	<summary>
+ Returns <see cref="T:OSGeo.FDO.Geometry.IPoint"/> geometry converted from <see cref="T:Topology.Geometries.Point"/> geometry.
+ </summary>
+	<param name="point">A <see cref="T:Topology.Geometries.Point"/> geometry.</param>
+	<returns>A <see cref="T:OSGeo.FDO.Geometry.IPoint"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WritePoint(Topology.Geometries.IPoint,Topology.IO.Fgf.BinaryFormat)">
+	<summary>
+ Returns byte array converted from <see cref="T:Topology.Geometries.Point"/> geometry.
+ Resulting byte array is formatted using specified <see cref="T:Topology.IO.Fgf.BinaryFormat"/>.
+ </summary>
+	<param name="point">A <see cref="T:Topology.Geometries.Point"/> geometry.</param>
+	<param name="format">Byte array <see cref="T:Topology.IO.Fgf.BinaryFormat"/> type.</param>
+	<returns>Byte array formatted using specified <see cref="T:Topology.IO.Fgf.BinaryFormat"/>.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WriteLineString(Topology.Geometries.ILineString)">
+	<summary>
+ Returns <see cref="T:OSGeo.FDO.Geometry.ILineString"/> geometry converted from <see cref="T:Topology.Geometries.LineString"/> geometry.
+ </summary>
+	<param name="lineString">A <see cref="T:Topology.Geometries.LineString"/> geometry.</param>
+	<returns>A <see cref="T:OSGeo.FDO.Geometry.ILineString"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WriteLineString(Topology.Geometries.ILineString,Topology.IO.Fgf.BinaryFormat)">
+	<summary>
+ Returns byte array converted from <see cref="T:Topology.Geometries.LineString"/> geometry.
+ Resulting byte array is formatted using specified <see cref="T:Topology.IO.Fgf.BinaryFormat"/>.
+ </summary>
+	<param name="lineString">A <see cref="T:Topology.Geometries.LineString"/> geometry.</param>
+	<param name="format">Byte array <see cref="T:Topology.IO.Fgf.BinaryFormat"/> type.</param>
+	<returns>Byte array formatted using specified <see cref="T:Topology.IO.Fgf.BinaryFormat"/>.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WriteLinearRing(Topology.Geometries.ILinearRing)">
+	<summary>
+ Returns <see cref="T:OSGeo.FDO.Geometry.ILinearRing"/> geometry converted from <see cref="T:Topology.Geometries.LinearRing"/> geometry.
+ </summary>
+	<param name="linearRing">A <see cref="T:Topology.Geometries.LinearRing"/> geometry.</param>
+	<returns>A <see cref="T:OSGeo.FDO.Geometry.ILinearRing"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WriteLinearRing(Topology.Geometries.ILinearRing,Topology.IO.Fgf.BinaryFormat)">
+	<summary>
+ Returns byte array converted from <see cref="T:Topology.Geometries.LinearRing"/> geometry.
+ Resulting byte array is formatted using specified <see cref="T:Topology.IO.Fgf.BinaryFormat"/>.
+ </summary>
+	<param name="linearRing">A <see cref="T:Topology.Geometries.LinearRing"/> geometry.</param>
+	<param name="format">Byte array <see cref="T:Topology.IO.Fgf.BinaryFormat"/> type.</param>
+	<returns>Byte array formatted using specified <see cref="T:Topology.IO.Fgf.BinaryFormat"/>.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WritePolygon(Topology.Geometries.IPolygon)">
+	<summary>
+ Returns <see cref="T:OSGeo.FDO.Geometry.IPolygon"/> geometry converted from <see cref="T:Topology.Geometries.Polygon"/> geometry.
+ </summary>
+	<param name="polygon">A <see cref="T:Topology.Geometries.Polygon"/> geometry.</param>
+	<returns>A <see cref="T:OSGeo.FDO.Geometry.IPolygon"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WritePolygon(Topology.Geometries.IPolygon,Topology.IO.Fgf.BinaryFormat)">
+	<summary>
+ Returns byte array converted from <see cref="T:Topology.Geometries.Polygon"/> geometry.
+ Resulting byte array is formatted using specified <see cref="T:Topology.IO.Fgf.BinaryFormat"/>.
+ </summary>
+	<param name="polygon">A <see cref="T:Topology.Geometries.Polygon"/> geometry.</param>
+	<param name="format">Byte array <see cref="T:Topology.IO.Fgf.BinaryFormat"/> type.</param>
+	<returns>Byte array formatted using specified <see cref="T:Topology.IO.Fgf.BinaryFormat"/>.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WriteGeometry(Topology.Geometries.IGeometry)">
+	<summary>
+ Returns <see cref="T:OSGeo.FDO.Geometry.IGeometry"/> converted from <see cref="T:Topology.Geometries.Geometry"/>.
+ <para>
+ Supported geometry types:
+ <list type="table">
+				<listheader>
+					<term>Geometry Type</term>
+					<term>Description</term>
+				</listheader>
+				<item>
+					<term><c>Point</c></term>
+					<term>A single point.</term>
+				</item>
+				<item>
+					<term><c>LineString</c></term>
+					<term>Series of connected line segments.</term>
+				</item>
+				<item>
+					<term><c>Polygon</c></term>
+					<term>A polygon with sides formed from linear rings.</term>
+				</item>
+				<item>
+					<term><c>MultiPoint</c></term>
+					<term>Collection of points.</term>
+				</item>
+				<item>
+					<term><c>MultiLineString</c></term>
+					<term>Collection of line strings.</term>
+				</item>
+				<item>
+					<term><c>MultiPolygon</c></term>
+					<term>Collection of polygons.</term>
+				</item>
+				<item>
+					<term><c>MultiGeometry</c></term>
+					<term>Collection of simple geometry types.</term>
+				</item>
+			</list>
+		</para>
+	</summary>
+	<param name="geometry">A <see cref="T:Topology.Geometries.Geometry"/> object.</param>
+	<returns>A <see cref="T:OSGeo.FDO.Geometry.IGeometry"/> object.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WriteGeometry(Topology.Geometries.IGeometry,Topology.IO.Fgf.BinaryFormat)">
+	<summary>
+ Returns byte array converted from <see cref="T:Topology.Geometries.Geometry"/> geometry.
+ Resulting byte array is formatted using specified <see cref="T:Topology.IO.Fgf.BinaryFormat"/>.
+ </summary>
+	<param name="geometry">A <see cref="T:Topology.Geometries.Geometry"/> geometry.</param>
+	<param name="format">Byte array <see cref="T:Topology.IO.Fgf.BinaryFormat"/> type.</param>
+	<returns>Byte array formatted using specified <see cref="T:Topology.IO.Fgf.BinaryFormat"/>.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WriteMultiPoint(Topology.Geometries.IMultiPoint)">
+	<summary>
+ Returns <see cref="T:OSGeo.FDO.Geometry.IMultiPoint"/> geometry converted from <see cref="T:Topology.Geometries.MultiPoint"/> geometry.
+ </summary>
+	<param name="multiPoint">A <see cref="T:Topology.Geometries.MultiPoint"/> geometry.</param>
+	<returns>A <see cref="T:OSGeo.FDO.Geometry.IMultiPoint"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WriteMultiPoint(Topology.Geometries.IMultiPoint,Topology.IO.Fgf.BinaryFormat)">
+	<summary>
+ Returns byte array converted from <see cref="T:Topology.Geometries.MultiPoint"/> geometry.
+ Resulting byte array is formatted using specified <see cref="T:Topology.IO.Fgf.BinaryFormat"/>.
+ </summary>
+	<param name="multiPoint">A <see cref="T:Topology.Geometries.MultiPoint"/> geometry.</param>
+	<param name="format">Byte array <see cref="T:Topology.IO.Fgf.BinaryFormat"/> type.</param>
+	<returns>Byte array formatted using specified <see cref="T:Topology.IO.Fgf.BinaryFormat"/>.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WriteMultiLineString(Topology.Geometries.IMultiLineString)">
+	<summary>
+ Returns <see cref="T:OSGeo.FDO.Geometry.IMultiLineString"/> geometry converted from <see cref="T:Topology.Geometries.MultiLineString"/> geometry.
+ </summary>
+	<param name="multiLineString">A <see cref="T:Topology.Geometries.MultiLineString"/> geometry.</param>
+	<returns>A <see cref="T:OSGeo.FDO.Geometry.IMultiLineString"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WriteMultiLineString(Topology.Geometries.IMultiLineString,Topology.IO.Fgf.BinaryFormat)">
+	<summary>
+ Returns byte array converted from <see cref="T:Topology.Geometries.MultiLineString"/> geometry.
+ Resulting byte array is formatted using specified <see cref="T:Topology.IO.Fgf.BinaryFormat"/>.
+ </summary>
+	<param name="multiLineString">A <see cref="T:Topology.Geometries.MultiLineString"/> geometry.</param>
+	<param name="format">Byte array <see cref="T:Topology.IO.Fgf.BinaryFormat"/> type.</param>
+	<returns>Byte array formatted using specified <see cref="T:Topology.IO.Fgf.BinaryFormat"/>.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WriteMultiPolygon(Topology.Geometries.IMultiPolygon)">
+	<summary>
+ Returns <see cref="T:OSGeo.FDO.Geometry.IMultiPolygon"/> geometry converted from <see cref="T:Topology.Geometries.MultiPolygon"/> geometry.
+ </summary>
+	<param name="multiPolygon">A <see cref="T:Topology.Geometries.MultiPolygon"/> geometry.</param>
+	<returns>A <see cref="T:OSGeo.FDO.Geometry.IMultiPolygon"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WriteMultiPolygon(Topology.Geometries.IMultiPolygon,Topology.IO.Fgf.BinaryFormat)">
+	<summary>
+ Returns byte array converted from <see cref="T:Topology.Geometries.MultiPolygon"/> geometry.
+ Resulting byte array is formatted using specified <see cref="T:Topology.IO.Fgf.BinaryFormat"/>.
+ </summary>
+	<param name="multiPolygon">A <see cref="T:Topology.Geometries.MultiPolygon"/> geometry.</param>
+	<param name="format">Byte array <see cref="T:Topology.IO.Fgf.BinaryFormat"/> type.</param>
+	<returns>Byte array formatted using specified <see cref="T:Topology.IO.Fgf.BinaryFormat"/>.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WriteMultiGeometry(Topology.Geometries.IMultiSurface)">
+	<summary>
+ Returns <see cref="T:OSGeo.FDO.Geometry.IMultiGeometry"/> geometry converted from <see cref="T:Topology.Geometries.IMultiSurface"/> geometry.
+ </summary>
+	<param name="multiSurface">A <see cref="T:Topology.Geometries.IMultiSurface"/> geometry.</param>
+	<returns>A <see cref="T:OSGeo.FDO.Geometry.IMultiGeometry"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WriteMultiGeometry(Topology.Geometries.IMultiSurface,Topology.IO.Fgf.BinaryFormat)">
+	<summary>
+ Returns byte array converted from <see cref="T:Topology.Geometries.IMultiSurface"/> geometry.
+ Resulting byte array is formatted using specified <see cref="T:Topology.IO.Fgf.BinaryFormat"/>.
+ </summary>
+	<param name="multiSurface">A <see cref="T:Topology.Geometries.IMultiSurface"/> geometry.</param>
+	<param name="format">Byte array <see cref="T:Topology.IO.Fgf.BinaryFormat"/> type.</param>
+	<returns>Byte array formatted using specified <see cref="T:Topology.IO.Fgf.BinaryFormat"/>.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WritePointCollection(Topology.Geometries.IPoint[])">
+	<summary>
+ Returns <see cref="T:OSGeo.FDO.Geometry.PointCollection"/> converted from array of <see cref="T:Topology.Geometries.Point"/>s.
+ </summary>
+	<param name="points">An array of <see cref="T:Topology.Geometries.Point"/>s.</param>
+	<returns>A <see cref="T:OSGeo.FDO.Geometry.PointCollection"/> collection.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WriteLineStringCollection(Topology.Geometries.ILineString[])">
+	<summary>
+ Returns <see cref="T:OSGeo.FDO.Geometry.LineStringCollection"/> converted from array of <see cref="T:Topology.Geometries.LineString"/>s.
+ </summary>
+	<param name="lineStrings">An array of <see cref="T:Topology.Geometries.LineString"/>s.</param>
+	<returns>A <see cref="T:OSGeo.FDO.Geometry.LineStringCollection"/> collection.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WriteLinearRingCollection(Topology.Geometries.ILinearRing[])">
+	<summary>
+ Returns <see cref="T:OSGeo.FDO.Geometry.LinearRingCollection"/> converted from array of <see cref="T:Topology.Geometries.LinearRing"/>s.
+ </summary>
+	<param name="linearRings">An array of <see cref="T:Topology.Geometries.LinearRing"/>s.</param>
+	<returns>A <see cref="T:OSGeo.FDO.Geometry.LinearRingCollection"/> collection.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WritePolygonCollection(Topology.Geometries.IPolygon[])">
+	<summary>
+ Returns <see cref="T:OSGeo.FDO.Geometry.PolygonCollection"/> converted from array of <see cref="T:Topology.Geometries.Polygon"/>s.
+ </summary>
+	<param name="polygons">An array of <see cref="T:Topology.Geometries.Polygon"/>s.</param>
+	<returns>A <see cref="T:OSGeo.FDO.Geometry.PolygonCollection"/> collection.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Fgf.FgfWriter.WriteGeometryCollection(Topology.Geometries.IGeometryCollection)">
+	<summary>
+ Returns <see cref="T:OSGeo.FDO.Geometry.GeometryCollection"/> converted from <see cref="T:Topology.Geometries.GeometryCollection"/>.
+ </summary>
+	<param name="geometries">A <see cref="T:Topology.Geometries.GeometryCollection"/> collection.</param>
+	<returns>A <see cref="T:OSGeo.FDO.Geometry.GeometryCollection"/> collection.</returns>
+	<remarks></remarks>
+</member><member name="T:Topology.IO.Fgf.FgfWriter">
+	<summary>
+ Reads features based on JTS model and creates their OSGeo Feature Data Objects (FDO) representation.
+ </summary>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

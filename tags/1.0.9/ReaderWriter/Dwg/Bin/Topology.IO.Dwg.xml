@@ -1,0 +1,330 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Topology.IO.Dwg
+</name>
+</assembly>
+<members>
+<member name="M:Topology.IO.Dwg.DwgReader.ReadCoordinate(Autodesk.AutoCAD.Geometry.Point3d)">
+	<summary>
+ Returns 3D <see cref="T:Topology.Geometries.Coordinate"/> converted from <see cref="T:Autodesk.AutoCAD.Geometry.Point3d"/> structure.
+ </summary>
+	<param name="point3d">A <see cref="T:Autodesk.AutoCAD.Geometry.Point3d"/> structure.</param>
+	<returns>A three-dimensional <see cref="T:Topology.Geometries.Coordinate"/> representation.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Dwg.DwgReader.ReadCoordinate(Autodesk.AutoCAD.Geometry.Point2d)">
+	<summary>
+ Returns 2D <see cref="T:Topology.Geometries.Coordinate"/> converted from <see cref="T:Autodesk.AutoCAD.Geometry.Point2d"/> structure.
+ </summary>
+	<param name="point2d">A <see cref="T:Autodesk.AutoCAD.Geometry.Point2d"/> structure.</param>
+	<returns>A two-dimensional <see cref="T:Topology.Geometries.Coordinate"/> representation.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Dwg.DwgReader.ReadPoint(Autodesk.AutoCAD.DatabaseServices.DBPoint)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.Point"/> geometry converted from <see cref="T:Autodesk.AutoCAD.DatabaseServices.DBPoint"/> entity.
+ </summary>
+	<param name="dbPoint">A <see cref="T:Autodesk.AutoCAD.DatabaseServices.DBPoint"/> entity (<c>POINT</c>).</param>
+	<returns>A <see cref="T:Topology.Geometries.Point"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Dwg.DwgReader.ReadPoint(Autodesk.AutoCAD.DatabaseServices.BlockReference)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.Point"/> geometry converted from <see cref="T:Autodesk.AutoCAD.DatabaseServices.BlockReference"/> entity.
+ </summary>
+	<param name="blockReference">A <see cref="T:Autodesk.AutoCAD.DatabaseServices.BlockReference"/> entity (<c>INSERT</c>).</param>
+	<returns>A <see cref="T:Topology.Geometries.Point"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Dwg.DwgReader.ReadLineString(Autodesk.AutoCAD.DatabaseServices.Polyline)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.LineString"/> geometry converted from <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline"/> entity.
+ </summary>
+	<param name="polyline">A <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline"/> entity (<c>LWPOLYLINE</c>).</param>
+	<returns>A <see cref="T:Topology.Geometries.LineString"/> geometry.</returns>
+	<remarks>
+ If polyline entity contains arc segments (bulges), such segments will be
+ tessellated using settings defined via <see cref="P:Topology.IO.GeometryReader.CurveTessellationMethod"/>.
+ <para>
+ If polyline's <c>Closed</c> flag is set to <c>True</c>, then resulting <see cref="T:Topology.Geometries.LineString"/>'s
+ <see cref="P:Topology.Geometries.LineString.IsClosed"/> property will also reflect <c>True</c>.
+ In case resulting coordinate sequence has <c>0..1</c> coordinates,
+ geometry conversion will fail returning an empty <see cref="T:Topology.Geometries.LineString"/>.
+ </para>
+	</remarks>
+</member><member name="M:Topology.IO.Dwg.DwgReader.ReadLineString(Autodesk.AutoCAD.DatabaseServices.Polyline3d)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.LineString"/> geometry converted from <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline3d"/> entity.
+ </summary>
+	<param name="polyline3d">A <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline3d"/> entity (<c>POLYLINE</c>).</param>
+	<returns>A <see cref="T:Topology.Geometries.LineString"/> geometry.</returns>
+	<remarks>
+ If polyline's <c>Closed</c> flag is set to <c>True</c>, then resulting <see cref="T:Topology.Geometries.LineString"/>'s
+ <see cref="P:Topology.Geometries.LineString.IsClosed"/> property will also reflect <c>True</c>.
+ In case resulting coordinate sequence has <c>0..1</c> coordinates,
+ geometry conversion will fail returning an empty <see cref="T:Topology.Geometries.LineString"/>.
+ </remarks>
+</member><member name="M:Topology.IO.Dwg.DwgReader.ReadLineString(Autodesk.AutoCAD.DatabaseServices.Polyline2d)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.LineString"/> geometry converted from <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline2d"/> entity.
+ </summary>
+	<param name="polyline2d">A <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline2d"/> ("old-style") entity.</param>
+	<returns>A <see cref="T:Topology.Geometries.LineString"/> geometry.</returns>
+	<remarks>
+ If polyline's <c>Closed</c> flag is set to <c>True</c>, then resulting <see cref="T:Topology.Geometries.LineString"/>'s
+ <see cref="P:Topology.Geometries.LineString.IsClosed"/> property will also reflect <c>True</c>.
+ In case resulting coordinate sequence has <c>0..1</c> coordinates,
+ geometry conversion will fail returning an empty <see cref="T:Topology.Geometries.LineString"/>.
+ </remarks>
+</member><member name="M:Topology.IO.Dwg.DwgReader.ReadLineString(Autodesk.AutoCAD.DatabaseServices.Line)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.LineString"/> geometry converted from <see cref="T:Autodesk.AutoCAD.DatabaseServices.Line"/> entity.
+ </summary>
+	<param name="line">A <see cref="T:Autodesk.AutoCAD.DatabaseServices.Line"/> entity (<c>LINE</c>).</param>
+	<returns>A <see cref="T:Topology.Geometries.LineString"/> geometry.</returns>
+	<remarks>
+ In case resulting coordinate sequence has 1 or 0 coordinates,
+ geometry conversion will fail returning an empty <see cref="T:Topology.Geometries.LineString"/>.
+ </remarks>
+</member><member name="M:Topology.IO.Dwg.DwgReader.ReadLineString(Autodesk.AutoCAD.DatabaseServices.Mline)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.LineString"/> geometry converted from <see cref="T:Autodesk.AutoCAD.DatabaseServices.Mline"/> (<c>MultiLine</c>) entity.
+ </summary>
+	<param name="multiLine">A <see cref="T:Autodesk.AutoCAD.DatabaseServices.Mline"/> entity (<c>MLINE</c>).</param>
+	<returns>A <see cref="T:Topology.Geometries.LineString"/> geometry.</returns>
+	<remarks>
+ In case resulting coordinate sequence has 1 or 0 coordinates,
+ geometry conversion will fail returning an empty <see cref="T:Topology.Geometries.LineString"/>.
+ </remarks>
+</member><member name="M:Topology.IO.Dwg.DwgReader.ReadLineString(Autodesk.AutoCAD.DatabaseServices.Arc)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.LineString"/> geometry converted from <see cref="T:Autodesk.AutoCAD.DatabaseServices.Arc"/> entity.
+ During conversion <see cref="T:Autodesk.AutoCAD.DatabaseServices.Arc"/> is being tessellated using settings defined
+ via <see cref="P:Topology.IO.GeometryReader.CurveTessellationMethod"/>.
+ </summary>
+	<param name="arc">An <see cref="T:Autodesk.AutoCAD.DatabaseServices.Arc"/> entity (<c>ARC</c>).</param>
+	<returns>A <see cref="T:Topology.Geometries.LineString"/> geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Dwg.DwgReader.ReadMultiPolygon(Autodesk.AutoCAD.DatabaseServices.MPolygon)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.MultiPolygon"/> geometry converted from <see cref="T:Autodesk.AutoCAD.DatabaseServices.MPolygon"/> entity.
+ </summary>
+	<param name="multiPolygon">A <see cref="T:Autodesk.AutoCAD.DatabaseServices.MPolygon"/> entity.</param>
+	<returns>A <see cref="T:Topology.Geometries.MultiPolygon"/> geometry.</returns>
+	<remarks>
+ If <see cref="T:Autodesk.AutoCAD.DatabaseServices.MPolygon"/> entity contains arc segments (bulges), such segments will 
+ get tessellated using settings defined via <see cref="P:Topology.IO.GeometryReader.CurveTessellationMethod"/>.
+ </remarks>
+</member><member name="M:Topology.IO.Dwg.DwgReader.ReadGeometry(Autodesk.AutoCAD.DatabaseServices.Entity)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.Geometry"/> representation converted from <see cref="T:Autodesk.AutoCAD.DatabaseServices.Entity"/> entity.
+ Throws an exception if given <see cref="T:Autodesk.AutoCAD.DatabaseServices.Entity"/> conversion is not supported.
+ <para>
+ Supported AutoCAD entity types:
+ <list type="table">
+				<listheader>
+					<term>Class Name</term>
+					<term>DXF Code</term>
+				</listheader>
+				<item>
+					<term>AcDbPoint</term>
+					<term><c>POINT</c></term>
+				</item>
+				<item>
+					<term>AcDbBlockReference</term>
+					<term><c>INSERT</c></term>
+				</item>
+				<item>
+					<term>AcDbLine</term>
+					<term><c>LINE</c></term>
+				</item>
+				<item>
+					<term>AcDbArc</term>
+					<term><c>ARC</c></term>
+				</item>
+				<item>
+					<term>AcDbPolyline</term>
+					<term><c>LWPOLYLINE</c></term>
+				</item>
+				<item>
+					<term>AcDb2dPolyline</term>
+					<term><c>POLYLINE</c></term>
+				</item>
+				<item>
+					<term>AcDb3dPolyline</term>
+					<term><c>POLYLINE</c></term>
+				</item>
+				<item>
+					<term>AcDbMline</term>
+					<term><c>MLINE</c></term>
+				</item>
+				<item>
+					<term>AcDbMPolygon</term>
+					<term><c>MPOLYGON</c></term>
+				</item>
+			</list>
+		</para>
+	</summary>
+	<param name="entity">An AutoCAD <see cref="T:Autodesk.AutoCAD.DatabaseServices.Entity"/>.</param>
+	<returns>A <see cref="T:Topology.Geometries.Geometry"/> representation.</returns>
+	<remarks></remarks>
+</member><member name="T:Topology.IO.Dwg.DwgReader">
+	<summary>
+ Reads AutoCAD entities and creates geometric representation of the features
+ based on JTS model using single floating precision model.
+ Curve-based entities and sub-entities are tesselated during the process.
+ Processed AutoCAD entities are supposed to be database resident (DBRO).
+ </summary>
+	<remarks>
+ To maintain the link between database-resident entity and it's JTS representation
+ you may use <see cref="P:Topology.Geometries.Geometry.UserData"/> property to store either <c>ObjectId</c>
+ or a <c>Handle</c> of an entity. Keep in mind that <see cref="P:Topology.Geometries.Geometry.UserData"/>
+ property may not persist during certain topology-related operations.
+ <para>
+ This library references two Autodesk libraries being part of managed ObjectARX.
+ Referenced libraries are <c>acdbmgd.dll</c> and <c>acmgd.dll</c> which may be found
+ in the root installation folder of the targeted Autodesk platform/vertical.
+ </para>
+	</remarks>
+</member><member name="M:Topology.IO.Dwg.DwgWriter.WritePoint3d(Topology.Geometries.ICoordinate)">
+	<summary>
+ Returns <see cref="T:Autodesk.AutoCAD.Geometry.Point3d"/> structure converted from <see cref="T:Topology.Geometries.Coordinate"/>.
+ If <see cref="T:Topology.Geometries.Coordinate"/> is two-dimensional, collapses <c>Z</c> axis of
+ resulting <see cref="T:Autodesk.AutoCAD.Geometry.Point3d"/> to 0.
+ </summary>
+	<param name="coordinate">A <see cref="T:Topology.Geometries.Coordinate"/> structure.</param>
+	<returns>A <see cref="T:Autodesk.AutoCAD.Geometry.Point3d"/> structure.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Dwg.DwgWriter.WritePoint3d(Topology.Geometries.IPoint)">
+	<summary>
+ Returns <see cref="T:Autodesk.AutoCAD.Geometry.Point3d"/> structure converted from <see cref="T:Topology.Geometries.Point"/> geometry.
+ If <see cref="T:Topology.Geometries.Point"/> is two-dimensional, collapses <c>Z</c> axis of resulting
+ <see cref="T:Autodesk.AutoCAD.Geometry.Point3d"/> to 0.
+ </summary>
+	<param name="point">A <see cref="T:Topology.Geometries.Point"/> geometry.</param>
+	<returns>A <see cref="T:Autodesk.AutoCAD.Geometry.Point3d"/> structure.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Dwg.DwgWriter.WritePoint2d(Topology.Geometries.ICoordinate)">
+	<summary>
+ Returns <see cref="T:Autodesk.AutoCAD.Geometry.Point2d"/> structure converted from <see cref="T:Topology.Geometries.Coordinate"/>.
+ If <see cref="T:Topology.Geometries.Coordinate"/> is three-dimensional, clamps resulting <c>Z</c> axis.
+ </summary>
+	<param name="coordinate">A <see cref="T:Topology.Geometries.Coordinate"/> structure.</param>
+	<returns>A <see cref="T:Autodesk.AutoCAD.Geometry.Point2d"/> structure.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Dwg.DwgWriter.WritePoint2d(Topology.Geometries.IPoint)">
+	<summary>
+ Returns <see cref="T:Autodesk.AutoCAD.Geometry.Point2d"/> structure converted from <see cref="T:Topology.Geometries.Point"/> geometry.
+ If <see cref="T:Topology.Geometries.Point"/> is three-dimensional, clamps resulting <c>Z</c> axis.
+ </summary>
+	<param name="point">A <see cref="T:Topology.Geometries.Point"/> geometry.</param>
+	<returns>A <see cref="T:Autodesk.AutoCAD.Geometry.Point2d"/> structure.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Dwg.DwgWriter.WriteDbPoint(Topology.Geometries.IPoint)">
+	<summary>
+ Returns <see cref="T:Autodesk.AutoCAD.DatabaseServices.DBPoint"/> entity converted from <see cref="T:Topology.Geometries.Point"/> geometry.
+ </summary>
+	<param name="point">A <see cref="T:Topology.Geometries.Point"/> geometry.</param>
+	<returns>A <see cref="T:Autodesk.AutoCAD.DatabaseServices.DBPoint"/> entity (<c>POINT</c>).</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Dwg.DwgWriter.WritePolyline(Topology.Geometries.ILineString)">
+	<summary>
+ Returns <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline"/> entity converted from <see cref="T:Topology.Geometries.LineString"/> geometry.
+ </summary>
+	<param name="lineString">A <see cref="T:Topology.Geometries.LineString"/> geometry.</param>
+	<returns>A <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline"/> entity (<c>LWPOLYLINE</c>).</returns>
+	<remarks>
+ If first and last coordinate in the <see cref="T:Topology.Geometries.LineString"/> coordinate sequence are equal,
+ returned <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline"/> is closed. To check whether <see cref="T:Topology.Geometries.LineString"/> is
+ closed, see it's <see cref="P:Topology.Geometries.LineString.IsClosed"/> property.
+ </remarks>
+</member><member name="M:Topology.IO.Dwg.DwgWriter.WritePolyline(Topology.Geometries.ILinearRing)">
+	<summary>
+ Returns <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline"/> entity converted from <see cref="T:Topology.Geometries.LinearRing"/> geometry.
+ Resulting <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline"/> is always closed.
+ </summary>
+	<param name="linearRing">A <see cref="T:Topology.Geometries.LinearRing"/> geometry.</param>
+	<returns>A <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline"/> entity (<c>LWPOLYLINE</c>).</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Dwg.DwgWriter.WritePolyline(Topology.Geometries.IPolygon)">
+	<summary>
+ Returns <c>1..n</c> collection of <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline"/> entities converted from <see cref="T:Topology.Geometries.Polygon"/> geometry.
+ First <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline"/> in a collection is always <see cref="P:Topology.Geometries.Polygon.Shell"/>. The rest of
+ resulting collection items represent <see cref="P:Topology.Geometries.Polygon.Holes"/>, if <see cref="T:Topology.Geometries.Polygon"/> geometry had
+ holes (inner boundaries) in first place.
+ </summary>
+	<param name="polygon">A <see cref="T:Topology.Geometries.Polygon"/> geometry.</param>
+	<returns>Array of <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline"/> entities (<c>LWPOLYLINE</c>s).</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Dwg.DwgWriter.WritePolyline3d(Topology.Geometries.ILineString)">
+	<summary>
+ Returns <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline3d"/> entity converted from <see cref="T:Topology.Geometries.LineString"/> geometry.
+ </summary>
+	<param name="lineString">A <see cref="T:Topology.Geometries.LineString"/> geometry.</param>
+	<returns>A <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline3d"/> entity (<c>POLYLINE</c>).</returns>
+	<remarks>
+ If first and last coordinate in the <see cref="T:Topology.Geometries.LineString"/> coordinate sequence are equal,
+ returned <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline3d"/> is closed. To check whether <see cref="T:Topology.Geometries.LineString"/> is
+ closed, see it's <see cref="P:Topology.Geometries.LineString.IsClosed"/> property.
+ </remarks>
+</member><member name="M:Topology.IO.Dwg.DwgWriter.WritePolyline3d(Topology.Geometries.ILinearRing)">
+	<summary>
+ Returns <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline3d"/> entity converted from <see cref="T:Topology.Geometries.LinearRing"/> geometry.
+ Resulting <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline3d"/> is always closed.
+ </summary>
+	<param name="linearRing">A <see cref="T:Topology.Geometries.LinearRing"/> geometry.</param>
+	<returns>A <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline3d"/> entity (<c>POLYLINE</c>).</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Dwg.DwgWriter.WritePolyline2d(Topology.Geometries.ILineString)">
+	<summary>
+ Returns <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline2d"/> entity converted from <see cref="T:Topology.Geometries.LineString"/> geometry.
+ </summary>
+	<param name="lineString">A <see cref="T:Topology.Geometries.LineString"/> geometry.</param>
+	<returns>A <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline2d"/> ("old-style") entity.</returns>
+	<remarks>
+ If first and last coordinate in the <see cref="T:Topology.Geometries.LineString"/> coordinate sequence are equal,
+ returned <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline2d"/> is closed. To check whether <see cref="T:Topology.Geometries.LineString"/> is
+ closed, see it's <see cref="P:Topology.Geometries.LineString.IsClosed"/> property.
+ </remarks>
+</member><member name="M:Topology.IO.Dwg.DwgWriter.WritePolyline2d(Topology.Geometries.ILinearRing)">
+	<summary>
+ Returns <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline2d"/> entity converted from <see cref="T:Topology.Geometries.LinearRing"/> geometry.
+ Resulting <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline2d"/> is always closed.
+ </summary>
+	<param name="linearRing">A <see cref="T:Topology.Geometries.LinearRing"/> geometry.</param>
+	<returns>A <see cref="T:Autodesk.AutoCAD.DatabaseServices.Polyline2d"/> ("old-style") entity.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Dwg.DwgWriter.WriteLine(Topology.Geometries.LineSegment)">
+	<summary>
+ Returns <see cref="T:Autodesk.AutoCAD.DatabaseServices.Line"/> entity converted from <see cref="T:Topology.Geometries.LineSegment"/> geometry.
+ </summary>
+	<param name="lineSegment">A <see cref="T:Topology.Geometries.LineSegment"/> geometry.</param>
+	<returns>A <see cref="T:Autodesk.AutoCAD.DatabaseServices.Line"/> entity (<c>LINE</c>).</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Dwg.DwgWriter.WriteMPolygon(Topology.Geometries.IPolygon)">
+	<summary>
+ Returns <see cref="T:Autodesk.AutoCAD.DatabaseServices.MPolygon"/> entity converted from <see cref="T:Topology.Geometries.Polygon"/> geometry.
+ </summary>
+	<param name="polygon">A <see cref="T:Topology.Geometries.Polygon"/> geometry.</param>
+	<returns>A <see cref="T:Autodesk.AutoCAD.DatabaseServices.MPolygon"/> entity (<c>MPOLYGON</c>).</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.IO.Dwg.DwgWriter.WriteMPolygon(Topology.Geometries.MultiPolygon)">
+	<summary>
+ Returns <see cref="T:Autodesk.AutoCAD.DatabaseServices.MPolygon"/> entity converted from <see cref="T:Topology.Geometries.MultiPolygon"/> geometry.
+ </summary>
+	<param name="multiPolygon">A <see cref="T:Topology.Geometries.MultiPolygon"/> geometry.</param>
+	<returns>A <see cref="T:Autodesk.AutoCAD.DatabaseServices.MPolygon"/> entity (<c>MPOLYGON</c>).</returns>
+	<remarks></remarks>
+</member><member name="T:Topology.IO.Dwg.DwgWriter">
+	<summary>
+ Reads features based on JTS model and creates their AutoCAD representation
+ using single floating precision model.
+ Created AutoCAD entities are not database resident, it's up to you to commit
+ them to the existing <c>Database</c> using <c>Transaction</c>.
+ </summary>
+	<remarks>
+ This library references two Autodesk libraries being part of managed ObjectARX.
+ Referenced libraries are <c>acdbmgd.dll</c> and <c>acmgd.dll</c> which may be found
+ in the root installation folder of the targeted Autodesk platform/vertical.
+ </remarks>
+</member>
+</members>
+</doc>

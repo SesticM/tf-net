@@ -1,0 +1,315 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3E9DF3B2-DDF7-414D-BA8A-0F1131859F31}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Topology.SharpMap</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Topology.CoordinateSystems</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>4194304</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>Topology.SharpMap.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\..\Bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>4194304</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>Topology.SharpMap.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>pdbonly</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib">
+      <Name>mscorlib</Name>
+      <HintPath>mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.Xml</Name>
+      <HintPath>System.Xml.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Converters.WellKnownText.IO\StreamTokenizer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Converters.WellKnownText\CoordinateSystemWktReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Converters.WellKnownText\SpatialReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Converters.WellKnownText\TokenType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Converters.WellKnownText\WktStreamTokenizer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems.Projections\AlbersProjection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems.Projections\LambertConformalConic2SP.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems.Projections\MapProjection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems.Projections\Mercator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems.Projections\TransverseMercator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems.Transformations\ConcatenatedTransform.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems.Transformations\CoordinateTransformation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems.Transformations\CoordinateTransformationAuthorityFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems.Transformations\CoordinateTransformationFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems.Transformations\DatumTransform.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems.Transformations\DomainFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems.Transformations\GeocentricTransform.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems.Transformations\GeographicTransform.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems.Transformations\ICoordinateTransformation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems.Transformations\ICoordinateTransformationFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems.Transformations\IMathTransform.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems.Transformations\IMathTransformFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems.Transformations\MathTransform.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems.Transformations\TransformType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\AngularUnit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\AxisInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\AxisOrientationEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\CoordinateSystem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\CoordinateSystemFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\Datum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\DatumType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\Ellipsoid.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\GeocentricCoordinateSystem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\GeographicCoordinateSystem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\GeographicTransform.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\HorizontalCoordinateSystem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\HorizontalDatum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\IAngularUnit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\ICompoundCoordinateSystem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\ICoordinateSystem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\ICoordinateSystemAuthorityFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\ICoordinateSystemFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\IDatum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\IEllipsoid.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\IFittedCoordinateSystem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\IGeocentricCoordinateSystem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\IGeodeticSpatialReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\IGeographicCoordinateSystem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\IGeographicTransform.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\IHorizontalCoordinateSystem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\IHorizontalDatum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\IInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\ILinearUnit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\ILocalCoordinateSystem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\ILocalDatum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\Info.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\IParameterInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\IPrimeMeridian.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\IProjectedCoordinateSystem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\IProjection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\IUnit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\IVerticalCoordinateSystem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\IVerticalDatum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\LinearUnit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\Parameter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\PrimeMeridian.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\ProjectedCoordinateSystem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\Projection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\ProjectionParameter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\Unit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoordinateSystems\Wgs84ConversionInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utilities\NumberFormatter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

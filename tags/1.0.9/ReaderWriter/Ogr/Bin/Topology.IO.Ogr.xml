@@ -1,0 +1,24 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Topology.IO.Ogr
+</name>
+</assembly>
+<members>
+<member name="M:Topology.IO.Ogr.OgrReader.ReadGeometry(OSGeo.OGR.Geometry)">
+	<summary>
+ Returns <see cref="T:Topology.Geometries.Geometry"/> object converted from <see cref="T:OSGeo.OGR.Geometry"/>.
+ If geometry conversion is not possible or input geometry is empty, returns empty <see cref="T:Topology.Geometries.Geometry"/>.
+ </summary>
+	<param name="geometry">A <see cref="T:OSGeo.OGR.Geometry"/> object reference.</param>
+	<returns>A <see cref="T:Topology.Geometries.Geometry"/> object.</returns>
+	<remarks></remarks>
+</member><member name="T:Topology.IO.Ogr.OgrReader">
+	<summary>
+ Reads GDAL/OGR geometries and creates geometric representation of the features based on JTS model. 
+ </summary>
+	<remarks></remarks>
+</member>
+</members>
+</doc>
