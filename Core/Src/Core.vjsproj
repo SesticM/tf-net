@@ -1,0 +1,319 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5182DD5F-2956-4CF4-B487-6DAF1B1AA1D2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>topology</RootNamespace>
+    <AssemblyName>Topology</AssemblyName>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>Topology.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>Topology.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="algorithm\Angle.java" />
+    <Compile Include="algorithm\BoundaryNodeRule.java" />
+    <Compile Include="algorithm\CentralEndpointIntersector.java" />
+    <Compile Include="algorithm\CentroidArea.java" />
+    <Compile Include="algorithm\CentroidLine.java" />
+    <Compile Include="algorithm\CentroidPoint.java" />
+    <Compile Include="algorithm\CGAlgorithms.java" />
+    <Compile Include="algorithm\ConvexHull.java" />
+    <Compile Include="algorithm\HCoordinate.java" />
+    <Compile Include="algorithm\InteriorPointArea.java" />
+    <Compile Include="algorithm\InteriorPointLine.java" />
+    <Compile Include="algorithm\InteriorPointPoint.java" />
+    <Compile Include="algorithm\LineIntersector.java" />
+    <Compile Include="algorithm\MCPointInRing.java" />
+    <Compile Include="algorithm\MinimumDiameter.java" />
+    <Compile Include="algorithm\NonRobustCGAlgorithms.java" />
+    <Compile Include="algorithm\NonRobustLineIntersector.java" />
+    <Compile Include="algorithm\NotRepresentableException.java" />
+    <Compile Include="algorithm\PointInRing.java" />
+    <Compile Include="algorithm\PointLocator.java" />
+    <Compile Include="algorithm\RobustCGAlgorithms.java" />
+    <Compile Include="algorithm\RobustDeterminant.java" />
+    <Compile Include="algorithm\RobustLineIntersector.java" />
+    <Compile Include="algorithm\SimplePointInAreaLocator.java" />
+    <Compile Include="algorithm\SimplePointInRing.java" />
+    <Compile Include="algorithm\SIRtreePointInRing.java" />
+    <Compile Include="geomgraph\Depth.java" />
+    <Compile Include="geomgraph\DirectedEdge.java" />
+    <Compile Include="geomgraph\DirectedEdgeStar.java" />
+    <Compile Include="geomgraph\Edge.java" />
+    <Compile Include="geomgraph\EdgeEnd.java" />
+    <Compile Include="geomgraph\EdgeEndStar.java" />
+    <Compile Include="geomgraph\EdgeIntersection.java" />
+    <Compile Include="geomgraph\EdgeIntersectionList.java" />
+    <Compile Include="geomgraph\EdgeList.java" />
+    <Compile Include="geomgraph\EdgeNodingValidator.java" />
+    <Compile Include="geomgraph\EdgeRing.java" />
+    <Compile Include="geomgraph\GeometryGraph.java" />
+    <Compile Include="geomgraph\GraphComponent.java" />
+    <Compile Include="geomgraph\index\EdgeSetIntersector.java" />
+    <Compile Include="geomgraph\index\MonotoneChain.java" />
+    <Compile Include="geomgraph\index\MonotoneChainEdge.java" />
+    <Compile Include="geomgraph\index\MonotoneChainIndexer.java" />
+    <Compile Include="geomgraph\index\SegmentIntersector.java" />
+    <Compile Include="geomgraph\index\SimpleEdgeSetIntersector.java" />
+    <Compile Include="geomgraph\index\SimpleMCSweepLineIntersector.java" />
+    <Compile Include="geomgraph\index\SimpleSweepLineIntersector.java" />
+    <Compile Include="geomgraph\index\SweepLineEvent.java" />
+    <Compile Include="geomgraph\index\SweepLineSegment.java" />
+    <Compile Include="geomgraph\Label.java" />
+    <Compile Include="geomgraph\Node.java" />
+    <Compile Include="geomgraph\NodeFactory.java" />
+    <Compile Include="geomgraph\NodeMap.java" />
+    <Compile Include="geomgraph\PlanarGraph.java" />
+    <Compile Include="geomgraph\Position.java" />
+    <Compile Include="geomgraph\Quadrant.java" />
+    <Compile Include="geomgraph\TopologyLocation.java" />
+    <Compile Include="geom\Coordinate.java" />
+    <Compile Include="geom\CoordinateArrays.java" />
+    <Compile Include="geom\CoordinateFilter.java" />
+    <Compile Include="geom\CoordinateList.java" />
+    <Compile Include="geom\CoordinateSequence.java" />
+    <Compile Include="geom\CoordinateSequenceComparator.java" />
+    <Compile Include="geom\CoordinateSequenceFactory.java" />
+    <Compile Include="geom\CoordinateSequenceFilter.java" />
+    <Compile Include="geom\CoordinateSequences.java" />
+    <Compile Include="geom\DefaultCoordinateSequence.java" />
+    <Compile Include="geom\DefaultCoordinateSequenceFactory.java" />
+    <Compile Include="geom\Dimension.java" />
+    <Compile Include="geom\Envelope.java" />
+    <Compile Include="geom\Geometry.java" />
+    <Compile Include="geom\GeometryCollection.java" />
+    <Compile Include="geom\GeometryCollectionIterator.java" />
+    <Compile Include="geom\GeometryComponentFilter.java" />
+    <Compile Include="geom\GeometryFactory.java" />
+    <Compile Include="geom\GeometryFilter.java" />
+    <Compile Include="geom\impl\CoordinateArraySequence.java" />
+    <Compile Include="geom\impl\CoordinateArraySequenceFactory.java" />
+    <Compile Include="geom\impl\PackedCoordinateSequence.java" />
+    <Compile Include="geom\impl\PackedCoordinateSequenceFactory.java" />
+    <Compile Include="geom\IntersectionMatrix.java" />
+    <Compile Include="geom\LinearRing.java" />
+    <Compile Include="geom\LineSegment.java" />
+    <Compile Include="geom\LineString.java" />
+    <Compile Include="geom\Location.java" />
+    <Compile Include="geom\MultiLineString.java" />
+    <Compile Include="geom\MultiPoint.java" />
+    <Compile Include="geom\MultiPolygon.java" />
+    <Compile Include="geom\Point.java" />
+    <Compile Include="geom\Polygon.java" />
+    <Compile Include="geom\PrecisionModel.java" />
+    <Compile Include="geom\TopologyException.java" />
+    <Compile Include="geom\Triangle.java" />
+    <Compile Include="geom\util\AffineTransformation.java" />
+    <Compile Include="geom\util\AffineTransformationBuilder.java" />
+    <Compile Include="geom\util\GeometryEditor.java" />
+    <Compile Include="geom\util\GeometryTransformer.java" />
+    <Compile Include="geom\util\LinearComponentExtracter.java" />
+    <Compile Include="geom\util\Matrix.java" />
+    <Compile Include="geom\util\NoninvertibleTransformationException.java" />
+    <Compile Include="geom\util\PointExtracter.java" />
+    <Compile Include="geom\util\PolygonExtracter.java" />
+    <Compile Include="geom\util\ShortCircuitedGeometryVisitor.java" />
+    <Compile Include="index\ArrayListVisitor.java" />
+    <Compile Include="index\bintree\Bintree.java" />
+    <Compile Include="index\bintree\Interval.java" />
+    <Compile Include="index\bintree\Key.java" />
+    <Compile Include="index\bintree\Node.java" />
+    <Compile Include="index\bintree\NodeBase.java" />
+    <Compile Include="index\bintree\Root.java" />
+    <Compile Include="index\chain\MonotoneChain.java" />
+    <Compile Include="index\chain\MonotoneChainBuilder.java" />
+    <Compile Include="index\chain\MonotoneChainOverlapAction.java" />
+    <Compile Include="index\chain\MonotoneChainSelectAction.java" />
+    <Compile Include="index\ItemVisitor.java" />
+    <Compile Include="index\quadtree\DoubleBits.java" />
+    <Compile Include="index\quadtree\IntervalSize.java" />
+    <Compile Include="index\quadtree\Key.java" />
+    <Compile Include="index\quadtree\Node.java" />
+    <Compile Include="index\quadtree\NodeBase.java" />
+    <Compile Include="index\quadtree\Quadtree.java" />
+    <Compile Include="index\quadtree\Root.java" />
+    <Compile Include="index\SpatialIndex.java" />
+    <Compile Include="index\strtree\AbstractNode.java" />
+    <Compile Include="index\strtree\AbstractSTRtree.java" />
+    <Compile Include="index\strtree\Boundable.java" />
+    <Compile Include="index\strtree\Interval.java" />
+    <Compile Include="index\strtree\ItemBoundable.java" />
+    <Compile Include="index\strtree\SIRtree.java" />
+    <Compile Include="index\strtree\STRtree.java" />
+    <Compile Include="index\sweepline\SweepLineEvent.java" />
+    <Compile Include="index\sweepline\SweepLineIndex.java" />
+    <Compile Include="index\sweepline\SweepLineInterval.java" />
+    <Compile Include="index\sweepline\SweepLineOverlapAction.java" />
+    <Compile Include="io\ByteArrayInStream.java" />
+    <Compile Include="io\ByteOrderDataInStream.java" />
+    <Compile Include="io\ByteOrderValues.java" />
+    <Compile Include="io\InputStreamInStream.java" />
+    <Compile Include="io\InStream.java" />
+    <Compile Include="io\OutputStreamOutStream.java" />
+    <Compile Include="io\OutStream.java" />
+    <Compile Include="io\ParseException.java" />
+    <Compile Include="io\WKBConstants.java" />
+    <Compile Include="io\WKBReader.java" />
+    <Compile Include="io\WKBWriter.java" />
+    <Compile Include="io\WKTReader.java" />
+    <Compile Include="io\WKTWriter.java" />
+    <Compile Include="JTSVersion.java" />
+    <Compile Include="linearref\ExtractLineByLocation.java" />
+    <Compile Include="linearref\LengthIndexedLine.java" />
+    <Compile Include="linearref\LengthIndexOfPoint.java" />
+    <Compile Include="linearref\LengthLocationMap.java" />
+    <Compile Include="linearref\LinearGeometryBuilder.java" />
+    <Compile Include="linearref\LinearIterator.java" />
+    <Compile Include="linearref\LinearLocation.java" />
+    <Compile Include="linearref\LocationIndexedLine.java" />
+    <Compile Include="linearref\LocationIndexOfLine.java" />
+    <Compile Include="linearref\LocationIndexOfPoint.java" />
+    <Compile Include="noding\FastNodingValidator.java" />
+    <Compile Include="noding\InteriorIntersectionFinder.java" />
+    <Compile Include="noding\IntersectionAdder.java" />
+    <Compile Include="noding\IntersectionFinderAdder.java" />
+    <Compile Include="noding\IteratedNoder.java" />
+    <Compile Include="noding\MCIndexNoder.java" />
+    <Compile Include="noding\Noder.java" />
+    <Compile Include="noding\NodingValidator.java" />
+    <Compile Include="noding\Octant.java" />
+    <Compile Include="noding\OrientedCoordinateArray.java" />
+    <Compile Include="noding\ScaledNoder.java" />
+    <Compile Include="noding\SegmentIntersector.java" />
+    <Compile Include="noding\SegmentNode.java" />
+    <Compile Include="noding\SegmentNodeList.java" />
+    <Compile Include="noding\SegmentPointComparator.java" />
+    <Compile Include="noding\SegmentString.java" />
+    <Compile Include="noding\SegmentStringDissolver.java" />
+    <Compile Include="noding\SimpleNoder.java" />
+    <Compile Include="noding\SinglePassNoder.java" />
+    <Compile Include="noding\snapround\HotPixel.java" />
+    <Compile Include="noding\snapround\MCIndexPointSnapper.java" />
+    <Compile Include="noding\snapround\MCIndexSnapRounder.java" />
+    <Compile Include="noding\snapround\SimpleSnapRounder.java" />
+    <Compile Include="operation\BoundaryOp.java" />
+    <Compile Include="operation\buffer\BufferBuilder.java" />
+    <Compile Include="operation\buffer\BufferOp.java" />
+    <Compile Include="operation\buffer\BufferSubgraph.java" />
+    <Compile Include="operation\buffer\OffsetCurveBuilder.java" />
+    <Compile Include="operation\buffer\OffsetCurveSetBuilder.java" />
+    <Compile Include="operation\buffer\RightmostEdgeFinder.java" />
+    <Compile Include="operation\buffer\SubgraphDepthLocater.java" />
+    <Compile Include="operation\distance\ConnectedElementLocationFilter.java" />
+    <Compile Include="operation\distance\ConnectedElementPointFilter.java" />
+    <Compile Include="operation\distance\DistanceOp.java" />
+    <Compile Include="operation\distance\GeometryLocation.java" />
+    <Compile Include="operation\GeometryGraphOperation.java" />
+    <Compile Include="operation\IsSimpleOp.java" />
+    <Compile Include="operation\linemerge\EdgeString.java" />
+    <Compile Include="operation\linemerge\LineMergeDirectedEdge.java" />
+    <Compile Include="operation\linemerge\LineMergeEdge.java" />
+    <Compile Include="operation\linemerge\LineMergeGraph.java" />
+    <Compile Include="operation\linemerge\LineMerger.java" />
+    <Compile Include="operation\linemerge\LineSequencer.java" />
+    <Compile Include="operation\overlay\ConsistentPolygonRingChecker.java" />
+    <Compile Include="operation\overlay\EdgeSetNoder.java" />
+    <Compile Include="operation\overlay\LineBuilder.java" />
+    <Compile Include="operation\overlay\MaximalEdgeRing.java" />
+    <Compile Include="operation\overlay\MinimalEdgeRing.java" />
+    <Compile Include="operation\overlay\OverlayNodeFactory.java" />
+    <Compile Include="operation\overlay\OverlayOp.java" />
+    <Compile Include="operation\overlay\PointBuilder.java" />
+    <Compile Include="operation\overlay\PolygonBuilder.java" />
+    <Compile Include="operation\overlay\snap\GeometrySnapper.java" />
+    <Compile Include="operation\overlay\snap\LineStringSnapper.java" />
+    <Compile Include="operation\overlay\snap\SnapIfNeededOverlayOp.java" />
+    <Compile Include="operation\overlay\snap\SnapOverlayOp.java" />
+    <Compile Include="operation\overlay\validate\FuzzyPointLocator.java" />
+    <Compile Include="operation\overlay\validate\OffsetPointGenerator.java" />
+    <Compile Include="operation\overlay\validate\OverlayResultValidator.java" />
+    <Compile Include="operation\polygonize\EdgeRing.java" />
+    <Compile Include="operation\polygonize\PolygonizeDirectedEdge.java" />
+    <Compile Include="operation\polygonize\PolygonizeEdge.java" />
+    <Compile Include="operation\polygonize\PolygonizeGraph.java" />
+    <Compile Include="operation\polygonize\Polygonizer.java" />
+    <Compile Include="operation\predicate\RectangleContains.java" />
+    <Compile Include="operation\predicate\RectangleIntersects.java" />
+    <Compile Include="operation\predicate\SegmentIntersectionTester.java" />
+    <Compile Include="operation\relate\EdgeEndBuilder.java" />
+    <Compile Include="operation\relate\EdgeEndBundle.java" />
+    <Compile Include="operation\relate\EdgeEndBundleStar.java" />
+    <Compile Include="operation\relate\RelateComputer.java" />
+    <Compile Include="operation\relate\RelateNode.java" />
+    <Compile Include="operation\relate\RelateNodeFactory.java" />
+    <Compile Include="operation\relate\RelateNodeGraph.java" />
+    <Compile Include="operation\relate\RelateOp.java" />
+    <Compile Include="operation\valid\ConnectedInteriorTester.java" />
+    <Compile Include="operation\valid\ConsistentAreaTester.java" />
+    <Compile Include="operation\valid\IsValidOp.java" />
+    <Compile Include="operation\valid\QuadtreeNestedRingTester.java" />
+    <Compile Include="operation\valid\RepeatedPointTester.java" />
+    <Compile Include="operation\valid\SimpleNestedRingTester.java" />
+    <Compile Include="operation\valid\SweeplineNestedRingTester.java" />
+    <Compile Include="operation\valid\TopologyValidationError.java" />
+    <Compile Include="planargraph\algorithm\ConnectedSubgraphFinder.java" />
+    <Compile Include="planargraph\DirectedEdge.java" />
+    <Compile Include="planargraph\DirectedEdgeStar.java" />
+    <Compile Include="planargraph\Edge.java" />
+    <Compile Include="planargraph\GraphComponent.java" />
+    <Compile Include="planargraph\Node.java" />
+    <Compile Include="planargraph\NodeMap.java" />
+    <Compile Include="planargraph\PlanarGraph.java" />
+    <Compile Include="planargraph\Subgraph.java" />
+    <Compile Include="precision\CommonBits.java" />
+    <Compile Include="precision\CommonBitsOp.java" />
+    <Compile Include="precision\CommonBitsRemover.java" />
+    <Compile Include="precision\EnhancedPrecisionOp.java" />
+    <Compile Include="precision\SimpleGeometryPrecisionReducer.java" />
+    <Compile Include="Properties\AssemblyInfo.jsl" />
+    <Compile Include="simplify\DouglasPeuckerLineSimplifier.java" />
+    <Compile Include="simplify\DouglasPeuckerSimplifier.java" />
+    <Compile Include="simplify\LineSegmentIndex.java" />
+    <Compile Include="simplify\TaggedLineSegment.java" />
+    <Compile Include="simplify\TaggedLinesSimplifier.java" />
+    <Compile Include="simplify\TaggedLineString.java" />
+    <Compile Include="simplify\TaggedLineStringSimplifier.java" />
+    <Compile Include="simplify\TopologyPreservingSimplifier.java" />
+    <Compile Include="util\Assert.java" />
+    <Compile Include="util\AssertionFailedException.java" />
+    <Compile Include="util\CollectionUtil.java" />
+    <Compile Include="util\CoordinateArrayFilter.java" />
+    <Compile Include="util\CoordinateCountFilter.java" />
+    <Compile Include="util\Debug.java" />
+    <Compile Include="util\GeometricShapeFactory.java" />
+    <Compile Include="util\Stopwatch.java" />
+    <Compile Include="util\UniqueCoordinateArrayFilter.java" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="polygonize\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualJSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
