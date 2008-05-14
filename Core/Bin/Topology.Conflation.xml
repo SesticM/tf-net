@@ -1,0 +1,184 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Topology.Conflation
+</name>
+</assembly>
+<members>
+<member name="M:Topology.Conflation.Geometries.BufferDistancePerturber.Buffer(Topology.Geometries.Geometry)">
+	<summary>
+ Attempts to compute a buffer using small perturbations of the buffer distance
+ if necessary.  If this routine is unable to perform the buffer computation correctly
+ the orginal buffer exception will be propagated.
+ </summary>
+	<param name="geom">The Geometry to compute the buffer for.</param>
+	<returns>The buffer of the input Geometry.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.Conflation.Geometries.BufferDistancePerturber.IsBufferComputedCorrectly(Topology.Geometries.Geometry,Topology.Geometries.Geometry)">
+	<summary>
+ Check various assertions about the geometry and the buffer to try to determine
+ whether the JTS buffer function failed to compute the buffer correctly.
+ These are heuristics only - this may not catch all errors.
+ </summary>
+	<param name="geom">The geometry.</param>
+	<param name="buffer">The buffer computed by JTS.</param>
+	<returns><c>True</c> if the buffer seems to be correct.</returns>
+	<remarks></remarks>
+</member><member name="T:Topology.Conflation.Geometries.BufferDistancePerturber">
+	<summary>
+ Improves the robustness of buffer computation by using small
+ perturbations of the buffer distance. Also used enhanced precision.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Topology.Conflation.Precision.NumberPrecisionReducer.#ctor(System.Double)">
+	<summary>
+ A negative value for scaleFactor indicates that the precision reduction 
+ will eliminate significant digits to the left of the decimal point.
+ (I.e. the scale factor will be divided rather than multiplied).
+ A zero value for scaleFactor will result in no precision reduction being 
+ performed. A scale factor is normally an integer value.
+ </summary>
+	<param name="scaleFactor"></param>
+	<remarks></remarks>
+</member><member name="M:Topology.Conflation.Precision.NumberPrecisionReducer.ScaleFactorForDecimalPlaces(System.Int32)">
+	<summary>
+ Computes the scale factor for a given number of decimal places.
+ A negative value for decimalPlaces indicates the scale factor
+ should be divided rather than multiplied. The negative sign
+ is carried through to the computed scale factor.
+ </summary>
+	<param name="decimalPlaces"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:Topology.Conflation.Precision.NumberPrecisionReducer">
+	<summary>
+ Reduces the precision of a number by rounding it off after scaling by a given scale factor.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Topology.Conflation.Algorithm.PointPairDistance.Initialize(Topology.Geometries.Coordinate,Topology.Geometries.Coordinate,System.Double)">
+	<summary>
+ Initializes the points, avoiding recomputing the distance.
+ </summary>
+	<param name="p0"></param>
+	<param name="p1"></param>
+	<param name="distance">The distance between p0 and p1.</param>
+	<remarks></remarks>
+</member><member name="T:Topology.Conflation.Algorithm.PointPairDistance">
+	<summary>
+ Contains a pair of points and the distance between them.
+ Provides methods to update with a new point pair with either maximum or minimum distance.
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Topology.Conflation.Algorithm.EuclideanDistanceToPoint">
+	<summary>
+ Computes the Euclidean distance (L2 metric) from a Point to a Geometry.
+ Also computes two points which are separated by the distance.
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Topology.Conflation.EdgeMerge.NetworkEdgeMerger">
+	<summary>
+ Merges edges of a linear network together based on the differences between edge attributes
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Topology.Conflation.Graph.Edge.GetDirEdge(System.Int32)">
+	<summary>
+ Gets one of the DirectedEdges associated with this edge.
+ </summary>
+	<param name="i">0 or 1</param>
+	<returns>A DirectedEdge.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.Conflation.Graph.Edge.GetDirEdge(Topology.Conflation.Graph.Node)">
+	<summary>
+ Finds the {@link DirectedEdge} that starts from the given node.
+ </summary>
+	<param name="fromNode">The {@link Node} the Directed edge starts from.</param>
+	<returns>The {@link DirectedEdge} starting from the node.</returns>
+	<remarks></remarks>
+</member><member name="T:Topology.Conflation.Precision.GeometryPrecisionReducer">
+	<summary>
+ Reduces the precision of a {@link Geometry} according to the supplied CoordinatePrecisionReducer.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Topology.Conflation.Algorithm.LinearReference.LocatePoint.PointAlongSegment(Topology.Geometries.LineSegment,System.Double)">
+	<summary>
+ Computes the location of a point a given length along a {@link LineSegment}.
+ If the length exceeds the length of the line segment the last point of the segment is returned.
+ If the length is negative the first point of the segment is returned.
+ </summary>
+	<param name="seg">The line segment.</param>
+	<param name="length">The length to the desired point.</param>
+	<returns>{@link Coordinate} of the desired point.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.Conflation.Algorithm.LinearReference.LocatePoint.PointAlongSegment(Topology.Geometries.Coordinate,Topology.Geometries.Coordinate,System.Double)">
+	<summary>
+ Computes the location of a point a given length along a line segment.
+ If the length exceeds the length of the line segment the last point of the segment is returned.
+ If the length is negative the first point of the segment is returned.
+ </summary>
+	<param name="p0">The first point of the line segment.</param>
+	<param name="p1">The last point of the line segment.</param>
+	<param name="length">The length to the desired point.</param>
+	<returns>{@link Coordinate} of the desired point.</returns>
+	<remarks></remarks>
+</member><member name="M:Topology.Conflation.Algorithm.LinearReference.LocatePoint.pointAlongLine(Topology.Geometries.LineString,System.Double)">
+	<summary>
+ Computes the {@link Coordinate} of the point a given length along a {@link LineString}.
+ </summary>
+	<param name="line">The LineString to measure.</param>
+	<param name="length">The length to the desired point.</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Topology.Conflation.Algorithm.LinearReference.LocatePoint.GetIndex">
+	<summary>
+ Returns the index of the segment containing the computed point.
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:Topology.Conflation.Algorithm.LinearReference.LocatePoint">
+	<summary>
+ Provides various ways of computing the actual value of a point a given length along a line.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Topology.Conflation.Algorithm.VertexHausdorffDistance.ComputeMaxPointDistance(Topology.Geometries.LineSegment,Topology.Geometries.LineSegment,Topology.Conflation.Algorithm.PointPairDistance)">
+	<summary>
+ Computes the maximum oriented distance between two line segments,
+ as well as the point pair separated by that distance.
+ </summary>
+	<param name="seg0">The line segment containing the furthest point.</param>
+	<param name="seg1">The line segment containing the closest point.</param>
+	<param name="ptDist">The point pair and distance to be updated.</param>
+	<remarks></remarks>
+</member><member name="T:Topology.Conflation.Algorithm.VertexHausdorffDistance">
+	<summary>
+ Implements algorithm for computing a distance metric which can be thought of as the "Maximum Vertex Distance".
+ This is the Hausdorff distance restricted to vertices for one of the geometries.
+ Also computes two points of the Geometries which are separated by the computed distance.
+ <para>
+ NOTE: This algorithm does NOT compute the full Hausdorff distance correctly, but an approximation that
+ is correct for a large subset of useful cases. One important part of this subset is Linestrings that are 
+ roughly parallel to each other, and roughly equal in length.
+ </para>
+	</summary>
+	<remarks></remarks>
+</member><member name="T:Topology.Conflation.Algorithm.LineStringWidth">
+	<summary>
+ Computes the "width" of a LineString, as the maximum distance from the vertices to the direction
+ line of the LineString.
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Topology.Conflation.Algorithm.AverageLineDistance">
+	<summary>
+ Computes the "average" distance between two {@link LineString}s, based on the distance between each vertex
+ and a point the same distance along the other line.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Topology.Conflation.Graph.DirectedEdge.GetAngle">
+	<summary>
+ Returns the starting angle of this DirectedEdge.
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

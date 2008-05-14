@@ -1,0 +1,6 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectView>ProjectFiles</ProjectView>
+    <ReferencePath>C:\Program Files\Autodesk Map 3D 2007\FDO\bin\</ReferencePath>
+  </PropertyGroup>
+</Project>
