@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<project SchemaVersion="2.0">
+    <assemblies>
+        <assembly location="..\Core\Bin\Topology.Conflation.dll" documentation="..\Core\Bin\Topology.Conflation.xml" />
+        <assembly location="..\Core\Bin\Topology.GeoAPI.dll" documentation="..\Core\Bin\Topology.GeoAPI.xml" />
+        <assembly location="..\Core\Bin\Topology.IO.dll" documentation="..\Core\Bin\Topology.IO.xml" />
+        <assembly location="..\Core\Bin\Topology.NetTopologySuite.dll" documentation="..\Core\Bin\Topology.NetTopologySuite.xml" />
+        <assembly location="..\Core\Bin\Topology.QuickGraph.dll" documentation="..\Core\Bin\Topology.QuickGraph.xml" />
+        <assembly location="..\Core\Bin\Topology.SharpMap.dll" documentation="..\Core\Bin\Topology.SharpMap.xml" />
+        <assembly location="..\ReaderWriter\Agf\Bin\Topology.IO.Agf.dll" documentation="..\ReaderWriter\Agf\Bin\Topology.IO.Agf.xml" />
+        <assembly location="..\ReaderWriter\Dwg\Bin\Topology.IO.Dwg.dll" documentation="..\ReaderWriter\Dwg\Bin\Topology.IO.Dwg.xml" />
+        <assembly location="..\ReaderWriter\Fgf\Bin\Topology.IO.Fgf.dll" documentation="..\ReaderWriter\Fgf\Bin\Topology.IO.Fgf.xml" />
+        <assembly location="..\ReaderWriter\MapGuide\Bin\Topology.IO.MapGuide.dll" documentation="..\ReaderWriter\MapGuide\Bin\Topology.IO.MapGuide.xml" />
+        <assembly location="..\ReaderWriter\Ogr\Bin\Topology.IO.Ogr.dll" documentation="..\ReaderWriter\Ogr\Bin\Topology.IO.Ogr.xml" />
+    </assemblies>
+    <referencePaths>
+        <referencePath path="..\ReaderWriter\Agf\Inc" />
+        <referencePath path="..\ReaderWriter\Dwg\Inc" />
+        <referencePath path="..\ReaderWriter\Fgf\Inc" />
+        <referencePath path="..\ReaderWriter\MapGuide\Inc" />
+        <referencePath path="..\ReaderWriter\Ogr\Inc" />
+    </referencePaths>
+    <documenters>
+        <documenter name="MSDN-Help2">
+            <property name="PlugInNamespace" value="ms.vscc" />
+            <property name="OutputDirectory" value=".\doc\" />
+            <property name="HtmlHelpName" value="Documentation" />
+            <property name="Title" value="An NDoc documented library" />
+            <property name="Version" value="1.0.0.1" />
+        </documenter>
+        <documenter name="MSDN-CHM">
+            <property name="SdkLinksOnWeb" value="True" />
+            <property name="OutputDirectory" value="..\Docs\Msdn-Chm\" />
+            <property name="HtmlHelpName" value="Topology" />
+            <property name="Title" value="Topology Framework .NET" />
+            <property name="Version" value="1.0.9.0" />
+            <property name="CopyrightText" value="GNU General Lesser Public License" />
+            <property name="FeedbackEmailAddress" value="max@geoinova.com" />
+            <property name="CleanIntermediates" value="True" />
+        </documenter>
+        <documenter name="Intellisense">
+            <property name="OutputDirectory" value=".\intellisense\" />
+        </documenter>
+        <documenter name="MSDN-Web">
+            <property name="OutputDirectory" value=".\doc\" />
+            <property name="HtmlHelpName" value="Documentation" />
+            <property name="Title" value="An NDoc documented library" />
+        </documenter>
+    </documenters>
+</project>

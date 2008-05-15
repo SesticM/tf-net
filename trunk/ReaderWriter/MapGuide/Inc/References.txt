@@ -1,0 +1,12 @@
+Referenced files locations:
+
+Autodesk's MapGuide implementation:
+Autodesk MapGuide Server Enterprise 2007 or
+Autodesk MapGuide Server Enterprise 2008 or
+
+OSGeo MapGuide implementation:
+OSGeo MapGuide Server 1.2.0 or
+OSGeo MapGuide Server 2.0.0
+
+
+MapGuideDotNetApi.dll

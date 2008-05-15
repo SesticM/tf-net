@@ -1,0 +1,959 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QuickGraph</name>
+    </assembly>
+    <members>
+        <member name="T:QuickGraph.Petri.IPlace`1">
+            <summary>
+            A Place in the HLPN framework
+            </summary>
+            <remarks>
+            <para>
+            A <see cref="!:Place"/> is characterized by a set of tokens, called the
+            <see cref="P:QuickGraph.Petri.IPlace`1.Marking"/> of the place. The place is <strong>typed</strong>
+            by the <see cref="!:StrongType"/> instance. This means only object
+            of <see cref="T:System.Type"/> assignable to <see cref="!:StrongType"/> can reside
+            in the place.
+            </para>
+            <para>
+            Usually represented by an ellipses (often circles).
+            </para>
+            </remarks>
+        </member>
+        <member name="T:QuickGraph.Petri.IPetriVertex">
+            <summary>
+            A vertex (node) of a Petri Graph.
+            </summary>
+        </member>
+        <member name="P:QuickGraph.Petri.IPetriVertex.Name">
+            <summary>
+            Gets or sets the name of the node
+            </summary>
+            <value>
+            A <see cref="T:System.String"/> representing the name of the node.
+            </value>
+        </member>
+        <member name="T:QuickGraph.Serialization.GraphMLSerializer`2">
+            <summary>
+            A GraphML ( http://graphml.graphdrawing.org/ ) format serializer.
+            </summary>
+            <typeparam name="Vertex"></typeparam>
+            <typeparam name="Edge"></typeparam>
+            <remarks>
+            <para>
+            Custom vertex and edge attributes can be specified by 
+            using the <see cref="T:System.Xml.Serialization.XmlAttributeAttribute"/>
+            attribute on properties (field not suppored).
+            </para>
+            <para>
+            The serializer uses LCG (lightweight code generation) to generate the 
+            methods that writes the attributes to avoid paying the price of 
+            Reflection on each vertex/edge. Since nothing is for free, the first
+            time you will use the serializer *on a particular pair of types*, it
+            will have to bake that method.
+            </para>
+            <para>
+            Hyperedge, nodes, nested graphs not supported.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:QuickGraph.Predicates.ReversedResidualEdgePredicate`2.ResidualCapacities">
+            <summary>
+            Residual capacities map
+            </summary>
+        </member>
+        <member name="P:QuickGraph.Predicates.ReversedResidualEdgePredicate`2.ReversedEdges">
+            <summary>
+            Reversed edges map
+            </summary>
+        </member>
+        <member name="T:QuickGraph.Algorithms.Observers.EdgePredecessorRecorderObserver`2">
+            <summary>
+            
+            </summary>
+            <typeparam name="Vertex"></typeparam>
+            <typeparam name="Edge"></typeparam>
+            <reference-ref
+                idref="boost"
+                />
+        </member>
+        <member name="T:QuickGraph.Algorithms.Observers.IObserver`1">
+            <summary>
+            An algorithm observer
+            </summary>
+            <typeparam name="Algorithm"></typeparam>
+            <reference-ref
+                id="gof02designpatterns"
+                />
+        </member>
+        <member name="P:QuickGraph.Predicates.FilteredGraph`3.BaseGraph">
+            <summary>
+            Underlying filtered graph
+            </summary>
+        </member>
+        <member name="P:QuickGraph.Predicates.FilteredGraph`3.EdgePredicate">
+            <summary>
+            Edge predicate used to filter the edges
+            </summary>
+        </member>
+        <member name="T:QuickGraph.Petri.IPetriNet`1">
+            <summary>
+            A High Level Petri Graph.
+            </summary>
+            <remarks>
+            <para>
+            This object is called a Petri Net in honour of Petri's work. In fact,
+            it should be named High Level Petri Graph.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:QuickGraph.Petri.IPetriNet`1.Places">
+            <summary>
+            Gets a collection of <see cref="!:IPlace"/> instances.
+            </summary>
+            <value>
+            A collection of <see cref="!:IPlace"/> instances.
+            </value>
+        </member>
+        <member name="P:QuickGraph.Petri.IPetriNet`1.Transitions">
+            <summary>
+            Gets a collection of <see cref="!:ITransition"/> instances.
+            </summary>
+            <value>
+            A collection of <see cref="!:ITransition"/> instances.
+            </value>
+        </member>
+        <member name="P:QuickGraph.Petri.IPetriNet`1.Arcs">
+            <summary>
+            Gets a collection of <see cref="!:IArc"/> instances.
+            </summary>
+            <value>
+            A collection of <see cref="!:IArc"/> instances.
+            </value>
+        </member>
+        <member name="T:QuickGraph.Algorithms.ShortestPath.DagShortestPathAlgorithm`2">
+            <summary>
+            A single-source shortest path algorithm for directed acyclic
+            graph.
+            </summary>
+            <typeparam name="Vertex"></typeparam>
+            <typeparam name="Edge"></typeparam>
+            <reference-ref
+                id="boost"
+                />
+        </member>
+        <member name="T:QuickGraph.Algorithms.Search.BreadthFirstSearchAlgorithm`2">
+            <summary>
+            A breath first search algorithm for directed graphs
+            </summary>
+            <reference-ref
+                idref="gross98graphtheory"
+                chapter="4.2"
+                />
+        </member>
+        <member name="M:QuickGraph.Algorithms.EulerianTrailAlgorithm`2.#ctor(QuickGraph.IMutableVertexAndEdgeListGraph{`0,`1})">
+            <summary>
+            Construct an eulerian trail builder
+            </summary>
+            <param name="g"></param>
+        </member>
+        <member name="M:QuickGraph.Algorithms.EulerianTrailAlgorithm`2.Visit">
+            <summary>
+            Looks for a new path to add to the current vertex.
+            </summary>
+            <returns>true if found a new path, false otherwize</returns>
+        </member>
+        <member name="M:QuickGraph.Algorithms.EulerianTrailAlgorithm`2.ComputeEulerianPathCount(QuickGraph.IVertexAndEdgeListGraph{`0,`1})">
+            <summary>
+            Computes the number of eulerian trail in the graph.
+            </summary>
+            <param name="g"></param>
+            <returns>number of eulerian trails</returns>
+        </member>
+        <member name="M:QuickGraph.Algorithms.EulerianTrailAlgorithm`2.CircuitAugmentation">
+            <summary>
+            Merges the temporary circuit with the current circuit
+            </summary>
+            <returns>true if all the graph edges are in the circuit</returns>
+        </member>
+        <member name="M:QuickGraph.Algorithms.EulerianTrailAlgorithm`2.AddTemporaryEdges(QuickGraph.IEdgeFactory{`0,`1})">
+            <summary>
+            Adds temporary edges to the graph to make all vertex even.
+            </summary>
+            <param name="g"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QuickGraph.Algorithms.EulerianTrailAlgorithm`2.RemoveTemporaryEdges">
+            <summary>
+            Removes temporary edges
+            </summary>
+            <param name="g"></param>
+        </member>
+        <member name="M:QuickGraph.Algorithms.EulerianTrailAlgorithm`2.Trails">
+            <summary>
+            Computes the set of eulerian trails that traverse the edge set.
+            </summary>
+            <remarks>
+            This method returns a set of disjoint eulerian trails. This set
+            of trails spans the entire set of edges.
+            </remarks>
+            <returns>Eulerian trail set</returns>
+        </member>
+        <member name="M:QuickGraph.Algorithms.EulerianTrailAlgorithm`2.Trails(`0)">
+            <summary>
+            Computes a set of eulerian trail, starting at <paramref name="s"/>
+            that spans the entire graph.
+            </summary>
+            <remarks>
+            <para>
+            This method computes a set of eulerian trail starting at <paramref name="s"/>
+            that spans the entire graph.The algorithm outline is as follows:
+            </para>
+            <para>
+            The algorithms iterates throught the Eulerian circuit of the augmented
+            graph (the augmented graph is the graph with additional edges to make
+            the number of odd vertices even).
+            </para>
+            <para>
+            If the current edge is not temporary, it is added to the current trail.
+            </para>
+            <para>
+            If the current edge is temporary, the current trail is finished and
+            added to the trail collection. The shortest path between the 
+            start vertex <paramref name="s"/> and the target vertex of the
+            temporary edge is then used to start the new trail. This shortest
+            path is computed using the <see cref="!:BreadthFirstSearchAlgorithm"/>.
+            </para>
+            </remarks>
+            <param name="s">start vertex</param>
+            <returns>eulerian trail set, all starting at s</returns>
+            <exception cref="T:System.ArgumentNullException">s is a null reference.</exception>
+            <exception cref="T:System.Exception">Eulerian trail not computed yet.</exception>
+        </member>
+        <member name="T:QuickGraph.Petri.IArc`1">
+            <summary>
+            A directed edge of a net which may connect a <see cref="!:IPlace"/>
+            to a <see cref="!:ITransition"/> or a <see cref="!:ITransition"/> to
+            a <see cref="!:IPlace"/>.
+            </summary>
+            <remarks>
+            <para>
+            Usually represented by an arrow.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:QuickGraph.Petri.IArc`1.IsInputArc">
+            <summary>
+            Gets or sets a value indicating if the <see cref="!:IArc"/>
+            instance is a <strong>input arc.</strong>
+            </summary>
+            <remarks>
+            <para>
+            An arc that leads from an input <see cref="!:IPlace"/> to a
+            <see cref="!:ITransition"/> is called an <em>Input Arc</em> of
+            the transition.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:QuickGraph.Petri.IArc`1.Place">
+            <summary>
+            Gets or sets the <see cref="!:IPlace"/> instance attached to the
+            <see cref="!:IArc"/>.
+            </summary>
+            <value>
+            The <see cref="!:IPlace"/> attached to the <see cref="!:IArc"/>.
+            </value>
+            <exception cref="T:System.ArgumentNullException">
+            set property, value is a null reference (Nothing in Visual Basic).
+            </exception>
+        </member>
+        <member name="P:QuickGraph.Petri.IArc`1.Transition">
+            <summary>
+            Gets or sets the <see cref="!:ITransition"/> instance attached to the
+            <see cref="!:IArc"/>.
+            </summary>
+            <value>
+            The <see cref="!:ITransition"/> attached to the <see cref="!:IArc"/>.
+            </value>
+            <exception cref="T:System.ArgumentNullException">
+            set property, value is a null reference (Nothing in Visual Basic).
+            </exception>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:QuickGraph.Petri.IArc`1.Annotation" -->
+        <member name="T:QuickGraph.VertexNotConnectedException">
+            <summary>
+            Specialized exception to report unconnected vertices
+            </summary>
+        </member>
+        <member name="T:QuickGraph.Algorithms.ShortestPath.DijkstraShortestPathAlgorithm`2">
+            <summary>
+            A single-source shortest path algorithm for directed graph
+            with positive distance.
+            </summary>
+            <typeparam name="Vertex"></typeparam>
+            <typeparam name="Edge"></typeparam>
+            <reference-ref
+                idref="lawler01combinatorial"
+                />
+        </member>
+        <member name="T:QuickGraph.Algorithms.Search.DepthFirstSearchAlgorithm`2">
+            <summary>
+            A depth first search algorithm for directed graph
+            </summary>
+            <typeparam name="Vertex"></typeparam>
+            <typeparam name="Edge"></typeparam>
+            <reference-ref
+                idref="gross98graphtheory"
+                chapter="4.2"
+                />
+        </member>
+        <member name="P:QuickGraph.AdjacencyGraph`2.IsEdgesEmpty">
+            <summary>
+            Gets a value indicating whether this instance is edges empty.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is edges empty; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:QuickGraph.AdjacencyGraph`2.EdgeCount">
+            <summary>
+            Gets the edge count.
+            </summary>
+            <value>The edge count.</value>
+        </member>
+        <member name="P:QuickGraph.AdjacencyGraph`2.Edges">
+            <summary>
+            Gets the edges.
+            </summary>
+            <value>The edges.</value>
+        </member>
+        <member name="T:QuickGraph.Algorithms.Search.ImplicitEdgeDepthFirstSearchAlgorithm`2">
+            <summary>
+            A edge depth first search algorithm for implicit directed graphs
+            </summary>
+            <remarks>
+            This is a variant of the classic DFS where the edges are color
+            marked.
+            </remarks>
+            <reference-ref
+                idref="gross98graphtheory"
+                chapter="4.2"
+                />
+        </member>
+        <member name="M:QuickGraph.Algorithms.Search.ImplicitEdgeDepthFirstSearchAlgorithm`2.OnStartVertex(`0)">
+            <summary>
+            Triggers the StartVertex event.
+            </summary>
+            <param name="v"></param>
+        </member>
+        <member name="M:QuickGraph.Algorithms.Search.ImplicitEdgeDepthFirstSearchAlgorithm`2.OnStartEdge(`1)">
+            <summary>
+            Triggers the StartEdge event.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:QuickGraph.Algorithms.Search.ImplicitEdgeDepthFirstSearchAlgorithm`2.OnDiscoverTreeEdge(`1,`1)">
+            <summary>
+            Triggers DiscoverEdge event
+            </summary>
+            <param name="se"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:QuickGraph.Algorithms.Search.ImplicitEdgeDepthFirstSearchAlgorithm`2.OnTreeEdge(`1)">
+            <summary>
+            Triggers the TreeEdge event.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:QuickGraph.Algorithms.Search.ImplicitEdgeDepthFirstSearchAlgorithm`2.OnBackEdge(`1)">
+            <summary>
+            Triggers the BackEdge event.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:QuickGraph.Algorithms.Search.ImplicitEdgeDepthFirstSearchAlgorithm`2.OnForwardOrCrossEdge(`1)">
+            <summary>
+            Triggers the ForwardOrCrossEdge event.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:QuickGraph.Algorithms.Search.ImplicitEdgeDepthFirstSearchAlgorithm`2.OnFinishEdge(`1)">
+            <summary>
+            Triggers the ForwardOrCrossEdge event.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:QuickGraph.Algorithms.Search.ImplicitEdgeDepthFirstSearchAlgorithm`2.Visit(`1,System.Int32)">
+            <summary>
+            Does a depth first search on the vertex u
+            </summary>
+            <param name="se">edge to explore</param>
+            <param name="depth">current exploration depth</param>
+            <exception cref="T:System.ArgumentNullException">se cannot be null</exception>
+        </member>
+        <member name="M:QuickGraph.Algorithms.Search.ImplicitEdgeDepthFirstSearchAlgorithm`2.Initialize">
+            <summary>
+            Initializes the algorithm before computation.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:QuickGraph.Algorithms.Search.ImplicitEdgeDepthFirstSearchAlgorithm`2.EdgeColors" -->
+        <member name="P:QuickGraph.Algorithms.Search.ImplicitEdgeDepthFirstSearchAlgorithm`2.MaxDepth">
+            <summary>
+            Gets or sets the maximum exploration depth, from
+            the start vertex.
+            </summary>
+            <remarks>
+            Defaulted at <c>int.MaxValue</c>.
+            </remarks>
+            <value>
+            Maximum exploration depth.
+            </value>
+        </member>
+        <member name="E:QuickGraph.Algorithms.Search.ImplicitEdgeDepthFirstSearchAlgorithm`2.StartVertex">
+            <summary>
+            Invoked on the source vertex once before the start of the search. 
+            </summary>
+        </member>
+        <member name="E:QuickGraph.Algorithms.Search.ImplicitEdgeDepthFirstSearchAlgorithm`2.StartEdge">
+            <summary>
+            Invoked on the first edge of a test case
+            </summary>
+        </member>
+        <member name="E:QuickGraph.Algorithms.Search.ImplicitEdgeDepthFirstSearchAlgorithm`2.DiscoverTreeEdge">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:QuickGraph.Algorithms.Search.ImplicitEdgeDepthFirstSearchAlgorithm`2.TreeEdge">
+            <summary>
+            Invoked on each edge as it becomes a member of the edges that form 
+            the search tree. If you wish to record predecessors, do so at this 
+            event point. 
+            </summary>
+        </member>
+        <member name="E:QuickGraph.Algorithms.Search.ImplicitEdgeDepthFirstSearchAlgorithm`2.BackEdge">
+            <summary>
+            Invoked on the back edges in the graph. 
+            </summary>
+        </member>
+        <member name="E:QuickGraph.Algorithms.Search.ImplicitEdgeDepthFirstSearchAlgorithm`2.ForwardOrCrossEdge">
+            <summary>
+            Invoked on forward or cross edges in the graph. 
+            (In an undirected graph this method is never called.) 
+            </summary>
+        </member>
+        <member name="E:QuickGraph.Algorithms.Search.ImplicitEdgeDepthFirstSearchAlgorithm`2.FinishEdge">
+            <summary>
+            Invoked on a edge after all of its out edges have been added to 
+            the search tree and all of the adjacent vertices have been 
+            discovered (but before their out-edges have been examined). 
+            </summary>
+        </member>
+        <member name="M:QuickGraph.Algorithms.AlgoUtility.OddVertices``2(QuickGraph.IVertexAndEdgeListGraph{``0,``1})">
+            <summary>
+            Create a collection of odd vertices
+            </summary>
+            <param name="g">graph to visit</param>
+            <returns>colleciton of odd vertices</returns>
+            <exception cref="T:System.ArgumentNullException">g is a null reference</exception>
+        </member>
+        <member name="T:QuickGraph.Algorithms.Search.EdgeDepthFirstSearchAlgorithm`2">
+            <summary>
+            A edge depth first search algorithm for directed graphs
+            </summary>
+            <remarks>
+            This is a variant of the classic DFS algorithm where the
+            edges are color marked instead of the vertices.
+            </remarks>
+            <reference-ref
+                idref="gross98graphtheory"
+                chapter="4.2"
+                />
+        </member>
+        <member name="T:QuickGraph.Algorithms.RandomWalks.CyclePoppingRandomTreeAlgorithm`2">
+            <summary>
+            Wilson-Propp Cycle-Popping Algorithm for Random Tree Generation.
+            </summary>
+        </member>
+        <member name="P:QuickGraph.Algorithms.RandomWalks.CyclePoppingRandomTreeAlgorithm`2.Rnd">
+            <summary>
+            Gets or sets the random number generator used in <c>RandomTree</c>.
+            </summary>
+            <value>
+            <see cref="T:System.Random"/> number generator
+            </value>
+        </member>
+        <member name="T:QuickGraph.Algorithms.Search.UndirectedDepthFirstSearchAlgorithm`2">
+            <summary>
+            A depth first search algorithm for undirected graphs
+            </summary>
+            <reference-ref
+                idref="gross98graphtheory"
+                chapter="4.2"
+                />
+        </member>
+        <member name="T:QuickGraph.Algorithms.MaximumFlow.EdmondsKarpMaximumFlowAlgorithm`2">
+            <summary>
+            Edmond and Karp maximum flow algorithm
+            for directed graph with positive capacities and
+            flows.
+            </summary>
+            <typeparam name="Vertex"></typeparam>
+            <typeparam name="Edge"></typeparam>
+        </member>
+        <member name="T:QuickGraph.Algorithms.MaximumFlow.MaximumFlowAlgorithm`2">
+            <summary>
+            Abstract base class for maximum flow algorithms.
+            </summary>
+        </member>
+        <member name="M:QuickGraph.Algorithms.MaximumFlow.EdmondsKarpMaximumFlowAlgorithm`2.InternalCompute">
+            <summary>
+            Computes the maximum flow between <paramref name="src"/> and
+            <paramref name="sink"/>
+            </summary>
+            <param name="src"></param>
+            <param name="sink"></param>
+            <returns></returns>
+        </member>
+        <member name="T:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2">
+            <summary>
+            A depth first search algorithm for implicit directed graphs
+            </summary>
+            <reference-ref
+                idref="gross98graphtheory"
+                chapter="4.2"
+                />
+        </member>
+        <member name="M:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2.OnStartVertex(`0)">
+            <summary>
+            Raises the <see cref="E:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2.StartVertex"/> event.
+            </summary>
+            <param name="v">vertex that raised the event</param>
+        </member>
+        <member name="M:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2.OnDiscoverVertex(`0)">
+            <summary>
+            Raises the <see cref="E:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2.DiscoverVertex"/> event.
+            </summary>
+            <param name="v">vertex that raised the event</param>
+        </member>
+        <member name="M:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2.OnExamineEdge(`1)">
+            <summary>
+            Raises the <see cref="E:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2.ExamineEdge"/> event.
+            </summary>
+            <param name="e">edge that raised the event</param>
+        </member>
+        <member name="M:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2.OnTreeEdge(`1)">
+            <summary>
+            Raises the <see cref="E:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2.TreeEdge"/> event.
+            </summary>
+            <param name="e">edge that raised the event</param>
+        </member>
+        <member name="M:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2.OnBackEdge(`1)">
+            <summary>
+            Raises the <see cref="E:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2.BackEdge"/> event.
+            </summary>
+            <param name="e">edge that raised the event</param>
+        </member>
+        <member name="M:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2.OnForwardOrCrossEdge(`1)">
+            <summary>
+            Raises the <see cref="E:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2.ForwardOrCrossEdge"/> event.
+            </summary>
+            <param name="e">edge that raised the event</param>
+        </member>
+        <member name="M:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2.OnFinishVertex(`0)">
+            <summary>
+            Raises the <see cref="E:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2.FinishVertex"/> event.
+            </summary>
+            <param name="v">vertex that raised the event</param>
+        </member>
+        <member name="P:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2.VertexColors">
+            <summary>
+            Gets the vertex color map
+            </summary>
+            <value>
+            Vertex color (<see cref="T:QuickGraph.GraphColor"/>) dictionary
+            </value>
+        </member>
+        <member name="P:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2.MaxDepth">
+            <summary>
+            Gets or sets the maximum exploration depth, from
+            the start vertex.
+            </summary>
+            <remarks>
+            Defaulted at <c>int.MaxValue</c>.
+            </remarks>
+            <value>
+            Maximum exploration depth.
+            </value>
+        </member>
+        <member name="E:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2.StartVertex">
+            <summary>
+            Invoked on the source vertex once before the start of the search. 
+            </summary>
+        </member>
+        <member name="E:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2.DiscoverVertex">
+            <summary>
+            Invoked when a vertex is encountered for the first time. 
+            </summary>
+        </member>
+        <member name="E:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2.ExamineEdge">
+            <summary>
+            Invoked on every out-edge of each vertex after it is discovered. 
+            </summary>
+        </member>
+        <member name="E:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2.TreeEdge">
+            <summary>
+            Invoked on each edge as it becomes a member of the edges that form 
+            the search tree. If you wish to record predecessors, do so at this 
+            event point. 
+            </summary>
+        </member>
+        <member name="E:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2.BackEdge">
+            <summary>
+            Invoked on the back edges in the graph. 
+            </summary>
+        </member>
+        <member name="E:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2.ForwardOrCrossEdge">
+            <summary>
+            Invoked on forward or cross edges in the graph. 
+            (In an undirected graph this method is never called.) 
+            </summary>
+        </member>
+        <member name="E:QuickGraph.Algorithms.Search.ImplicitDepthFirstSearchAlgorithm`2.FinishVertex">
+            <summary>
+            Invoked on a vertex after all of its out edges have been added to 
+            the search tree and all of the adjacent vertices have been 
+            discovered (but before their out-edges have been examined). 
+            </summary>
+        </member>
+        <member name="T:QuickGraph.Algorithms.Observers.VertexTimeStamperObserver`2">
+            <summary>
+            
+            </summary>
+            <typeparam name="Vertex"></typeparam>
+            <typeparam name="Edge"></typeparam>
+            <reference-ref
+                idref="boost"
+                />
+        </member>
+        <member name="M:QuickGraph.Algorithms.StronglyConnectedComponentsAlgorithm`2.FinishVertex(System.Object,QuickGraph.VertexEventArgs{`0})">
+            <summary>
+            Used internally
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="T:QuickGraph.Petri.ITransition`1">
+            <summary>
+            A node of a net, taken from the transition kind.
+            </summary>
+            <remarks>
+            <para>
+            Usually represented by a rectangle.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:QuickGraph.Petri.ITransition`1.Condition">
+            <summary>
+            A boolean expression associated with the transition
+            </summary>
+        </member>
+        <member name="T:QuickGraph.Algorithms.Search.UndirectedBreadthFirstSearchAlgorithm`2">
+            <summary>
+            A breath first search algorithm for undirected graphs
+            </summary>
+            <reference-ref
+                idref="gross98graphtheory"
+                chapter="4.2"
+                />
+        </member>
+        <member name="T:QuickGraph.Algorithms.Observers.VertexRecorderObserver`2">
+            <summary>
+            
+            </summary>
+            <typeparam name="Vertex"></typeparam>
+            <typeparam name="Edge"></typeparam>
+            <reference-ref
+                idref="boost"
+                />
+        </member>
+        <member name="T:QuickGraph.Algorithms.Observers.VertexDistanceRecorderObserver`2">
+            <summary>
+            
+            </summary>
+            <typeparam name="Vertex"></typeparam>
+            <typeparam name="Edge"></typeparam>
+            <reference-ref
+                idref="boost"
+                />
+        </member>
+        <member name="M:QuickGraph.IHierarchy`2.GetParent(`0)">
+            <summary>
+            Gets the parent <typeparamref name="Vertex"/> of <paramref name="vertex"/>
+            </summary>
+            <param name="vertex"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">
+            <paramref name="vertex"/> is the root of the graph.
+            </exception>
+        </member>
+        <member name="M:QuickGraph.IHierarchy`2.GetParentEdge(`0)">
+            <summary>
+            Gets the parent <typeparamref name="Edge"/> of <paramref name="vertex"/>
+            </summary>
+            <param name="vertex"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">
+            <paramref name="vertex"/> is the root of the graph.
+            </exception>
+        </member>
+        <member name="M:QuickGraph.IHierarchy`2.IsCrossEdge(`1)">
+            <summary>
+            Gets a value indicating if <paramref name="edge"/> is 
+            a cross edge.
+            </summary>
+            <param name="edge"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QuickGraph.IHierarchy`2.IsRealEdge(`1)">
+            <summary>
+            Gets a value indicating whether <paramref name="edge"/> 
+            exists really or is just an induced edge.
+            </summary>
+            <param name="edge"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QuickGraph.IHierarchy`2.IsPredecessorOf(`0,`0)">
+            <summary>
+            Gets a value indicating if <paramref name="source"/>
+            is a predecessor of <paramref name="target"/>
+            </summary>
+            <param name="source"></param>
+            <param name="target"></param>
+            <returns>
+            true if <paramref name="source"/> is a predecessor of
+            <paramref name="target"/>
+            </returns>
+        </member>
+        <member name="M:QuickGraph.IHierarchy`2.InducedEdgeCount(`0,`0)">
+            <summary>
+            Gets the number of edges between <paramref name="source"/>
+            and <paramref name="target"/>. 
+            </summary>
+            <param name="source"></param>
+            <param name="target"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">
+            <paramref name="source"/> is a predecessor of <paramref name="target"/>
+            or the otherway round.
+            </exception>
+        </member>
+        <member name="M:QuickGraph.IHierarchy`2.IsInnerNode(`0)">
+            <summary>
+            Gets a value indicating if <paramref name="vertex"/> is 
+            inner node or a leaf.
+            </summary>
+            <param name="vertex"></param>
+            <returns>
+            true if not a leaf
+            </returns>
+        </member>
+        <member name="M:QuickGraph.IHierarchy`2.ChildrenEdges(`0)">
+            <summary>
+            Gets the collection of children <typeparamref name="Edge"/>
+            from <paramref name="Vertex"/>
+            </summary>
+            <param name="vertex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QuickGraph.IHierarchy`2.ChildrenVertices(`0)">
+            <summary>
+            Gets the collection of children <typeparamref name="Vertex"/>
+            from <paramref name="Vertex"/>
+            </summary>
+            <param name="vertex"></param>
+            <returns></returns>
+        </member>
+        <member name="P:QuickGraph.IHierarchy`2.Root">
+            <summary>
+            Gets the roots of the hierarchy
+            </summary>
+        </member>
+        <member name="T:QuickGraph.Algorithms.Search.BidirectionalDepthFirstSearchAlgorithm`2">
+            <summary>
+            A depth and height first search algorithm for directed graphs
+            </summary>
+            <remarks>
+            This is a modified version of the classic DFS algorithm
+            where the search is performed both in depth and height.
+            </remarks>
+            <reference-ref
+                idref="gross98graphtheory"
+                chapter="4.2"
+                />
+        </member>
+        <member name="T:QuickGraph.Algorithms.Observers.EdgeRecorderObserver`2">
+            <summary>
+            
+            </summary>
+            <typeparam name="Vertex"></typeparam>
+            <typeparam name="Edge"></typeparam>
+            <reference-ref
+                idref="boost"
+                />
+        </member>
+        <member name="T:QuickGraph.Algorithms.MinimumSpanningTree.PrimMinimumSpanningTreeAlgorithm`2">
+            <summary>
+            Prim's classic minimum spanning tree algorithm for undirected graphs
+            </summary>
+            <typeparam name="Vertex"></typeparam>
+            <typeparam name="Edge"></typeparam>
+            <reference-ref
+                idref="shi03datastructures"
+                />
+        </member>
+        <member name="T:QuickGraph.Algorithms.Observers.VertexPredecessorRecorderObserver`2">
+            <summary>
+            
+            </summary>
+            <typeparam name="Vertex"></typeparam>
+            <typeparam name="Edge"></typeparam>
+            <reference-ref
+                idref="boost"
+                />
+        </member>
+        <member name="T:QuickGraph.Algorithms.ShortestPath.UndirectedDijkstraShortestPathAlgorithm`2">
+            <summary>
+            A single-source shortest path algorithm for undirected graph
+            with positive distance.
+            </summary>
+            <reference-ref
+                idref="lawler01combinatorial"
+                />
+        </member>
+        <member name="T:QuickGraph.Algorithms.ShortestPath.BellmanFordShortestPathAlgorithm`2">
+            <summary>
+            Bellman Ford shortest path algorithm.
+            </summary>
+            <remarks>
+            <para>
+            The Bellman-Ford algorithm solves the single-source shortest paths 
+            problem for a graph with both positive and negative edge weights. 
+            </para>
+            <para>
+            If you only need to solve the shortest paths problem for positive 
+            edge weights, Dijkstra's algorithm provides a more efficient 
+            alternative. 
+            </para>
+            <para>
+            If all the edge weights are all equal to one then breadth-first search 
+            provides an even more efficient alternative. 
+            </para>
+            </remarks>
+            <reference-ref
+                idref="shi03datastructures"
+                />
+        </member>
+        <member name="M:QuickGraph.Algorithms.ShortestPath.BellmanFordShortestPathAlgorithm`2.#ctor(QuickGraph.IVertexAndEdgeListGraph{`0,`1},System.Collections.Generic.IDictionary{`1,System.Double},QuickGraph.Algorithms.ShortestPath.IDistanceRelaxer)">
+            <summary>
+            Builds a new Bellman Ford searcher.
+            </summary>
+            <param name="g">The graph</param>
+            <param name="weights">Edge weights</param>
+            <exception cref="T:System.ArgumentNullException">Any argument is null</exception>
+            <remarks>This algorithm uses the <seealso cref="!:BreadthFirstSearchAlgorithm"/>.</remarks>
+        </member>
+        <member name="M:QuickGraph.Algorithms.ShortestPath.BellmanFordShortestPathAlgorithm`2.OnInitializeVertex(`0)">
+            <summary>
+            Raises the <see cref="E:QuickGraph.Algorithms.ShortestPath.BellmanFordShortestPathAlgorithm`2.InitializeVertex"/> event.
+            </summary>
+            <param name="v">vertex that raised the event</param>
+        </member>
+        <member name="M:QuickGraph.Algorithms.ShortestPath.BellmanFordShortestPathAlgorithm`2.OnExamineEdge(`1)">
+            <summary>
+            Raises the <see cref="E:QuickGraph.Algorithms.ShortestPath.BellmanFordShortestPathAlgorithm`2.ExamineEdge"/> event.
+            </summary>
+            <param name="e">edge that raised the event</param>
+        </member>
+        <member name="M:QuickGraph.Algorithms.ShortestPath.BellmanFordShortestPathAlgorithm`2.OnTreeEdge(`1)">
+            <summary>
+            Raises the <see cref="E:QuickGraph.Algorithms.ShortestPath.BellmanFordShortestPathAlgorithm`2.TreeEdge"/> event.
+            </summary>
+            <param name="e">edge that raised the event</param>
+        </member>
+        <member name="M:QuickGraph.Algorithms.ShortestPath.BellmanFordShortestPathAlgorithm`2.OnEdgeNotRelaxed(`1)">
+            <summary>
+            Raises the <see cref="E:QuickGraph.Algorithms.ShortestPath.BellmanFordShortestPathAlgorithm`2.EdgeNotRelaxed"/> event.
+            </summary>
+            <param name="e">edge that raised the event</param>
+        </member>
+        <member name="M:QuickGraph.Algorithms.ShortestPath.BellmanFordShortestPathAlgorithm`2.OnEdgeMinimized(`1)">
+            <summary>
+            Raises the <see cref="E:QuickGraph.Algorithms.ShortestPath.BellmanFordShortestPathAlgorithm`2.EdgeMinimized"/> event.
+            </summary>
+            <param name="e">edge that raised the event</param>
+        </member>
+        <member name="M:QuickGraph.Algorithms.ShortestPath.BellmanFordShortestPathAlgorithm`2.OnEdgeNotMinimized(`1)">
+            <summary>
+            Raises the <see cref="E:QuickGraph.Algorithms.ShortestPath.BellmanFordShortestPathAlgorithm`2.EdgeNotMinimized"/> event.
+            </summary>
+            <param name="e">edge that raised the event</param>
+        </member>
+        <member name="M:QuickGraph.Algorithms.ShortestPath.BellmanFordShortestPathAlgorithm`2.InternalCompute">
+            <summary>
+            Applies the Bellman Ford algorithm
+            </summary>
+            <remarks>
+            Does not initialize the predecessor and distance map.
+            </remarks>
+            <returns>true if successful, false if there was a negative cycle.</returns>
+        </member>
+        <member name="E:QuickGraph.Algorithms.ShortestPath.BellmanFordShortestPathAlgorithm`2.InitializeVertex">
+            <summary>
+            Invoked on each vertex in the graph before the start of the 
+            algorithm.
+            </summary>
+        </member>
+        <member name="E:QuickGraph.Algorithms.ShortestPath.BellmanFordShortestPathAlgorithm`2.ExamineEdge">
+            <summary>
+            Invoked on every edge in the graph |V| times.
+            </summary>
+        </member>
+        <member name="E:QuickGraph.Algorithms.ShortestPath.BellmanFordShortestPathAlgorithm`2.TreeEdge">
+            <summary>
+            Invoked when the distance label for the target vertex is decreased. 
+            The edge that participated in the last relaxation for vertex v is 
+            an edge in the shortest paths tree.
+            </summary>
+        </member>
+        <member name="E:QuickGraph.Algorithms.ShortestPath.BellmanFordShortestPathAlgorithm`2.EdgeNotRelaxed">
+            <summary>
+             Invoked if the distance label for the target vertex is not 
+             decreased.
+            </summary>
+        </member>
+        <member name="E:QuickGraph.Algorithms.ShortestPath.BellmanFordShortestPathAlgorithm`2.EdgeMinimized">
+            <summary>
+             Invoked during the second stage of the algorithm, 
+             during the test of whether each edge was minimized. 
+             
+             If the edge is minimized then this function is invoked.
+            </summary>
+        </member>
+        <member name="E:QuickGraph.Algorithms.ShortestPath.BellmanFordShortestPathAlgorithm`2.EdgeNotMinimized">
+            <summary>
+            Invoked during the second stage of the algorithm, 
+            during the test of whether each edge was minimized. 
+            
+            If the edge was not minimized, this function is invoked. 
+            This happens when there is a negative cycle in the graph. 
+            </summary>
+        </member>
+        <member name="P:QuickGraph.Algorithms.ShortestPath.BellmanFordShortestPathAlgorithm`2.Predecessors">
+            <summary>
+            Constructed predecessor map
+            </summary>
+        </member>
+    </members>
+</doc>

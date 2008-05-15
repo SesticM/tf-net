@@ -1,0 +1,6 @@
+Referenced files locations:
+Root installation folder of Autodesk AutoCAD or it's vertical:
+
+acdbmgd.dll
+acmgd.dll
+AcMPolygonMGD.dll

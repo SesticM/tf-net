@@ -1,0 +1,15 @@
+Referenced files locations:
+
+Autodesk's FDO implementation:
+C:\Program Files\AutoCAD Map 3D 2008\FDO\bin or
+C:\Program Files\AutoCAD Civil 3D 2008\FDO\bin or
+C:\Program Files\AutoCAD Map 3D 2009\FDO\bin
+C:\Program Files\AutoCAD Civil 3D 2009\FDO\bin
+
+OSGeo FDO implementation:
+..\FDO\bin
+
+
+OSGeo.FDO.Common.dll
+OSGeo.FDO.dll
+OSGeo.FDO.Geometry.dll
