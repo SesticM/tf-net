@@ -15,6 +15,6 @@ A short guide to folder structure found in a Trunk:
 
 == Building TF.NET Core libraries ==
 
-  # Open and build Core.sln solution first
-  # Compiled files end up in ..\Core\Bin folder
-  # Run TF-MERGE.bat to link them into a single Topology.dll using VS.NET ILMerge.exe tool
+  1. Open and build Core.sln solution first
+  2. Compiled files end up in ..\Core\Bin folder
+  3. Run TF-MERGE.bat to link them into a single Topology.dll using VS.NET ILMerge.exe tool
