@@ -1,4 +1,4 @@
-#summary A Guide For Topology Framework .NET Committers
+#summary TF.NET Guide for Committers
 
 = Tips for TF.NET Committers =
 
