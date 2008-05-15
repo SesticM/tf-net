@@ -1,0 +1,8 @@
+Referenced files locations:
+
+- [FWTools_install_folder]\csharp
+- [OSGeo_GDAL_OGR_install_folder]\bin
+
+Referenced files:
+
+- ogr_csharp.dll

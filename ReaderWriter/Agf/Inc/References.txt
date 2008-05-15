@@ -1,0 +1,6 @@
+Referenced files locations:
+C:\Program Files\AutoCAD Map 3D 2006\FDO\bin or
+C:\Program Files\AutoCAD Map 3D 2007\FDO\bin
+
+MgGisCommon.dll
+MgGisGeometry.dll

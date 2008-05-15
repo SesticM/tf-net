@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Topology.IO.Dwg", "ReaderWriter\Dwg\Src\Topology.IO.Dwg.vbproj", "{EAAD5774-D7C0-4816-9B5E-72CEB84FC41D}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Topology.IO.Fgf", "ReaderWriter\Fgf\Src\Topology.IO.Fgf.vbproj", "{B04D4202-804B-4548-ACB8-A100DDB83707}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Topology.IO.MapGuide", "ReaderWriter\MapGuide\Src\Topology.IO.MapGuide.vbproj", "{86837AC0-263F-4A22-9D0A-4642BD3ABFD3}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Topology.IO.Agf", "ReaderWriter\Agf\Src\Topology.IO.Agf.vbproj", "{3211F10C-E68C-45E7-9B35-2C87C5FBD7AA}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Topology.IO.Ogr", "ReaderWriter\Ogr\Src\Topology.IO.Ogr.vbproj", "{83F6B200-6D62-4F12-BAE3-06A46DBB0FF3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Description = Topology Framework .NET Reader/Writer\
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EAAD5774-D7C0-4816-9B5E-72CEB84FC41D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAAD5774-D7C0-4816-9B5E-72CEB84FC41D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAAD5774-D7C0-4816-9B5E-72CEB84FC41D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAAD5774-D7C0-4816-9B5E-72CEB84FC41D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B04D4202-804B-4548-ACB8-A100DDB83707}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B04D4202-804B-4548-ACB8-A100DDB83707}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B04D4202-804B-4548-ACB8-A100DDB83707}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B04D4202-804B-4548-ACB8-A100DDB83707}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86837AC0-263F-4A22-9D0A-4642BD3ABFD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86837AC0-263F-4A22-9D0A-4642BD3ABFD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86837AC0-263F-4A22-9D0A-4642BD3ABFD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86837AC0-263F-4A22-9D0A-4642BD3ABFD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3211F10C-E68C-45E7-9B35-2C87C5FBD7AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3211F10C-E68C-45E7-9B35-2C87C5FBD7AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3211F10C-E68C-45E7-9B35-2C87C5FBD7AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3211F10C-E68C-45E7-9B35-2C87C5FBD7AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83F6B200-6D62-4F12-BAE3-06A46DBB0FF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83F6B200-6D62-4F12-BAE3-06A46DBB0FF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83F6B200-6D62-4F12-BAE3-06A46DBB0FF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83F6B200-6D62-4F12-BAE3-06A46DBB0FF3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
