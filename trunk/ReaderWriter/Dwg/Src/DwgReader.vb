@@ -404,7 +404,14 @@ Public Class DwgReader
             Case "AcDbMline"
                 Return Me.ReadLineString(CType(entity, Mline))
             Case "AcDbMPolygon"
-                Return Me.ReadMultiPolygon(CType(entity, MPolygon))
+                'added due to possibly invalid MPolygons (returned by AutoCAD as ImpEntity)
+                Dim ent As MPolygon = TryCast(entity, MPolygon)
+                If ent IsNot Nothing Then
+                    Return Me.ReadMultiPolygon(ent)
+                Else
+                    Throw New ArgumentException(String.Format("Invalid MPolygon entity. Conversion to IGeometry is not possible.", entity.GetRXClass.Name))
+                    Return Nothing
+                End If
             Case Else
                 Throw New ArgumentException(String.Format("Conversion from {0} entity to IGeometry is not supported.", entity.GetRXClass.Name))
                 Return Nothing
