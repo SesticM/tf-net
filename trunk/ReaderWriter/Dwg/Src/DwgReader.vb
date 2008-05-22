@@ -26,7 +26,8 @@ Public Class DwgReader
 #Region " CTOR "
 
     Sub New()
-        MyBase.New(Topology.Geometries.GeometryFactory.FloatingSingle)
+        MyBase.New()
+        'MyBase.New(Topology.Geometries.GeometryFactory.FloatingSingle)
     End Sub
 
     Sub New(ByVal factory As IGeometryFactory)

@@ -20,7 +20,8 @@ Public Class DwgWriter
 #Region " CTOR "
 
     Sub New()
-        MyBase.New(Topology.Geometries.GeometryFactory.FloatingSingle)
+        'MyBase.New(Topology.Geometries.GeometryFactory.FloatingSingle)
+        MyBase.New()
     End Sub
 
     Sub New(ByVal factory As IGeometryFactory)
@@ -308,15 +309,21 @@ Public Class DwgWriter
 
 #End Region
 
-    Public Function WriteEntity(ByVal rxClassName As String, ByVal geometry As IGeometry) As Entity
+    Public Function WriteEntity(ByVal geometry As IGeometry, ByVal rxClassName As String) As Entity
         Select Case rxClassName
             Case "AcDbMPolygon"
-                Return Me.WriteMPolygon(CType(geometry, Polygon))
+                Return Me.WriteMPolygon(CType(geometry, MultiPolygon))
 
-            Case "AcDbLine", "AcDbPolyline", "AcDb2dPolyline", "AcDb3dPolyline", "AcDbMline"
+            Case "AcDbLine", "AcDbPolyline", "AcDbMline"
                 Return Me.WritePolyline(CType(geometry, LineString))
 
-            Case "AcDbBlockReference", "AcDbPoint"
+            Case "AcDb2dPolyline"
+                Return Me.WritePolyline2d(CType(geometry, LineString))
+
+            Case "AcDb3dPolyline"
+                Return Me.WritePolyline3d(CType(geometry, LineString))
+
+            Case "AcDbPoint", "AcDbBlockReference"
                 Return Me.WriteDbPoint(CType(geometry, Point))
 
             Case Else
