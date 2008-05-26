@@ -106,6 +106,7 @@ Public Class DwgReader
     ''' In case resulting coordinate sequence has <c>0..1</c> coordinates,
     ''' geometry conversion will fail returning an empty <see cref="LineString"/>.
     ''' </para>
+    ''' Polyline with <c>Elevation</c> set gets converted into 3D <see cref="LineString"/>.
     ''' </remarks>
     Public Function ReadLineString(ByVal polyline As Polyline) As ILineString
         Dim points As New CoordinateList
@@ -129,6 +130,12 @@ Public Class DwgReader
         End If
 
         If points.Count > 1 Then
+            If polyline.Elevation <> 0 Then
+                For Each coord As Coordinate In points
+                    coord.Z = polyline.Elevation
+                Next
+            End If
+
             Return Me.GeometryFactory.CreateLineString(points.ToCoordinateArray)
         Else
             Return LineString.Empty

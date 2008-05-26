@@ -123,6 +123,10 @@ Public Class DwgWriter
     ''' If first and last coordinate in the <see cref="LineString"/> coordinate sequence are equal,
     ''' returned <see cref="Polyline"/> is closed. To check whether <see cref="LineString"/> is
     ''' closed, see it's <see cref="LineString.IsClosed"/> property.
+    ''' <para>
+    ''' If first <see cref="LineString"/>'s coordinate is 3D, then it's Z value gets translated
+    ''' into the <see cref="Polyline"/>'s <c>Elevation</c>.
+    ''' </para>
     ''' </remarks>
     Public Function WritePolyline(ByVal lineString As ILineString) As Polyline
         Dim geometry As New Polyline
@@ -133,6 +137,13 @@ Public Class DwgWriter
         Next
         geometry.Closed = lineString.StartPoint.EqualsExact(lineString.EndPoint)
         geometry.MinimizeMemory()
+
+        If i > 0 Then
+            If lineString.Coordinates(0).Z <> 0 Then
+                geometry.Elevation = lineString.Coordinates(0).Z
+            End If
+        End If
+
         Return geometry
     End Function
 
@@ -152,6 +163,13 @@ Public Class DwgWriter
         Next
         geometry.Closed = True
         geometry.MinimizeMemory()
+
+        If i > 0 Then
+            If linearRing.Coordinates(0).Z <> 0 Then
+                geometry.Elevation = linearRing.Coordinates(0).Z
+            End If
+        End If
+
         Return geometry
     End Function
 

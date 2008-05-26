@@ -54,6 +54,7 @@ Public Class FgfWriter
     Inherits GeometryWriter
 
     Private m_Factory As OSGeo.FDO.Geometry.FgfGeometryFactory
+    Private m_FlattenGeometries As Boolean
 
 #Region " CTOR "
 
@@ -614,6 +615,15 @@ Public Class FgfWriter
     End Function
 
 #End Region
+
+    Public Property FlattenGeometries() As Boolean
+        Get
+            Return m_FlattenGeometries
+        End Get
+        Set(ByVal value As Boolean)
+            m_FlattenGeometries = False
+        End Set
+    End Property
 
 End Class
 
