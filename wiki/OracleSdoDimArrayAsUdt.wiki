@@ -1,5 +1,4 @@
 #summary Oracle's SDO_DIM_ARRAY as UDT and utilizing SDO_MIGRATE.TO_CURRENT as stored procedure
-#labels Featured
 
 = Introduction =
 
