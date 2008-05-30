@@ -1,5 +1,4 @@
 #summary TF.NET and NET 2.0 Implementation of Oracle’s SDO_GEOMETRY as UDT
-#labels Featured
 
 = Introduction =
 
