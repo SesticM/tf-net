@@ -3,7 +3,7 @@
 
 = Introduction =
 
-This wiki page references a series of articles kindly contributed by Dennis Jonio. In general, articles refer to implementing a geometry Reader/Writer for Oracle ODP.NET. In the near future, TF.NET should provide a Reader/Writer IO library to support ODP.NET geometries "out-of-the-box".
+This wiki page references a series of articles kindly contributed by Dennis Jonio. In general, articles refer to implementing a geometry Reader/Writer for Oracle ODP.NET. In the near future, TF.NET should provide a Reader/Writer IO library to support ODP.NET geometries' conversions "out-of-the-box".
 
 
 = Related Wikis =
