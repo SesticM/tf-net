@@ -1,0 +1,11 @@
+#summary Implementing Reader/Writer for Oracle ODP.NET Geometries
+
+= Introduction =
+
+This wiki page references a series of articles kindly contributed by Dennis Jonio. In general, articles refer to implementing a geometry Reader/Writer for Oracle ODP.NET.
+
+
+= Related Wikis =
+
+  * ODP.NET 11g, Oracle XE 10.2, ObjectARX.NET, Autodesk Map3d 2008, OSGeo FDO 3.2 - see related [http://code.google.com/p/tf-net/wiki/OnOracleTopology wiki page].
+  * Oracle's SDO_DIM_ARRAY as UDT and utilizing SDO_MIGRATE.TO_CURRENT as stored procedure - see related [http://code.google.com/p/tf-net/wiki/OracleSdoDimArrayAsUdt wiki page].
