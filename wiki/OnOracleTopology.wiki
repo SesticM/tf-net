@@ -1,5 +1,4 @@
 #summary ODP.NET 11g, Oracle XE 10.2, ObjectARX.NET, Autodesk Map3d 2008, OSGeo FDO 3.2
-#labels Featured
 
 = Some Learnings... =
 
