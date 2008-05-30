@@ -15,3 +15,6 @@ To do the conversions from Map3d I first used TF.NET to convert to a JTS IGeomet
 
 At this point a have a fully functional application. Not the fastest piece of code I have done but I certainly do exercise TF.NET. The next step will be to code up the load of the `sdogeometry` objects directly. But, I am in no hurry. Computer cycles are a lot cheaper than my time.
 
+= Credits =
+
+This wiki article was kindly contributed by Dennis Jonio. 
