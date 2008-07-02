@@ -133,3 +133,8 @@ In general, Locator includes the data types, operators, and indexing capabilitie
 || `SDO_GEOM.VALIDATE_GEOMETRY_WITH_CONTEXT` || TBD ||
 || `SDO_GEOM.VALIDATE_LAYER_WITH_CONTEXT` || TBD ||
 || `SDO_MIGRATE.TO_CURRENT` || TBD ||
+
+
+= Credits =
+
+This wiki article was kindly contributed by Dennis Jonio.
