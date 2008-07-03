@@ -11,6 +11,6 @@ This wiki page references a series of articles kindly contributed by Dennis Joni
   * ODP.NET 11g, Oracle XE 10.2, ObjectARX.NET, Autodesk Map3d 2008, OSGeo FDO 3.2 - see related [http://code.google.com/p/tf-net/wiki/OnOracleTopology wiki page].
   * TF.NET and NET 2.0 Implementation of Oracle’s `SDO_GEOMETRY` as UDT - see related [http://code.google.com/p/tf-net/wiki/OracleSdoGeometryAsUdt wiki page].
   * Oracle's `SDO_DIM_ARRAY` as UDT and utilizing `SDO_MIGRATE.TO_CURRENT` as stored procedure - see related [http://code.google.com/p/tf-net/wiki/OracleSdoDimArrayAsUdt wiki page].
-  * Translations TO and FRO - JTS, FDO, JGeometry, SDO_GEOMETRY - see related [http://code.google.com/p/tf-net/wiki/OracleGeometryTranslations wiki page].
+  * Translations TO and FRO - JTS, FDO, JGeometry, `SDO_GEOMETRY` - see related [http://code.google.com/p/tf-net/wiki/OracleGeometryTranslations wiki page].
   * Oracle XE 10.2 Locator Licensed Functionality - see related [http://code.google.com/p/tf-net/wiki/OracleXeLicensedFunctionality wiki page].
-  * Loading a .NET DataSet with SDO_GEOMETRY from an AutoDesk DWG - see related [http://code.google.com/p/tf-net/wiki/OracleDataSetFromDwg wiki page].
+  * Loading a .NET `DataSet` with `SDO_GEOMETRY` from an AutoDesk DWG - see related [http://code.google.com/p/tf-net/wiki/OracleDataSetFromDwg wiki page].
