@@ -14,5 +14,4 @@ This wiki page references a series of articles kindly contributed by Dennis Joni
   * Translations TO and FRO - JTS, FDO, JGeometry, `SDO_GEOMETRY` - see related [http://code.google.com/p/tf-net/wiki/OracleGeometryTranslations wiki page].
   * Oracle XE 10.2 Locator Licensed Functionality - see related [http://code.google.com/p/tf-net/wiki/OracleXeLicensedFunctionality wiki page].
   * Loading a .NET `DataSet` with `SDO_GEOMETRY` from an AutoDesk DWG - see related [http://code.google.com/p/tf-net/wiki/OracleDataSetFromDwg wiki page].
-  * Array Binding Parameters for 'faster' Bulk Loading of SDO_GEOMETRY DataSets
- - see related [http://code.google.com/p/tf-net/wiki/OracleArrayBindingParams wiki page].
+  * Array Binding Parameters for 'faster' Bulk Loading of SDO_GEOMETRY DataSets - see related [http://code.google.com/p/tf-net/wiki/OracleArrayBindingParams wiki page].
