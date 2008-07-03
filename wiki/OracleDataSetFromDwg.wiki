@@ -1,10 +1,5 @@
 #summary Loading a .NET DataSet with SDO_GEOMETRY from an AutoDesk DWG
 
-= Introduction =
-
-Loading a .NET DataSet with SDO_GEOMETRY from an AutoDesk DWG.
-
-
 = Details =
 
 _This is taken directly out of a working application. Since Maksim and I are not sure were we wish to go with this section I offer this as the next installment._
@@ -12,7 +7,7 @@ _This is taken directly out of a working application. Since Maksim and I are not
 In this application snippet, but not shown here, I use a database table to store the information necessary to select and load a DWG from the filesystem. In addition the `LAYERS` field of that table holds a delimited string with the names of the DWG layers to use. This supplies the filter mechanism for entity selection. My preference is to use a hashtable for the actual lookup. The rest should be fairly straightforward to follow.
 
   * `NextValStackHandler` is a helper class to handle the Oracle sequence values used to provide the primary key. It utilizes a `Stack` object to store `NextVal(s)`. 
-  * `OraFDOInfo` is another helper class for the store of connection information for ODP and FDO. `LogThis()` is a very, very simple text file logger.
+  * `OraFDOInfo` is another helper class for the store of connection information for ODP and `FDO.LogThis()` is a very, very simple text file logger.
 
 As always code speaks for itself.
 
