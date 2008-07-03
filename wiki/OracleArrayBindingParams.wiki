@@ -301,3 +301,8 @@ private static int ArrayBoundInsertHelper(ref OracleCommand _theInsertCommand, r
 
         }
 }}}
+
+
+= Credits =
+
+This wiki article was kindly contributed by Dennis Jonio.
