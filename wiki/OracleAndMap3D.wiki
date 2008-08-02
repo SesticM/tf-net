@@ -6,10 +6,9 @@ Within this series of articles I have pretty well illustrated Oracle’s ODP.NET
 
 = Lessons Learned =
 
-  # Always turn Connection Pooling OFF when working with UDT’s. 
-  # Do NOT use the App.config method for UDT discovery that is described in the ODP.NET documentation. This does no work in all cases. It seems nested classes are not always resolved.
-  # Since your UDT class assembly(s) will be referenced from, in the default case: "C:\Program Files\AutoCAD Map 3D 2008", be careful of your naming convention.
- 
+  * Always turn Connection Pooling OFF when working with UDT’s. 
+  * Do NOT use the App.config method for UDT discovery that is described in the ODP.NET documentation. This does no work in all cases. It seems nested classes are not always resolved.
+  * Since your UDT class assembly(s) will be referenced from, in the default case: "C:\Program Files\AutoCAD Map 3D 2008", be careful of your naming convention.
 
 Here is an example sequence of events:
 
