@@ -81,7 +81,7 @@ Namespace IO
                 Return m_CurveTessellationMethod
             End Get
             Set(ByVal value As Topology.IO.CurveTessellation)
-                value = m_CurveTessellationMethod
+                m_CurveTessellationMethod = value
             End Set
         End Property
 
@@ -116,7 +116,7 @@ Namespace IO
                 End Select
             End Get
             Set(ByVal value As Double)
-                value = m_CurveTessellationValue
+                m_CurveTessellationValue = value
             End Set
         End Property
 

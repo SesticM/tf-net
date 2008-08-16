@@ -539,4 +539,65 @@ Public Class DwgReader
 
 #End Region
 
+#Region " ReadGeometryCollection "
+
+    Public Function ReadGeometryCollection(ByVal dbObjects As DBObjectCollection) As GeometryCollection
+        Dim col As New List(Of Geometry)
+
+        For Each dbObj As DBObject In dbObjects
+            Dim geom As Geometry = Me.ReadGeometry(dbObj)
+            If geom IsNot Nothing Then
+                col.Add(geom)
+            End If
+        Next
+
+        Return New GeometryCollection(col.ToArray)
+    End Function
+
+    Public Function ReadGeometryCollection(ByVal objectIds As ObjectId()) As GeometryCollection
+        Dim col As New List(Of Geometry)
+
+        Dim db As Database = HostApplicationServices.WorkingDatabase
+        Dim tr As Transaction = db.TransactionManager.StartTransaction
+
+        Try
+            For Each objId As ObjectId In objectIds
+                Dim ent As Entity = tr.GetObject(objId, OpenMode.ForRead, False)
+                Dim geom As Geometry = Me.ReadGeometry(ent)
+                If geom IsNot Nothing Then
+                    col.Add(geom)
+                End If
+            Next
+            tr.Commit()
+        Finally
+            tr.Dispose()
+        End Try
+
+        Return New GeometryCollection(col.ToArray)
+    End Function
+
+    Public Function ReadGeometryCollection(ByVal objectIds As ObjectIdCollection) As GeometryCollection
+        Dim col As New List(Of Geometry)
+
+        Dim db As Database = HostApplicationServices.WorkingDatabase
+        Dim tr As Transaction = db.TransactionManager.StartTransaction
+
+        Try
+            For Each objId As ObjectId In objectIds
+                Dim ent As Entity = tr.GetObject(objId, OpenMode.ForRead, False)
+                Dim geom As Geometry = Me.ReadGeometry(ent)
+                If geom IsNot Nothing Then
+                    col.Add(geom)
+                End If
+            Next
+            tr.Commit()
+        Finally
+            tr.Dispose()
+        End Try
+
+        Return New GeometryCollection(col.ToArray)
+    End Function
+
+#End Region
+
 End Class
