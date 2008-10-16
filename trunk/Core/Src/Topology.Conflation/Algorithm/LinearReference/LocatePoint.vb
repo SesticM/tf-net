@@ -66,13 +66,13 @@ Namespace Conflation.Algorithm.LinearReference
         Private Sub Compute(ByVal line As LineString, ByVal length As Double)
             ' <TODO> handle negative distances (measure from opposite end of line)
             Dim totalLength As Double = 0
-            Dim coord() As Coordinate = line.Coordinates
+            Dim coord() As ICoordinate = line.Coordinates
             Dim i As Integer = 0
             Do While (i < (coord.Length - 1))
                 Dim p0 As Coordinate = coord(i)
                 Dim p1 As Coordinate = coord((i + 1))
                 Dim segLen As Double = p1.Distance(p0)
-                If (totalLength + (segLen > length)) Then
+                If (totalLength + segLen) > length Then
                     pt = PointAlongSegment(p0, p1, (length - totalLength))
                     index = i
                     Return
