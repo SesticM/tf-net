@@ -1,5 +1,4 @@
 Imports Topology.Geometries
-
 Namespace Conflation.Algorithm
 
     ''' <summary>
@@ -31,7 +30,7 @@ Namespace Conflation.Algorithm
         End Sub
 
         Public Shared Sub ComputeDistance(ByVal line As LineString, ByVal pt As Coordinate, ByVal ptDist As PointPairDistance)
-            Dim coords() As Coordinate = line.Coordinates
+            Dim coords() As ICoordinate = line.Coordinates
             Dim i As Integer = 0
             Do While (i < (coords.Length - 1))
                 tempSegment.SetCoordinates(coords(i), coords((i + 1)))
