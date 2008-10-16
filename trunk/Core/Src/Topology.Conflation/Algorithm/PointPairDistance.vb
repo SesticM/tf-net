@@ -59,12 +59,12 @@ Namespace Conflation.Algorithm
 
         Public Sub SetMaximum(ByVal p0 As Coordinate, ByVal p1 As Coordinate)
             If isNull Then
-                Initialize(p0, p1)
+                Initialize(p0.Clone(), p1.Clone())
                 Return
             End If
             Dim dist As Double = p0.Distance(p1)
             If (dist > distance) Then
-                Initialize(p0, p1, dist)
+                Initialize(p0.Clone(), p1.Clone(), dist)
             End If
         End Sub
 
@@ -74,12 +74,12 @@ Namespace Conflation.Algorithm
 
         Public Sub SetMinimum(ByVal p0 As Coordinate, ByVal p1 As Coordinate)
             If isNull Then
-                Initialize(p0, p1)
+                Initialize(p0.Clone(), p1.Clone())
                 Return
             End If
             Dim dist As Double = p0.Distance(p1)
             If (dist < distance) Then
-                Initialize(p0, p1, dist)
+                Initialize(p0.Clone(), p1.Clone(), dist)
             End If
         End Sub
     End Class
