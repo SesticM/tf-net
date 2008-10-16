@@ -461,9 +461,21 @@ namespace Topology.Geometries
                 double angleRAD = Math.Asin(Math.Abs(EndPoint.Y - StartPoint.Y) / length);
                 double angle = (angleRAD * 180) / Math.PI;
 
-                if ( ((StartPoint.X < EndPoint.X) && (StartPoint.Y > EndPoint.Y)) ||
-                     ((StartPoint.X > EndPoint.X) && (StartPoint.Y < EndPoint.Y)) )
-                        angle = 360 - angle;                
+                //if ( ((StartPoint.X < EndPoint.X) && (StartPoint.Y > EndPoint.Y)) ||
+                //     ((StartPoint.X > EndPoint.X) && (StartPoint.Y < EndPoint.Y)) )
+                //        angle = 360 - angle;
+                
+                if (StartPoint.Y > EndPoint.Y)
+                    angle = 0 - angle;
+                
+                if (StartPoint.X > EndPoint.X)
+                    angle = 180 - angle;
+
+                if (angle < 0)
+                    angle += 360;
+                if (angle > 360)
+                    angle -= 360;
+
                 return angle;
             }
         }
