@@ -75,6 +75,51 @@ namespace Topology.IO
 				}
                 lines[part] = geometryFactory.CreateLineString(points.ToArray());
 			}
+
+            //If we have Z-coordinates, read them..
+            if (shapeType == ShapeGeometryTypes.LineStringZ || shapeType == ShapeGeometryTypes.LineStringZM)
+            {
+                //z-Bounds
+                double zMin = file.ReadDouble();
+                double zMax = file.ReadDouble();
+                for (int part = 0; part < numParts; part++)
+                {
+                    start = partOffsets[part];
+                    if (part == numParts - 1)
+                        finish = numPoints;
+                    else finish = partOffsets[part + 1];
+                    length = finish - start;
+                    for (int i = 0; i < length; i++)
+                    {
+                        double val = file.ReadDouble();
+                        lines[part].Coordinates[i].Z = val;
+                    }
+
+                }
+            }
+
+            //If we have M-coordinates, read them..
+            if (shapeType == ShapeGeometryTypes.LineStringM || shapeType == ShapeGeometryTypes.LineStringZM)
+            {
+                //m-Bounds
+                double mMin = file.ReadDouble();
+                double mMax = file.ReadDouble();
+                for (int part = 0; part < numParts; part++)
+                {
+                    start = partOffsets[part];
+                    if (part == numParts - 1)
+                        finish = numPoints;
+                    else finish = partOffsets[part + 1];
+                    length = finish - start;
+                    for (int i = 0; i < length; i++)
+                    {
+                        double val = file.ReadDouble();
+                        //dont store..
+                    }
+
+                }
+            }
+
 			return geometryFactory.CreateMultiLineString(lines);
 		}
 
