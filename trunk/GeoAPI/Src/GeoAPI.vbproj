@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0BEC12FB-D3AB-40B5-AF5C-8F49A5B44871}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Org.OpenGIS</RootNamespace>
+    <AssemblyName>Org.OpenGIS.GeoAPI</AssemblyName>
+    <MyType>Windows</MyType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Org.OpenGIS.GeoAPI.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Bin\</OutputPath>
+    <DocumentationFile>Org.OpenGIS.GeoAPI.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Geometry\Complex\IComplex.vb" />
+    <Compile Include="Geometry\Complex\IComplexBoundary.vb" />
+    <Compile Include="Geometry\Coordinate\IKnot.vb" />
+    <Compile Include="Geometry\Coordinate\IPointArray.vb" />
+    <Compile Include="Geometry\Coordinate\IPosition.vb" />
+    <Compile Include="Geometry\Coordinate\KnotType.vb" />
+    <Compile Include="Geometry\IBoundary.vb" />
+    <Compile Include="Geometry\IBoundingBox.vb" />
+    <Compile Include="Geometry\IDirectPosition.vb" />
+    <Compile Include="Geometry\IEnvelope.vb" />
+    <Compile Include="Geometry\IGeometry.vb" />
+    <Compile Include="Geometry\IPositionFactory.vb" />
+    <Compile Include="Geometry\IPrecision.vb" />
+    <Compile Include="Geometry\IPrecisionFactory.vb" />
+    <Compile Include="Geometry\ITransfiniteSet.vb" />
+    <Compile Include="Geometry\MismatchedDimensionException.vb" />
+    <Compile Include="Geometry\MismatchedReferenceSystemException.vb" />
+    <Compile Include="Geometry\PrecisionType.vb" />
+    <Compile Include="Geometry\Primitive\IBearing.vb" />
+    <Compile Include="Geometry\Coordinate\IPlacement.vb" />
+    <Compile Include="Geometry\Primitive\IPrimitiveBoundary.vb" />
+    <Compile Include="Geometry\UnmodifiableGeometryException.vb" />
+    <Compile Include="MetaData\Extent\IGeographicBoundingBox.vb" />
+    <Compile Include="MetaData\Extent\IGeographicExtent.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="Referencing\FactoryException.vb" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
