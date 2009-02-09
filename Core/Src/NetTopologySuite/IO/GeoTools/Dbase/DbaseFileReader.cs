@@ -3,6 +3,7 @@ using System.Collections;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Text;
 
 namespace Topology.IO
 {
@@ -32,7 +33,7 @@ namespace Topology.IO
 			{
 				_parent = parent;
 				FileStream stream = new FileStream(parent._filename, FileMode.Open, FileAccess.Read, FileShare.Read);
-				_dbfStream = new BinaryReader(stream);
+                _dbfStream = new BinaryReader(stream, Encoding.Default);
 				ReadHeader();
 			}
 
@@ -231,7 +232,7 @@ namespace Topology.IO
 		{
 			if (_header==null)
 			{
-				FileStream stream = new FileStream(_filename, System.IO.FileMode.Open);
+                FileStream stream = new FileStream(_filename, System.IO.FileMode.Open, FileAccess.Read, FileShare.Read);
 				BinaryReader dbfStream = new BinaryReader(stream);
 
 				_header = new DbaseFileHeader();
