@@ -5,7 +5,9 @@
 
 This wiki page references a series of articles kindly contributed by Dennis Jonio. In general, articles refer to implementing a geometry Reader/Writer for Oracle ODP.NET. In the near future, TF.NET should provide a Reader/Writer IO library to support ODP.NET geometries' conversions "out-of-the-box".
 
-<strong>More here and more up-to-date: http://topologyframework.blogspot.com/ </strong>
+03/04/2010 - <strong>More here and more up-to-date: http://topologyframework.blogspot.com/ </strong>
+<br />I have and will leave these as orignally posted. Additions and changes to some of the objects shown here are on the above mentioned site. 
+<br />r, dennis
 
 = Related Wikis =
 
