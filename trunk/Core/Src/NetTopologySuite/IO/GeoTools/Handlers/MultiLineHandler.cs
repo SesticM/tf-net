@@ -73,7 +73,10 @@ namespace Topology.IO
 					geometryFactory.PrecisionModel.MakePrecise( external);
                     points.Add(external);
 				}
-                lines[part] = geometryFactory.CreateLineString(points.ToArray());
+                if (numPoints < 2)
+                    lines[part] = geometryFactory.CreateLineString(null as Topology.Geometries.ICoordinate[]);
+                else 
+                    lines[part] = geometryFactory.CreateLineString(points.ToArray());
 			}
 
             //If we have Z-coordinates, read them..
@@ -92,7 +95,11 @@ namespace Topology.IO
                     for (int i = 0; i < length; i++)
                     {
                         double val = file.ReadDouble();
-                        lines[part].Coordinates[i].Z = val;
+                        if (numPoints > 1)
+                        {
+                            
+                            lines[part].Coordinates[i].Z = val;
+                        }
                     }
 
                 }
