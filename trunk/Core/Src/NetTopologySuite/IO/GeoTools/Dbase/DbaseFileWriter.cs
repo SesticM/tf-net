@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Diagnostics;
 using System.IO;
+using System.Text;
+using System.Globalization;
 
 namespace Topology.IO
 {
@@ -30,7 +32,20 @@ namespace Topology.IO
 			_filename = filename;
 			FileStream filestream  = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.Write);
 			_writer = new BinaryWriter(filestream);
-		}	
+		}
+
+        /// <summary>
+        /// Initializes a new instance of the DbaseFileWriter class.
+        /// </summary>
+        /// <param name="filename"></param>
+        public DbaseFileWriter(string filename, Encoding textencoding)
+        {
+            if (filename == null)
+                throw new ArgumentNullException("filename");
+            _filename = filename;
+            FileStream filestream = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.Write);
+            _writer = new BinaryWriter(filestream, textencoding);
+        }	
 
         /// <summary>
         /// 
@@ -50,6 +65,20 @@ namespace Topology.IO
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="header"></param>
+        public void UpdateHeader(DbaseFileHeader header)
+        {
+            headerWritten = true;
+            int pos = (int)_writer.BaseStream.Position;
+            _writer.Seek(0, SeekOrigin.Begin);
+            header.WriteHeader(_writer);
+            _writer.Seek(pos, SeekOrigin.Begin);
+            _header = header;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="columnValues"></param>
 		public void Write(IList columnValues)
 		{
@@ -60,20 +89,22 @@ namespace Topology.IO
 			int i = 0;
 			_writer.Write((byte)0x20); // the deleted flag
 			foreach(object columnValue in columnValues)
-			{				
-				if (columnValue is double)
-					Write((double)columnValue, _header.Fields[i].Length, _header.Fields[i].DecimalCount);
-				else if (columnValue is float)
-					Write((float)columnValue,  _header.Fields[i].Length, _header.Fields[i].DecimalCount);
-				else if (columnValue is bool)
-					Write((bool)columnValue);
-				else if (columnValue is string)
-				{
-					int length = _header.Fields[i].Length;
-					Write((string)columnValue, length);
-				}
-				else if (columnValue is DateTime)
-					Write((DateTime)columnValue);
+			{
+                if (columnValue is double)
+                    Write((double)columnValue, _header.Fields[i].Length, _header.Fields[i].DecimalCount);
+                else if (columnValue is int)
+                    Write(Convert.ToDouble((int)columnValue), _header.Fields[i].Length, 0);
+                else if (columnValue is float)
+                    Write((float)columnValue, _header.Fields[i].Length, _header.Fields[i].DecimalCount);
+                else if (columnValue is bool)
+                    Write((bool)columnValue);
+                else if (columnValue is string)
+                {
+                    int length = _header.Fields[i].Length;
+                    Write((string)columnValue, length);
+                }
+                else if (columnValue is DateTime)
+                    Write((DateTime)columnValue);
 				i++;
 			}
 		}
@@ -95,7 +126,7 @@ namespace Topology.IO
 				format = format + "0";
 			}
 			format=format + "}";
-			string str = String.Format(format,number);
+			string str = String.Format(CultureInfo.InvariantCulture, format,number);
 			for (int i=0; i< length-str.Length; i++)
 				_writer.Write((byte)0x20);		
 			foreach(char c in str)
@@ -110,7 +141,7 @@ namespace Topology.IO
         /// <param name="decimalCount"></param>
 		public void Write(float number, int length, int decimalCount)
 		{
-			_writer.Write(String.Format("{0:000000000.000000000}",number));
+			_writer.Write(String.Format(CultureInfo.InvariantCulture,"{0:000000000.000000000}",number));
 		}
 
         /// <summary>
