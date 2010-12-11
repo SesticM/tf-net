@@ -36,7 +36,7 @@ namespace Topology.IO
 		/// <param name="file">The stream to read.</param>
 		/// <param name="geometryFactory">The geometry factory to use when making the object.</param>
 		/// <returns>The Geometry object that represents the shape file record.</returns>
-		public override IGeometry Read(BigEndianBinaryReader file, IGeometryFactory geometryFactory)
+        public override IGeometry Read(BigEndianBinaryReader file, IGeometryFactory geometryFactory)
 		{
 			int shapeTypeNum = file.ReadInt32();
             ShapeGeometryTypes shapeType = (ShapeGeometryTypes)Enum.Parse(typeof(ShapeGeometryTypes), shapeTypeNum.ToString());
