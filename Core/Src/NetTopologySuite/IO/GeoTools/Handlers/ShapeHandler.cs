@@ -29,6 +29,7 @@ namespace Topology.IO
 		/// <returns>The Geometry object that represents the shape file record.</returns>
 		public abstract IGeometry Read(BigEndianBinaryReader file, IGeometryFactory geometryFactory);
 
+
 		/// <summary>
 		/// Writes to the given stream the equilivent shape file record given a Geometry object.
 		/// </summary>
