@@ -15,7 +15,7 @@ namespace Topology.IO
         /// <summary>
         /// 
         /// </summary>
-		private class DbaseFileEnumerator : IEnumerator
+		private class DbaseFileEnumerator : IEnumerator, IDisposable
 		{
 			DbaseFileReader _parent;
 			ArrayList _arrayList;
@@ -194,7 +194,19 @@ namespace Topology.IO
 			}
 
 			#endregion
-		}
+
+            #region IDisposable Members
+
+            public void Dispose()
+            {
+                if (_iCurrentRecord <= _header.NumRecords && this._dbfStream != null)
+                {
+                    this._dbfStream.Close();
+                }
+            }
+
+            #endregion
+        }
 
 		private DbaseFileHeader _header = null;
 		private string _filename;

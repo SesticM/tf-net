@@ -138,6 +138,8 @@ namespace Topology.IO
 		public void Close()
 		{
 			_open = false;
+            (_dbfEnumerator as IDisposable).Dispose();
+            (_shpEnumerator as IDisposable).Dispose();
 		}
 
 		/// <summary>
