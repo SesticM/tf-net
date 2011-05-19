@@ -19,7 +19,7 @@ namespace Topology.IO
 		/// <summary>
 		/// Summary description for ShapefileEnumerator.
 		/// </summary>
-        private class ShapefileEnumerator : IEnumerator
+        private class ShapefileEnumerator : IEnumerator, IDisposable
         {
             private ShapefileReader _parent;
             private IGeometry _geometry;
@@ -92,6 +92,19 @@ namespace Topology.IO
                     return _geometry;
                 }
             }
+
+            #region IDisposable Members
+
+            public void Dispose()
+            {
+                if (_shpBinaryReader != null)
+                {
+                    _shpBinaryReader.Close();
+                    _shpBinaryReader = null;
+                }
+            }
+
+            #endregion
         }
 
 		private ShapefileHeader _mainHeader = null;
