@@ -497,7 +497,7 @@ namespace Topology.IO
 			get
 			{
 				// add one allow for the fact the first column is the WKB geometry
-				return _columnValues[this.GetOrdinal(name)+1];
+				return _columnValues[this.GetOrdinal(name)];
 			}
 		}
 
