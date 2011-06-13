@@ -40,6 +40,9 @@ namespace Topology.IO
         {
             int shapeTypeNum = file.ReadInt32();
             ShapeGeometryTypes shapeType = (ShapeGeometryTypes) Enum.Parse(typeof(ShapeGeometryTypes), shapeTypeNum.ToString());
+            if (shapeType == ShapeGeometryTypes.NullShape)
+                return null;
+
             if ( ! ( shapeType == ShapeGeometryTypes.MultiPoint  || shapeType == ShapeGeometryTypes.MultiPointM ||
                      shapeType == ShapeGeometryTypes.MultiPointZ || shapeType == ShapeGeometryTypes.MultiPointZM))	
                 throw new ShapefileException("Attempting to load a non-multipoint as multipoint.");
