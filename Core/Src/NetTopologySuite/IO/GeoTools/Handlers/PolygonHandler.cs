@@ -40,6 +40,9 @@ namespace Topology.IO
 		{
 			int shapeTypeNum = file.ReadInt32();
             ShapeGeometryTypes shapeType = (ShapeGeometryTypes)Enum.Parse(typeof(ShapeGeometryTypes), shapeTypeNum.ToString());
+            if (shapeType == ShapeGeometryTypes.NullShape)
+                return null;
+
             if ( ! ( shapeType == ShapeGeometryTypes.Polygon  || shapeType == ShapeGeometryTypes.PolygonM ||
                      shapeType == ShapeGeometryTypes.PolygonZ || shapeType == ShapeGeometryTypes.PolygonZM))	
 				throw new ShapefileException("Attempting to load a non-polygon as polygon.");

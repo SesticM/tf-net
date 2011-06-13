@@ -37,6 +37,9 @@ namespace Topology.IO
 		{
 			int shapeTypeNum = file.ReadInt32();
             ShapeGeometryTypes shapeType = (ShapeGeometryTypes) Enum.Parse(typeof(ShapeGeometryTypes), shapeTypeNum.ToString());
+            if (shapeType == ShapeGeometryTypes.NullShape)
+                return null;
+
             if ( ! ( shapeType == ShapeGeometryTypes.Point  || shapeType == ShapeGeometryTypes.PointM   ||
                      shapeType == ShapeGeometryTypes.PointZ || shapeType == ShapeGeometryTypes.PointZM  ))	
 				throw new ShapefileException("Attempting to load a point as point.");
