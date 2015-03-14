@@ -1,0 +1,3 @@
+# Tips for TF.NET Committers #
+
+If you're writing specific Reader/Writer dependant on .NET 2.0 Framework only, keep it with the Core solution under `Topology.IO.nnnnn namespace`. In case it depends on external API(s), build a separate project within `ReaderWriter.sln` solution. Either way, inherit `Topology.IO.GeometryReader` class for a reader and/or `Topology.IO.GeometryWriter` class for a writer object.
